@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alberto’s Plumbing — Bookings Page Demo (Glendora)</title>
+  <meta name="description" content="Call/text buttons + quick quote request form. Mobile-first bookings page demo." />
+  <meta property="og:title" content="Alberto’s Plumbing — Demo" />
+  <meta property="og:description" content="Fast quote request + call/text buttons. Mobile-first bookings page." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+
+<body>
+  <!-- QUICK EDITS:
+    1) Replace PHONE_NUMBER below (3 places: tel + sms + sticky)
+    2) Replace FORMSPREE_ENDPOINT (or swap for Tally)
+    3) Replace Google reviews link
+  -->
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <strong>Demo: Alberto’s Plumbing</strong>
+        <span>Glendora • San Dimas • Covina • La Verne</span>
+      </div>
+      <div class="badges">
+        <div class="pill">Licensed & insured</div>
+        <div class="pill">Same-day when available</div>
+        <div class="pill">Fast response</div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card hero-left">
+        <div class="kicker">Bookings page demo • built for mobile</div>
+        <h1>Get a plumbing quote fast.</h1>
+        <p class="sub">
+          A clean, phone-first page that makes it easy to <b>call, text, or request a quote</b> in under a minute.
+          Built to convert better than most homepages.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="tel:PHONE_NUMBER">Call now</a>
+          <a class="btn secondary" href="sms:PHONE_NUMBER?&body=Hi%20Alberto%E2%80%99s%20Plumbing%20%E2%80%94%20I%20need%20help%20with%20____.%20My%20ZIP%20is%20____.%20">Text for fastest response</a>
+          <a class="btn" href="#quote">Request a quote</a>
+        </div>
+
+        <div class="small-note">Demo copy: typical reply under 15 minutes during business hours.</div>
+
+        <hr class="sep" />
+
+        <div class="services">
+          <div class="service">
+            <strong>Leaks & repairs</strong>
+            <span>Faucets, valves, pipe repairs</span>
+          </div>
+          <div class="service">
+            <strong>Water heaters</strong>
+            <span>Repair / install / replacement</span>
+          </div>
+          <div class="service">
+            <strong>Toilets & disposals</strong>
+            <span>Clogs, installs, leaks</span>
+          </div>
+          <div class="service">
+            <strong>Emergency calls</strong>
+            <span>Same-day when available</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hero-right">
+        <h3>What this page does</h3>
+        <ul class="list">
+          <li>Gives homeowners 3 fast actions: call / text / quote request</li>
+          <li>Builds trust with services + reviews + FAQ</li>
+          <li>Perfect as the link in Google Business Profile</li>
+          <li>Can be published to your domain same day</li>
+        </ul>
+        <hr class="sep" />
+        <h3>Best use</h3>
+        <ul class="list">
+          <li>GBP website link</li>
+          <li>Send to missed calls via text</li>
+          <li>Optional: run basic local ads later</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card section col-7" id="quote">
+        <h2>Request a quote</h2>
+        <p>Send details and we’ll call/text back. (Demo: wire to email/SMS via Formspree or Tally.)</p>
+
+        <form class="form" method="POST" action="https://formspree.io/f/FORMSPREE_ENDPOINT">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" inputmode="tel" autocomplete="tel" required />
+          </div>
+
+          <div class="field">
+            <label for="zip">ZIP code</label>
+            <input id="zip" name="zip" inputmode="numeric" required />
+          </div>
+
+          <div class="field">
+            <label for="service">Service needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select one</option>
+              <option>Leak / repair</option>
+              <option>Water heater</option>
+              <option>Toilet / faucet</option>
+              <option>Emergency</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="details">Details</label>
+            <textarea id="details" name="details" placeholder="What’s going on? Any photos? Best time to call?"></textarea>
+          </div>
+
+          <input type="hidden" name="page" value="albertos-plumbing" />
+
+          <button class="btn primary" type="submit">Send request</button>
+          <div class="small-note">Demo copy: no spam. One response from the business.</div>
+        </form>
+      </div>
+
+      <div class="card section col-5">
+        <h2>Recent reviews</h2>
+        <p>Use 2–3 real snippets later; placeholders are fine for demo outreach.</p>
+
+        <div class="reviews">
+          <div class="review">
+            <strong>“Quick response and fixed the leak same day.”</strong>
+            <span>— Google Review (demo)</span>
+          </div>
+          <div class="review">
+            <strong>“Professional, clear pricing, no surprises.”</strong>
+            <span>— Google Review (demo)</span>
+          </div>
+          <div class="review">
+            <strong>“Great communication—would hire again.”</strong>
+            <span>— Google Review (demo)</span>
+          </div>
+        </div>
+
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="https://www.google.com/search?q=Alberto%27s+Plumbing+Glendora+reviews" target="_blank" rel="noopener">View Google reviews</a>
+        </div>
+
+        <hr class="sep" />
+
+        <div class="faq">
+          <h2>FAQ</h2>
+          <details>
+            <summary>Do you offer same-day service?</summary>
+            <p>When available, yes—especially for leaks. Send your ZIP + issue for fastest routing.</p>
+          </details>
+          <details>
+            <summary>Do you provide estimates?</summary>
+            <p>Yes. Share details and photos if possible; pricing is confirmed before work begins.</p>
+          </details>
+          <details>
+            <summary>What areas do you cover?</summary>
+            <p>Glendora and nearby cities (San Dimas, Covina, La Verne, Azusa).</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Demo page • publish to domain + connect form to phone/email.
+    </div>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <a class="btn primary" href="tel:PHONE_NUMBER">Call</a>
+      <a class="btn secondary" href="sms:PHONE_NUMBER?&body=Hi%20%E2%80%94%20I%20need%20help%20with%20____.%20My%20ZIP%20is%20____.%20">Text</a>
+      <a class="btn" href="#quote">Quote</a>
+    </div>
+  </div>
+</body>
+            </html>
