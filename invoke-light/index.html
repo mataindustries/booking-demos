@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Session | EZBook</title>
+  <meta name="description" content="Quick mobile booking page. Request a quote or book in seconds." />
+
+  <!-- QUICK CONFIG (edit these) -->
+  <script>
+    window.EZBOOK = {
+      brand: "Invoke Light",
+      city: "Glendora, CA",
+      phone_display: "(626) 594-5341",
+      phone_tel: "6265945341",
+      hours: "Mon–Fri 9–6 • Sat 9–1",
+      yelp_url: "https://www.yelp.com/biz/invoke-light-glendora",
+      primary_cta: "Request Booking",
+      services: [
+        "Reiki Healing",
+        "Chakra Balancing + Clearing",
+        "Etheric Cord Cutting",
+        "Intuitive Guidance + Life Coaching",
+        "Space / Home Energy Clearing",
+        "Not sure (help me choose)"
+      ]
+    };
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111825;
+      --card2:#0f1622;
+      --text:#eef3ff;
+      --muted:#aab4c6;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --gold:#d6b78a;
+      --gold2:#a9895f;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 80% 10%, rgba(214,183,138,.14), transparent 60%),
+        radial-gradient(700px 420px at 10% 25%, rgba(86, 204, 242,.12), transparent 55%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{
+      max-width: 980px;
+      margin:0 auto;
+      padding: 18px 16px 120px;
+    }
+    .topbar{
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(17,24,37,.72);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
+    }
+    .dot{
+      width:12px;height:12px;border-radius:99px;
+      background: linear-gradient(180deg, var(--gold), var(--gold2));
+      box-shadow: 0 0 0 5px rgba(214,183,138,.12);
+      flex:0 0 auto;
+    }
+    .brand h1{
+      font-size: 14px;
+      margin:0;
+      line-height: 1.2;
+      letter-spacing: .2px;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .brand p{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .btnrow{display:flex; gap:10px; flex:0 0 auto}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 1;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(180deg, var(--gold), var(--gold2));
+      color:#111;
+    }
+    .hero{
+      padding: 26px 4px 10px;
+    }
+    .kicker{
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 8px 0;
+    }
+    .title{
+      font-size: 30px;
+      line-height: 1.05;
+      margin:0 0 12px 0;
+      letter-spacing: -.4px;
+    }
+    .subtitle{
+      margin:0 0 16px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .chips{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 18px;
+    }
+    .chip{
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--text);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media(min-width: 900px){
+      .grid{grid-template-columns: 1.2fr .8fr;}
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(17,24,37,.72);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .pad{padding: 16px}
+    .card h2{
+      margin:0 0 6px 0;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .mini{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .mini .btn{width:100%}
+    form{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    label{
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 4px 2px;
+      display:block;
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(15,22,34,.75);
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+    }
+    textarea{min-height: 96px; resize: vertical}
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .helper{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .notice{
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(214,183,138,.35);
+      background: rgba(214,183,138,.08);
+      color: rgba(255,255,255,.92);
+      font-size: 12px;
+      line-height: 1.35;
+      display:none;
+    }
+    .notice.show{display:block}
+    .bottomBar{
+      position: fixed;
+      left:0; right:0; bottom:0;
+      padding: 10px 12px 14px;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.55) 30%, rgba(0,0,0,.85));
+      z-index: 60;
+    }
+    .bottomInner{
+      max-width: 980px;
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+    }
+    .bottomInner .btn{
+      flex:1 1 0;
+      padding: 14px 12px;
+      border-radius: 16px;
+      font-size: 14px;
+    }
+    .muterow{
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+    .link{
+      color: rgba(214,183,138,.95);
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- TOP STICKY BAR -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div style="min-width:0">
+          <h1 id="brandName">Invoke Light</h1>
+          <p id="brandMeta">Glendora, CA • Mon–Fri 9–6 • Sat 9–1</p>
+        </div>
+      </div>
+      <div class="btnrow">
+        <a class="btn" id="reviewsBtn" href="#" target="_blank" rel="noopener">Reviews</a>
+        <a class="btn primary" href="#book" id="ctaTop">Request Booking</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="kicker">Fast mobile booking</p>
+      <h2 class="title" id="heroTitle">Book a Session</h2>
+      <p class="subtitle" id="heroSub">
+        Send a quick request and get a reply with pricing + available times.
+      </p>
+
+      <div class="chips" id="chips"></div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <div class="grid">
+
+      <!-- BOOKING FORM -->
+      <div class="card" id="book">
+        <div class="pad">
+          <h2>Request a Quote / Book</h2>
+          <p>Fill this out in under 30 seconds. We’ll respond within 1 business day.</p>
+
+          <form id="bookForm">
+            <div class="two">
+              <div>
+                <label>Name</label>
+                <input name="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label>Phone</label>
+                <input name="phone" inputmode="tel" placeholder="(xxx) xxx-xxxx" required />
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label>Email (optional)</label>
+                <input name="email" inputmode="email" placeholder="you@email.com" />
+              </div>
+              <div>
+                <label>Session type</label>
+                <select name="service" id="serviceSelect" required></select>
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label>Format</label>
+                <select name="format" required>
+                  <option>In-person</option>
+                  <option>Virtual</option>
+                  <option>In-home</option>
+                </select>
+              </div>
+              <div>
+                <label>Preferred day/time</label>
+                <input name="time" placeholder="e.g. Tue after 5pm" />
+              </div>
+            </div>
+
+            <div>
+              <label>What would you like help with?</label>
+              <textarea name="notes" placeholder="One sentence is fine."></textarea>
+            </div>
+
+            <button class="btn primary" type="submit" style="width:100%; padding:14px 12px; border-radius:16px; font-size:14px;">
+              Send Request
+            </button>
+
+            <div class="helper">
+              Tip: If submit doesn’t open your email app, use the “Text” button below.
+            </div>
+
+            <div class="notice" id="notice"></div>
+          </form>
+
+          <div class="muterow">
+            <div><span style="opacity:.85">Call:</span> <a class="link" id="callInline" href="#">(626) 594-5341</a></div>
+            <div><span style="opacity:.85">Hours:</span> <span id="hoursInline">Mon–Fri 9–6 • Sat 9–1</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE INFO -->
+      <div class="card">
+        <div class="pad">
+          <h2>Instant options</h2>
+          <p>Tap to call/text or open reviews.</p>
+
+          <div class="mini">
+            <a class="btn primary" id="callBtn" href="#">Call Now</a>
+            <a class="btn" id="textBtn" href="#">Text Request</a>
+            <a class="btn" id="directionsBtn" href="#" target="_blank" rel="noopener">Directions</a>
+            <a class="btn" id="yelpBtn" href="#" target="_blank" rel="noopener">Yelp</a>
+          </div>
+
+          <div style="margin-top:14px" class="card" aria-hidden="true">
+            <div class="pad" style="background: rgba(15,22,34,.65)">
+              <h2 style="font-size:14px; margin-bottom:6px;">What to expect</h2>
+              <p style="font-size:12px; color: var(--muted);">
+                Quick intake → session → simple next steps. This is complementary wellness support.
+              </p>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <h2 style="font-size:14px">Best for</h2>
+            <p style="font-size:12px; color: var(--muted); margin-top:6px">
+              Feeling stuck • stress/overwhelm • energetic boundaries • clarity & alignment
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FIXED BOTTOM CTA BAR -->
+  <div class="bottomBar">
+    <div class="bottomInner">
+      <a class="btn" id="bottomText" href="#">Text</a>
+      <a class="btn primary" id="bottomCall" href="#">Call</a>
+    </div>
+  </div>
+
+  <script>
+    // ===== Bind config =====
+    const C = window.EZBOOK;
+
+    const $ = (id) => document.getElementById(id);
+
+    $("brandName").textContent = C.brand;
+    $("brandMeta").textContent = `${C.city} • ${C.hours}`;
+    $("heroTitle").textContent = `Book with ${C.brand}`;
+    $("heroSub").textContent = `Request a quote or session time in under 30 seconds.`;
+    $("ctaTop").textContent = C.primary_cta;
+
+    // buttons
+    const telHref = `tel:${C.phone_tel}`;
+    const smsHref = `sms:${C.phone_tel}?body=${encodeURIComponent("Hi! I'd like to book a session. My name is _____. I'm interested in _____. Best time: _____.")}`;
+    $("callBtn").href = telHref;
+    $("bottomCall").href = telHref;
+    $("callInline").href = telHref;
+
+    $("textBtn").href = smsHref;
+    $("bottomText").href = smsHref;
+
+    $("yelpBtn").href = C.yelp_url;
+    $("reviewsBtn").href = C.yelp_url;
+
+    // directions (generic city link)
+    $("directionsBtn").href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(C.brand + " " + C.city)}`;
+
+    // services dropdown + chips
+    const sel = $("serviceSelect");
+    sel.innerHTML = C.services.map(s => `<option>${s}</option>`).join("");
+
+    const chips = $("chips");
+    chips.innerHTML = C.services.slice(0,4).map(s => `<span class="chip">${s}</span>`).join("");
+
+    $("hoursInline").textContent = C.hours;
+
+    // ===== Form handler (no backend): opens email with prefilled details =====
+    $("bookForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+
+      const name = (fd.get("name") || "").toString().trim();
+      const phone = (fd.get("phone") || "").toString().trim();
+      const email = (fd.get("email") || "").toString().trim();
+      const service = (fd.get("service") || "").toString().trim();
+      const format = (fd.get("format") || "").toString().trim();
+      const time = (fd.get("time") || "").toString().trim();
+      const notes = (fd.get("notes") || "").toString().trim();
+
+      const subject = `Booking Request: ${service} (${format})`;
+      const body =
+`Business: ${C.brand}
+Name: ${name}
+Phone: ${phone}
+Email: ${email || "-"}
+Service: ${service}
+Format: ${format}
+Preferred time: ${time || "-"}
+Notes: ${notes || "-"}
+
+Sent from EZBook (${location.host})`;
+
+      // Change this to the business email if you have it:
+      const TO_EMAIL = ""; // e.g. "invokelight@gmail.com"
+      if (!TO_EMAIL) {
+        $("notice").classList.add("show");
+        $("notice").textContent =
+          "No business email is set yet. This page can still work: tap TEXT or CALL below. If you want form requests emailed automatically, add an email + I’ll give you the 2-minute Cloudflare Function upgrade.";
+        return;
+      }
+
+      const mailto = `mailto:${encodeURIComponent(TO_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // open email client
+      window.location.href = mailto;
+
+      $("notice").classList.add("show");
+      $("notice").textContent = "Opening your email app now. If nothing opens, tap TEXT below.";
+    });
+  </script>
+</body>
+                  </html>
