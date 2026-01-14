@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Foothill Drain — Bookings Page Demo</title>
+  <meta name="description" content="Drain & sewer service. Call/text + quick quote form. Mobile-first demo." />
+  <meta property="og:title" content="Foothill Drain — Demo" />
+  <meta property="og:description" content="Fast quote request + call/text buttons. Mobile-first." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <strong>Demo: Foothill Drain</strong>
+        <span>Glendora • Azusa • Duarte • Monrovia</span>
+      </div>
+      <div class="badges">
+        <div class="pill">Drain specialists</div>
+        <div class="pill">Upfront info</div>
+        <div class="pill">Fast dispatch</div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card hero-left">
+        <div class="kicker">Bookings page demo • built for mobile</div>
+        <h1>Drain & sewer service—made simple.</h1>
+        <p class="sub">
+          A clean bookings page designed for speed: <b>call, text, or request a quote</b>.
+          Ideal for service businesses that win on response and clarity.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="tel:PHONE_NUMBER">Call now</a>
+          <a class="btn secondary" href="sms:PHONE_NUMBER?&body=Hi%20Foothill%20Drain%20%E2%80%94%20I%20need%20drain%20help%20with%20____.%20My%20ZIP%20is%20____.%20">Text for fastest response</a>
+          <a class="btn" href="#quote">Request a quote</a>
+        </div>
+
+        <div class="small-note">Demo copy: quick response during business hours.</div>
+
+        <hr class="sep" />
+
+        <div class="services">
+          <div class="service">
+            <strong>Clog removal</strong>
+            <span>Kitchen, bath, laundry</span>
+          </div>
+          <div class="service">
+            <strong>Main line service</strong>
+            <span>Backups + stoppages</span>
+          </div>
+          <div class="service">
+            <strong>Camera inspection</strong>
+            <span>Roots, breaks, offsets</span>
+          </div>
+          <div class="service">
+            <strong>Preventive cleanout</strong>
+            <span>Reduce recurring clogs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card hero-right">
+        <h3>What this page does</h3>
+        <ul class="list">
+          <li>Converts mobile traffic with call/text/quote actions</li>
+          <li>Shows services + reviews without clutter</li>
+          <li>Great as GBP website link</li>
+          <li>Can live on your domain (or Carrd if preferred)</li>
+        </ul>
+        <hr class="sep" />
+        <h3>Best use</h3>
+        <ul class="list">
+          <li>Google Business Profile</li>
+          <li>SMS link for missed calls</li>
+          <li>Future ads (optional)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card section col-7" id="quote">
+        <h2>Request a quote</h2>
+        <p>Send details + ZIP and we’ll call/text back. (Demo: connect via Formspree/Tally.)</p>
+
+        <form class="form" method="POST" action="https://formspree.io/f/FORMSPREE_ENDPOINT">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" inputmode="tel" autocomplete="tel" required />
+          </div>
+
+          <div class="field">
+            <label for="zip">ZIP code</label>
+            <input id="zip" name="zip" inputmode="numeric" required />
+          </div>
+
+          <div class="field">
+            <label for="service">Service needed</label>
+            <select id="service" name="service" required>
+              <option value="">Select one</option>
+              <option>Drain clog</option>
+              <option>Main line backup</option>
+              <option>Camera inspection</option>
+              <option>Preventive cleanout</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="details">Details</label>
+            <textarea id="details" name="details" placeholder="Where is the issue? Any standing water? Any recent work?"></textarea>
+          </div>
+
+          <input type="hidden" name="page" value="foothill-drain" />
+
+          <button class="btn primary" type="submit">Send request</button>
+          <div class="small-note">Demo copy: one response from the business.</div>
+        </form>
+      </div>
+
+      <div class="card section col-5">
+        <h2>Recent reviews</h2>
+        <p>Placeholder for demo outreach; swap later.</p>
+
+        <div class="reviews">
+          <div class="review">
+            <strong>“Solved the backup quickly and cleaned up after.”</strong>
+            <span>— Google Review (demo)</span>
+          </div>
+          <div class="review">
+            <strong>“Explained options clearly. No pressure.”</strong>
+            <span>— Google Review (demo)</span>
+          </div>
+          <div class="review">
+            <strong>“Professional and responsive.”</strong>
+            <span>— Google Review (demo)</span>
+          </div>
+        </div>
+
+        <div class="cta-row" style="margin-top:12px">
+          <a class="btn" href="https://www.google.com/search?q=Foothill+Drain+reviews" target="_blank" rel="noopener">View Google reviews</a>
+        </div>
+
+        <hr class="sep" />
+
+        <div class="faq">
+          <h2>FAQ</h2>
+          <details>
+            <summary>Do you handle main line backups?</summary>
+            <p>Yes. Text your ZIP + symptoms and we’ll confirm the fastest dispatch window.</p>
+          </details>
+          <details>
+            <summary>Can you do camera inspections?</summary>
+            <p>Yes—recommended for recurring clogs or suspected roots.</p>
+          </details>
+          <details>
+            <summary>What areas do you cover?</summary>
+            <p>Foothill cities near Glendora (Azusa, Duarte, Monrovia, etc.).</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Demo page • publish to domain + connect form to phone/email.
+    </div>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <a class="btn primary" href="tel:PHONE_NUMBER">Call</a>
+      <a class="btn secondary" href="sms:PHONE_NUMBER?&body=Hi%20%E2%80%94%20I%20need%20drain%20help%20with%20____.%20ZIP%20____.%20">Text</a>
+      <a class="btn" href="#quote">Quote</a>
+    </div>
+  </div>
+</body>
+</html>
