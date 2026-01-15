@@ -8,7 +8,7 @@
   <meta property="og:title" content="Integrity Plumbing — Demo" />
   <meta property="og:description" content="Fast call/text + quote request layout. Built for mobile conversions." />
   <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="/assets/style.css" />
+  <link id="themeStylesheet" rel="stylesheet" href="/assets/style.css" />
 </head>
 
 <body>
@@ -22,6 +22,7 @@
         <div class="pill">4.5 ★ (39)</div>
         <div class="pill">Fast response</div>
         <div class="pill">Upfront info</div>
+        <button class="pill" id="themeToggle" type="button">Light mode</button>
       </div>
     </div>
 
@@ -153,5 +154,31 @@
       <a class="btn" href="#quote">Quote</a>
     </div>
   </div>
+  <script>
+(function () {
+  const link = document.getElementById("themeStylesheet");
+  const btn = document.getElementById("themeToggle");
+  if (!link || !btn) return;
+
+  const saved = localStorage.getItem("ez_theme");
+  const prefersLight =
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+
+  const initial = saved || (prefersLight ? "light" : "dark");
+
+  function setTheme(theme) {
+    link.href = theme === "light" ? "/assets/style-light.css" : "/assets/style.css";
+    btn.textContent = theme === "light" ? "Dark mode" : "Light mode";
+    localStorage.setItem("ez_theme", theme);
+  }
+
+  setTheme(initial);
+
+  btn.addEventListener("click", function () {
+    const isLight = link.href.includes("style-light.css");
+    setTheme(isLight ? "dark" : "light");
+  });
+})();
+  </script>
 </body>
 </html>
