@@ -154,5 +154,31 @@
       <a class="btn" href="#quote">Request</a>
     </div>
   </div>
+  <script>
+(function () {
+  const link = document.getElementById("themeStylesheet");
+  const btn = document.getElementById("themeToggle");
+  if (!link || !btn) return;
+
+  const saved = localStorage.getItem("ez_theme");
+  const prefersLight =
+    window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+
+  const initial = saved || (prefersLight ? "light" : "dark");
+
+  function setTheme(theme) {
+    link.href = theme === "light" ? "/assets/style-light.css" : "/assets/style.css";
+    btn.textContent = theme === "light" ? "Dark mode" : "Light mode";
+    localStorage.setItem("ez_theme", theme);
+  }
+
+  setTheme(initial);
+
+  btn.addEventListener("click", function () {
+    const isLight = link.href.includes("style-light.css");
+    setTheme(isLight ? "dark" : "light");
+  });
+})();
+  </script>
 </body>
 </html>
