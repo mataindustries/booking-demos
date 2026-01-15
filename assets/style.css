@@ -206,3 +206,12 @@ textarea{min-height: 100px; resize: vertical}
   h1{font-size:30px}
   .services{grid-template-columns: 1fr}
   }
+
+button.pill{
+  cursor:pointer;
+  font-family: inherit;
+  color: var(--muted);
+}
+button.pill:hover{
+  transform: translateY(-1px);
+}
