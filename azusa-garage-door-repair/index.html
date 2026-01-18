@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Azusa Garage Door Repair — Azusa, CA | Springs • Openers • Same-Day</title>
+  <meta name="description" content="Azusa Garage Door Repair. Springs, openers, and same-day service when available. Tap to call/text for fast help." />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Azusa Garage Door Repair — Azusa, CA" />
+  <meta property="og:description" content="Springs • Openers • Repairs. Tap to call/text for a fast quote." />
+
+  <style>
+    :root{
+      --bg:#06080E;
+      --bg2:#0B1220;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.085);
+      --text:#EAF0FF;
+      --muted: rgba(234,240,255,.72);
+      --line: rgba(234,240,255,.14);
+      --shadow: 0 18px 45px rgba(0,0,0,.55);
+      --radius: 18px;
+
+      --accent:#60A5FA;  /* blue */
+      --accent2:#A78BFA; /* purple */
+      --warn:#F87171;    /* red-ish */
+    }
+    html[data-theme="light"]{
+      --bg:#F6F8FC;
+      --bg2:#FFFFFF;
+      --card: rgba(15,23,42,.04);
+      --card2: rgba(15,23,42,.06);
+      --text:#0F172A;
+      --muted: rgba(15,23,42,.70);
+      --line: rgba(15,23,42,.12);
+      --shadow: 0 18px 45px rgba(2,6,23,.12);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 620px at 15% 12%, rgba(96,165,250,.22), transparent 55%),
+        radial-gradient(900px 580px at 90% 20%, rgba(167,139,250,.18), transparent 55%),
+        radial-gradient(700px 480px at 60% 95%, rgba(248,113,113,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      min-height:100vh;
+      padding:22px 14px 90px;
+    }
+
+    .wrap{max-width:940px;margin:0 auto}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .chiprow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .chip{
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      backdrop-filter: blur(10px);
+    }
+    button.chip{cursor:pointer;font-family:inherit}
+    button.chip:hover{transform: translateY(-1px)}
+
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .bizcard{padding:16px}
+    .brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brandleft{display:flex;align-items:center;gap:12px;min-width:0}
+    .avatar{
+      width:46px;height:46px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(96,165,250,.70), rgba(167,139,250,.55));
+      border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;letter-spacing:.5px;color:#061018;
+    }
+    html[data-theme="light"] .avatar{color:#0F172A}
+    .bname{display:flex;flex-direction:column;min-width:0}
+    .bname strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .bname span{font-size:13px;color:var(--muted)}
+    .pill{
+      border:1px solid var(--line);
+      background: var(--card2);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .headline h1{font-size:28px;line-height:1.1;margin:10px 0 6px;letter-spacing:-.6px}
+    .headline p{margin:0;color:var(--muted);font-size:14px;max-width:70ch}
+
+    .actions{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .btn{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      text-decoration:none;
+      font-weight:800;font-size:14px;
+      background: var(--card2);
+      color:var(--text);
+    }
+    .btn.primary{
+      border-color: rgba(96,165,250,.55);
+      background: linear-gradient(180deg, rgba(96,165,250,.22), var(--card2));
+    }
+    .btn.secondary{
+      border-color: rgba(167,139,250,.45);
+      background: linear-gradient(180deg, rgba(167,139,250,.18), var(--card2));
+    }
+    .btn.full{grid-column: 1 / -1}
+    .btn:hover{transform: translateY(-1px)}
+
+    .note{
+      margin-top:12px;
+      border:1px solid rgba(248,113,113,.25);
+      background: linear-gradient(180deg, rgba(248,113,113,.10), var(--card2));
+      border-radius:16px;
+      padding:12px;
+    }
+    .note strong{display:block;font-size:13px}
+    .note span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
+    .col-7{grid-column: span 7}
+    .col-5{grid-column: span 5}
+    .section{padding:14px}
+    .section h2{margin:0 0 8px;font-size:15px}
+    .muted{margin:0;color:var(--muted);font-size:13px}
+
+    .servicegrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;margin-top:10px;
+    }
+    .svc{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius:16px;
+      padding:12px;
+    }
+    .svc strong{display:block;font-size:13px}
+    .svc span{display:block;margin-top:5px;color:var(--muted);font-size:12px}
+
+    .list{margin:10px 0 0;padding-left:16px}
+    .list li{margin:7px 0;color:var(--muted);font-size:13px}
+
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;
+      padding:10px 12px;
+      background: rgba(10,14,22,.78);
+      border-top:1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    html[data-theme="light"] .sticky{background: rgba(246,248,252,.88)}
+    .sticky .inner{max-width:940px;margin:0 auto;display:flex;gap:10px}
+    .sticky .btn{flex:1}
+
+    @media (max-width: 860px){.col-7,.col-5{grid-column: span 12}}
+    @media (max-width: 520px){
+      .actions{grid-template-columns:1fr}
+      .servicegrid{grid-template-columns:1fr}
+      .headline h1{font-size:26px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HomeAndConstructionBusiness",
+    "name":"Azusa Garage Door Repair",
+    "telephone":"+16262089053",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Azusa",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "areaServed":["Azusa","Glendora","Covina","San Dimas","West Covina","La Verne","Duarte"],
+    "url":"https://ezbook.pages.dev/azusa-garage-door-repair/"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="chiprow">
+        <div class="chip">Demo preview</div>
+        <div class="chip">5.0 ★ (15)</div>
+        <div class="chip">Springs • Openers</div>
+      </div>
+      <div class="chiprow">
+        <button class="chip" id="themeToggle" type="button">Light mode</button>
+      </div>
+    </div>
+
+    <div class="card bizcard">
+      <div class="brandrow">
+        <div class="brandleft">
+          <div class="avatar">AGD</div>
+          <div class="bname">
+            <strong>Azusa Garage Door Repair</strong>
+            <span>Azusa, CA • Nearby cities</span>
+          </div>
+        </div>
+        <div class="pill">Fast response • Same-day when possible</div>
+      </div>
+
+      <div class="headline">
+        <h1>Garage door help—booked in one tap.</h1>
+        <p>This link works like a digital business card: customers can call or text instantly for springs, openers, and repairs.</p>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="tel:+16262089053">Call now</a>
+        <a class="btn secondary" href="sms:+16262089053?&body=Hi%20Azusa%20Garage%20Door%20Repair%20%E2%80%94%20I%20need%20help%20with%20____.%20My%20ZIP%20is%20____.%20Can%20you%20do%20same-day%3F">Text now</a>
+        <a class="btn full" href="https://www.google.com/search?q=Azusa+Garage+Door+Repair+reviews" target="_blank" rel="noopener">View Google reviews</a>
+      </div>
+
+      <div class="note">
+        <strong>Broken spring / door stuck?</strong>
+        <span>Text ZIP + issue for fastest response. (Demo)</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card section col-7">
+        <h2>Common repairs</h2>
+        <p class="muted">Keep it simple so customers choose fast.</p>
+
+        <div class="servicegrid">
+          <div class="svc">
+            <strong>Spring repair</strong>
+            <span>Broken torsion springs</span>
+          </div>
+          <div class="svc">
+            <strong>Opener issues</strong>
+            <span>Won’t open / remote problems</span>
+          </div>
+          <div class="svc">
+            <strong>Cable off track</strong>
+            <span>Door jam / uneven lift</span>
+          </div>
+          <div class="svc">
+            <strong>Maintenance</strong>
+            <span>Noise • tune-ups • safety checks</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card section col-5">
+        <h2>Service area</h2>
+        <p class="muted">Azusa • Glendora • Covina • San Dimas • West Covina</p>
+        <ul class="list">
+          <li>Text ZIP + issue for fastest scheduling</li>
+          <li>Same-day available when possible (confirm by text)</li>
+          <li>Clear communication before work begins (Demo)</li>
+        </ul>
+
+        <div class="actions" style="margin-top:12px">
+          <a class="btn secondary" href="#" id="copyLinkBtn">Copy this link</a>
+          <a class="btn" href="sms:+16262089053?&body=Hi%20%E2%80%94%20My%20ZIP%20is%20____.%20Issue%3A%20____.%20Can%20you%20help%20today%3F">Text details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <a class="btn primary" href="tel:+16262089053">Call</a>
+      <a class="btn secondary" href="sms:+16262089053?&body=Hi%20Azusa%20Garage%20Door%20Repair%20%E2%80%94%20ZIP%20____.%20Issue%3A%20____.%20Same-day%3F">Text</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const key = "ez_theme";
+      const btn = document.getElementById("themeToggle");
+      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      const saved = localStorage.getItem(key);
+      const initial = saved || (prefersLight ? "light" : "dark");
+
+      function setTheme(t){
+        document.documentElement.setAttribute("data-theme", t);
+        btn.textContent = (t === "light") ? "Dark mode" : "Light mode";
+        localStorage.setItem(key, t);
+      }
+      setTheme(initial);
+
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme") || "dark";
+        setTheme(current === "light" ? "dark" : "light");
+      });
+
+      const copyBtn = document.getElementById("copyLinkBtn");
+      if (copyBtn && navigator.clipboard) {
+        copyBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            copyBtn.textContent = "Copied ✅";
+            setTimeout(() => (copyBtn.textContent = "Copy this link"), 1200);
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
