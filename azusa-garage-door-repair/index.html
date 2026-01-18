@@ -112,6 +112,10 @@
       font-weight:800;font-size:14px;
       background: var(--card2);
       color:var(--text);
+
+      width: 100%;
+min-height: 52px;
+text-align: center;
     }
     .btn.primary{
       border-color: rgba(96,165,250,.55);
@@ -164,16 +168,15 @@
       background: rgba(10,14,22,.78);
       border-top:1px solid var(--line);
       backdrop-filter: blur(12px);
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
     }
     html[data-theme="light"] .sticky{background: rgba(246,248,252,.88)}
     .sticky .inner{max-width:940px;margin:0 auto;display:flex;gap:10px}
     .sticky .btn{flex:1}
 
     @media (max-width: 860px){.col-7,.col-5{grid-column: span 12}}
-    @media (max-width: 520px){
-      .actions{grid-template-columns:1fr}
-      .servicegrid{grid-template-columns:1fr}
-      .headline h1{font-size:26px}
+    @media (max-width: 380px){
+  .actions{grid-template-columns: 1fr}
     }
   </style>
 
