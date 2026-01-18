@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Experts Mobile Locksmith — Azusa, CA | Fast Mobile Locksmith</title>
+  <meta name="description" content="Experts Mobile Locksmith in Azusa, CA. Fast mobile locksmith service. Tap to call/text for quick help." />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Experts Mobile Locksmith — Azusa, CA" />
+  <meta property="og:description" content="Fast mobile locksmith help. Tap to call/text. Quick response." />
+
+  <style>
+    :root{
+      --bg:#06080E;
+      --bg2:#0B1220;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.085);
+      --text:#EAF0FF;
+      --muted: rgba(234,240,255,.72);
+      --line: rgba(234,240,255,.14);
+      --shadow: 0 18px 45px rgba(0,0,0,.55);
+      --radius: 18px;
+
+      --accent:#F59E0B;  /* amber */
+      --accent2:#60A5FA; /* blue */
+      --safe:#22C55E;
+    }
+    html[data-theme="light"]{
+      --bg:#F6F8FC;
+      --bg2:#FFFFFF;
+      --card: rgba(15,23,42,.04);
+      --card2: rgba(15,23,42,.06);
+      --text:#0F172A;
+      --muted: rgba(15,23,42,.70);
+      --line: rgba(15,23,42,.12);
+      --shadow: 0 18px 45px rgba(2,6,23,.12);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(950px 600px at 15% 12%, rgba(245,158,11,.18), transparent 55%),
+        radial-gradient(900px 580px at 90% 20%, rgba(96,165,250,.18), transparent 55%),
+        radial-gradient(700px 480px at 60% 95%, rgba(34,197,94,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      min-height:100vh;
+      padding:22px 14px 90px;
+    }
+
+    .wrap{max-width:940px;margin:0 auto}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .chiprow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .chip{
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      backdrop-filter: blur(10px);
+    }
+    button.chip{cursor:pointer;font-family:inherit}
+    button.chip:hover{transform: translateY(-1px)}
+
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .bizcard{padding:16px}
+    .brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brandleft{display:flex;align-items:center;gap:12px;min-width:0}
+    .avatar{
+      width:46px;height:46px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(245,158,11,.70), rgba(96,165,250,.55));
+      border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;letter-spacing:.5px;color:#061018;
+    }
+    html[data-theme="light"] .avatar{color:#0F172A}
+    .bname{display:flex;flex-direction:column;min-width:0}
+    .bname strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .bname span{font-size:13px;color:var(--muted)}
+    .pill{
+      border:1px solid var(--line);
+      background: var(--card2);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .alert{
+      margin-top:12px;
+      border:1px solid rgba(245,158,11,.35);
+      background: linear-gradient(180deg, rgba(245,158,11,.14), var(--card2));
+      border-radius:16px;
+      padding:12px;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+    }
+    .alert strong{font-size:13px}
+    .alert span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+    .mini{font-size:12px;color:var(--muted)}
+
+    .headline h1{font-size:28px;line-height:1.1;margin:10px 0 6px;letter-spacing:-.6px}
+    .headline p{margin:0;color:var(--muted);font-size:14px;max-width:70ch}
+
+    .actions{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .btn{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      text-decoration:none;
+      font-weight:800;font-size:14px;
+      background: var(--card2);
+      color:var(--text);
+    }
+    .btn.primary{
+      border-color: rgba(245,158,11,.50);
+      background: linear-gradient(180deg, rgba(245,158,11,.22), var(--card2));
+    }
+    .btn.secondary{
+      border-color: rgba(96,165,250,.45);
+      background: linear-gradient(180deg, rgba(96,165,250,.18), var(--card2));
+    }
+    .btn.full{grid-column: 1 / -1}
+    .btn:hover{transform: translateY(-1px)}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:12px}
+    .col-7{grid-column: span 7}
+    .col-5{grid-column: span 5}
+    .section{padding:14px}
+    .section h2{margin:0 0 8px;font-size:15px}
+    .muted{margin:0;color:var(--muted);font-size:13px}
+
+    .servicegrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;margin-top:10px;
+    }
+    .svc{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius:16px;
+      padding:12px;
+    }
+    .svc strong{display:block;font-size:13px}
+    .svc span{display:block;margin-top:5px;color:var(--muted);font-size:12px}
+
+    .list{margin:10px 0 0;padding-left:16px}
+    .list li{margin:7px 0;color:var(--muted);font-size:13px}
+
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;
+      padding:10px 12px;
+      background: rgba(10,14,22,.78);
+      border-top:1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    html[data-theme="light"] .sticky{background: rgba(246,248,252,.88)}
+    .sticky .inner{max-width:940px;margin:0 auto;display:flex;gap:10px}
+    .sticky .btn{flex:1}
+
+    @media (max-width: 860px){.col-7,.col-5{grid-column: span 12}}
+    @media (max-width: 520px){
+      .actions{grid-template-columns:1fr}
+      .servicegrid{grid-template-columns:1fr}
+      .headline h1{font-size:26px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Locksmith",
+    "name":"Experts Mobile Locksmith",
+    "telephone":"+16264164216",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Azusa",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "areaServed":["Azusa","Glendora","Covina","San Dimas","West Covina","Duarte","Monrovia","La Verne"],
+    "url":"https://ezbook.pages.dev/experts-mobile-locksmith/"
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="chiprow">
+        <div class="chip">Demo preview</div>
+        <div class="chip">4.2 ★ (5)</div>
+        <div class="chip">Mobile locksmith</div>
+      </div>
+      <div class="chiprow">
+        <button class="chip" id="themeToggle" type="button">Light mode</button>
+      </div>
+    </div>
+
+    <div class="card bizcard">
+      <div class="brandrow">
+        <div class="brandleft">
+          <div class="avatar">EML</div>
+          <div class="bname">
+            <strong>Experts Mobile Locksmith</strong>
+            <span>Azusa, CA • Serving nearby cities</span>
+          </div>
+        </div>
+        <div class="pill">Fast response • Text OK</div>
+      </div>
+
+      <div class="alert">
+        <div>
+          <strong>Locked out? Call or text for the fastest help.</strong>
+          <span>After-hours texts welcome. Share ZIP + the issue. (Demo)</span>
+        </div>
+        <div class="mini">Emergency</div>
+      </div>
+
+      <div class="headline">
+        <h1>Your digital locksmith card—built for speed.</h1>
+        <p>One clean link customers can tap to call/text instantly. Perfect for your Google Business Profile and missed calls.</p>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="tel:+16264164216">Call now</a>
+        <a class="btn secondary" href="sms:+16264164216?&body=Hi%20Experts%20Mobile%20Locksmith%20%E2%80%94%20I%20need%20help%20with%20____.%20My%20ZIP%20is%20____.%20Are%20you%20available%20now%3F">Text now</a>
+        <a class="btn full" href="https://www.google.com/search?q=Experts+Mobile+Locksmith+Azusa+reviews" target="_blank" rel="noopener">View Google reviews</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card section col-7">
+        <h2>Common services</h2>
+        <p class="muted">Simple options customers understand instantly.</p>
+
+        <div class="servicegrid">
+          <div class="svc">
+            <strong>Lockouts</strong>
+            <span>Home • apartment • office</span>
+          </div>
+          <div class="svc">
+            <strong>Car keys & unlocks</strong>
+            <span>Auto lockouts + key help</span>
+          </div>
+          <div class="svc">
+            <strong>Locks rekeyed</strong>
+            <span>New tenant / security</span>
+          </div>
+          <div class="svc">
+            <strong>Lock replacement</strong>
+            <span>Upgrade & repair</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card section col-5">
+        <h2>Service area</h2>
+        <p class="muted">Azusa • Glendora • Covina • San Dimas • West Covina</p>
+        <ul class="list">
+          <li>Text ZIP + issue for fastest routing</li>
+          <li>Emergency / after-hours: text is OK</li>
+          <li>Upfront communication before work begins (Demo)</li>
+        </ul>
+
+        <div class="actions" style="margin-top:12px">
+          <a class="btn secondary" href="#" id="copyLinkBtn">Copy this link</a>
+          <a class="btn" href="sms:+16264164216?&body=Hi%20%E2%80%94%20My%20ZIP%20is%20____.%20I%27m%20locked%20out%20of%20____.%20Can%20you%20help%20now%3F">Text details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <a class="btn primary" href="tel:+16264164216">Call</a>
+      <a class="btn secondary" href="sms:+16264164216?&body=Hi%20Experts%20Mobile%20Locksmith%20%E2%80%94%20My%20ZIP%20is%20____.%20I%27m%20locked%20out%20of%20____.%20Are%20you%20available%3F">Text</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const key = "ez_theme";
+      const btn = document.getElementById("themeToggle");
+      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      const saved = localStorage.getItem(key);
+      const initial = saved || (prefersLight ? "light" : "dark");
+
+      function setTheme(t){
+        document.documentElement.setAttribute("data-theme", t);
+        btn.textContent = (t === "light") ? "Dark mode" : "Light mode";
+        localStorage.setItem(key, t);
+      }
+      setTheme(initial);
+
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme") || "dark";
+        setTheme(current === "light" ? "dark" : "light");
+      });
+
+      const copyBtn = document.getElementById("copyLinkBtn");
+      if (copyBtn && navigator.clipboard) {
+        copyBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            copyBtn.textContent = "Copied ✅";
+            setTimeout(() => (copyBtn.textContent = "Copy this link"), 1200);
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+    </html>
