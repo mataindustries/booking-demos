@@ -145,6 +145,10 @@
       font-weight:700;font-size:14px;
       background: var(--card2);
       color:var(--text);
+
+      width: 100%;
+min-height: 52px;
+text-align: center;
     }
     .btn.primary{
       border-color: rgba(34,197,94,.45);
@@ -202,6 +206,7 @@
       background: rgba(10,14,22,.78);
       border-top:1px solid var(--line);
       backdrop-filter: blur(12px);
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
     }
     html[data-theme="light"] .sticky{background: rgba(246,248,252,.88)}
     .sticky .inner{
@@ -213,10 +218,8 @@
     @media (max-width: 860px){
       .col-7,.col-5{grid-column: span 12}
     }
-    @media (max-width: 520px){
-      .actions{grid-template-columns: 1fr}
-      .packages{grid-template-columns: 1fr}
-      .headline h1{font-size:26px}
+    @media (max-width: 380px){
+  .actions{grid-template-columns: 1fr}
     }
   </style>
 
