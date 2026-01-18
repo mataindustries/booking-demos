@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- ✅ SEO -->
+  <title>Verde Valley Lawn Care — Book a Free Estimate</title>
+  <meta name="description" content="Verde Valley Lawn Care. Fast quotes, reliable service. Tap to book a free estimate, call, or WhatsApp." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://ezbook.pages.dev/verde-valley-lawn-care/" />
+
+  <!-- ✅ Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Verde Valley Lawn Care" />
+  <meta property="og:description" content="Tap to book a free estimate, call, or WhatsApp. English / Español." />
+  <meta property="og:url" content="https://ezbook.pages.dev/verde-valley-lawn-care/" />
+
+  <!-- ✅ Minimal favicon -->
+  <meta name="theme-color" content="#10B981" />
+
+  <!-- ✅ LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Verde Valley Lawn Care",
+    "telephone":"+16025551234",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Phoenix",
+      "addressRegion":"AZ",
+      "addressCountry":"US"
+    },
+    "areaServed":["Phoenix","Scottsdale","Tempe","Mesa","Glendale"],
+    "url":"https://ezbook.pages.dev/verde-valley-lawn-care/"
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg: #F6F8FF;
+      --card: rgba(255,255,255,.78);
+      --card2: rgba(255,255,255,.92);
+      --text: #0F172A;
+      --muted: rgba(15,23,42,.70);
+      --line: rgba(15,23,42,.12);
+      --shadow: 0 22px 50px rgba(2,6,23,.12);
+      --radius: 22px;
+
+      --green: #10B981;
+      --green2: #22C55E;
+      --blue: #60A5FA;
+      --purple:#A78BFA;
+      --amber:#F59E0B;
+    }
+
+    html[data-theme="dark"]{
+      --bg: #070A10;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.085);
+      --text: #EAF0FF;
+      --muted: rgba(234,240,255,.72);
+      --line: rgba(234,240,255,.14);
+      --shadow: 0 22px 50px rgba(0,0,0,.55);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, rgba(16,185,129,.20), transparent 55%),
+        radial-gradient(900px 600px at 90% 25%, rgba(96,165,250,.18), transparent 55%),
+        radial-gradient(700px 520px at 40% 95%, rgba(167,139,250,.15), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg));
+      min-height:100vh;
+      padding: 18px 14px 92px;
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin-bottom: 12px;
+    }
+
+    .seg{
+      display:flex;
+      gap:8px;
+      padding:6px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      backdrop-filter: blur(12px);
+    }
+    .seg button{
+      border:0;
+      background: transparent;
+      padding:8px 10px;
+      border-radius: 999px;
+      font-weight:800;
+      font-size:12px;
+      color: var(--muted);
+      cursor:pointer;
+    }
+    .seg button.active{
+      background: var(--card2);
+      color: var(--text);
+      box-shadow: 0 10px 25px rgba(2,6,23,.10);
+    }
+
+    .chips{
+      display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color: var(--muted);
+      backdrop-filter: blur(12px);
+      white-space:nowrap;
+    }
+    .chip button{
+      border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;
+      padding:0;margin:0;
+    }
+
+    .phone{
+      font-variant-numeric: tabular-nums;
+    }
+
+    .panel{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding: 18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:12px;min-width:0;
+    }
+    .logo{
+      width:52px;height:52px;border-radius: 18px;
+      background: linear-gradient(135deg, rgba(16,185,129,.95), rgba(96,165,250,.85));
+      border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow: 0 14px 35px rgba(16,185,129,.25);
+    }
+    .logo svg{width:26px;height:26px}
+    .bname{min-width:0}
+    .bname strong{
+      display:block;
+      font-size:16px;
+      letter-spacing:-.2px;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    .bname span{display:block;color:var(--muted);font-size:13px}
+
+    .headline{
+      margin-top: 10px;
+    }
+    .headline h1{
+      margin:8px 0 6px;
+      font-size: 30px;
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+    .headline p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 70ch;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top: 14px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius: 18px;
+      padding: 12px;
+      text-align:center;
+    }
+    .stat strong{
+      display:block;
+      font-size:16px;
+      letter-spacing:-.3px;
+    }
+    .stat span{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .ctaBox{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16,185,129,.18), var(--card2));
+      border-radius: 22px;
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .ctaBox .big{
+      font-weight:900;
+      font-size:14px;
+    }
+    .ctaBox .sub{
+      color:var(--muted);
+      font-size:12px;
+      margin-top:-6px;
+      line-height:1.35;
+    }
+
+    .actions{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top: 8px;
+    }
+
+    .btn{
+      width:100%;
+      min-height:52px;
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--card2);
+      color: var(--text);
+      text-decoration:none;
+      font-weight:900;
+      font-size:14px;
+      text-align:center;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border-color: rgba(16,185,129,.55);
+      background: linear-gradient(180deg, rgba(16,185,129,.25), var(--card2));
+    }
+    .btn.secondary{
+      border-color: rgba(96,165,250,.50);
+      background: linear-gradient(180deg, rgba(96,165,250,.18), var(--card2));
+    }
+    .btn.ghost{
+      border-color: rgba(15,23,42,.10);
+      background: var(--card);
+    }
+    html[data-theme="dark"] .btn.ghost{
+      border-color: rgba(234,240,255,.14);
+      background: var(--card);
+    }
+
+    .btn.full{grid-column: 1 / -1}
+
+    .grid{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .col-7{grid-column: span 7}
+    .col-5{grid-column: span 5}
+
+    .section{
+      padding: 14px;
+    }
+    .section h2{
+      margin:0 0 8px;
+      font-size:15px;
+      letter-spacing:-.2px;
+    }
+    .section p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .serviceGrid{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .svc{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius: 18px;
+      padding: 12px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .ico{
+      width:34px;height:34px;border-radius: 14px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(96,165,250,.18), rgba(16,185,129,.18));
+      flex:0 0 auto;
+    }
+    .ico svg{width:18px;height:18px;opacity:.95}
+    .svc strong{display:block;font-size:13px}
+    .svc span{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.35}
+
+    .quoteCard{
+      margin-top:10px;
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius: 18px;
+      padding:12px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+
+    .field{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: 16px;
+      padding:10px 12px;
+    }
+    .field input, .field textarea{
+      width:100%;
+      border:0;
+      outline:none;
+      background:transparent;
+      color:var(--text);
+      font-size:13px;
+      font-family:inherit;
+    }
+    .field textarea{min-height:64px;resize:none}
+    .small{font-size:12px;color:var(--muted);margin:0}
+
+    .reviews{
+      margin-top: 10px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .review{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius: 18px;
+      padding: 12px;
+    }
+    .stars{color: var(--amber);font-weight:900;font-size:12px}
+    .review p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
+    .review span{display:block;margin-top:8px;color:var(--muted);font-size:12px}
+
+    .footerNote{
+      margin-top: 12px;
+      display:flex;flex-wrap:wrap;gap:8px;
+    }
+    .tag{
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:8px 10px;
+      border-radius:999px;
+      color: var(--muted);
+      font-size:12px;
+    }
+
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;
+      padding: 10px 12px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      border-top:1px solid var(--line);
+      background: rgba(246,248,255,.92);
+      backdrop-filter: blur(14px);
+    }
+    html[data-theme="dark"] .sticky{
+      background: rgba(10,14,22,.78);
+    }
+    .sticky .inner{
+      max-width:980px;
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+    }
+    .sticky .btn{flex:1}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr}
+      .stats{grid-template-columns: repeat(3, 1fr)}
+    }
+    @media (max-width: 560px){
+      .stats{grid-template-columns: 1fr 1fr 1fr}
+      .serviceGrid{grid-template-columns: 1fr}
+      .col-7,.col-5{grid-column: span 12}
+    }
+    @media (max-width: 380px){
+      .actions{grid-template-columns: 1fr}
+      .stats{grid-template-columns: 1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <!-- Top controls -->
+    <div class="topbar">
+      <div class="seg" aria-label="Language switch">
+        <button id="langEN" class="active" type="button">English</button>
+        <button id="langES" type="button">Español</button>
+      </div>
+
+      <div class="chips">
+        <div class="chip"><span data-i18n="demo">Demo preview</span></div>
+        <div class="chip"><span class="phone" id="ratingChip">4.9 ★</span></div>
+        <div class="chip">
+          <button id="themeToggle" type="button">
+            <span data-i18n="dark">Dark</span>/<span data-i18n="light">Light</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO PANEL -->
+    <div class="panel">
+      <div class="hero">
+
+        <!-- Left side -->
+        <div>
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 22c5-3 8-7 8-12 0-3-2-6-6-6-1.8 0-3.2.7-4 1.7C9.2 4.7 7.8 4 6 4 2 4 0 7 0 10c0 5 3 9 12 12Z" fill="rgba(255,255,255,.92)"/>
+              </svg>
+            </div>
+            <div class="bname">
+              <strong id="bizName">Verde Valley Lawn Care</strong>
+              <span data-i18n="subtitle">Professional Lawn & Landscaping Services</span>
+            </div>
+          </div>
+
+          <div class="headline">
+            <h1 data-i18n="headline">One clean link to book your service.</h1>
+            <p data-i18n="subhead">
+              This works like a digital business card: customers can book a free estimate, call, or message you instantly.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>500+</strong>
+              <span data-i18n="stat1">Happy Clients</span>
+            </div>
+            <div class="stat">
+              <strong>8+</strong>
+              <span data-i18n="stat2">Years Experience</span>
+            </div>
+            <div class="stat">
+              <strong>4.9★</strong>
+              <span data-i18n="stat3">Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side CTA card -->
+        <div class="ctaBox">
+          <div>
+            <div class="big" data-i18n="ctaTitle">Book Free Estimate</div>
+            <div class="sub" data-i18n="ctaSub">
+              Tap once to reach us. Fast replies. Friendly service.
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary full" id="estimateBtn" href="#quote">
+              <span aria-hidden="true">📅</span>
+              <span data-i18n="estimateBtn">Book Free Estimate</span>
+            </a>
+
+            <a class="btn ghost" id="callBtn" href="tel:+16025551234">
+              <span aria-hidden="true">📞</span>
+              <span data-i18n="callNow">Call Now</span>
+            </a>
+
+            <a class="btn ghost" id="waBtn" href="https://wa.me/16025551234?text=Hi%20Verde%20Valley%20Lawn%20Care%20%E2%80%94%20I%27d%20like%20a%20free%20estimate.%20My%20ZIP%20is%20____." target="_blank" rel="noopener">
+              <span aria-hidden="true">💬</span>
+              <span data-i18n="whatsapp">WhatsApp</span>
+            </a>
+
+            <a class="btn secondary full" id="reviewsBtn" href="https://www.google.com/search?q=Verde+Valley+Lawn+Care+reviews" target="_blank" rel="noopener">
+              <span aria-hidden="true">⭐</span>
+              <span data-i18n="viewReviews">View Google reviews</span>
+            </a>
+          </div>
+
+          <p class="small" data-i18n="micro">
+            Tip: Add this link to your Google Business Profile “Website” for more calls.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT GRID -->
+    <div class="grid">
+
+      <!-- Services -->
+      <div class="panel section col-7">
+        <h2 data-i18n="servicesTitle">Our Services</h2>
+        <p data-i18n="servicesSub">Simple options that customers understand instantly.</p>
+
+        <div class="serviceGrid">
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 20c5-1 10-6 14-14" stroke="currentColor" stroke-width="2" opacity=".8"/>
+                <path d="M8 20c4-2 8-6 11-12" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc1">Lawn Mowing</strong>
+              <span data-i18n="svc1b">Weekly / bi-weekly maintenance</span>
+            </div>
+          </div>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 19c6-4 10-8 10-12" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 12c2 1 4 1 6 0" stroke="currentColor" stroke-width="2" opacity=".8"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc2">Tree Trimming</strong>
+              <span data-i18n="svc2b">Clean up + shaping</span>
+            </div>
+          </div>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 18c6 0 12-6 12-12" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 18c3 0 6-3 6-6" stroke="currentColor" stroke-width="2" opacity=".8"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc3">Leaf Removal</strong>
+              <span data-i18n="svc3b">Seasonal cleanups</span>
+            </div>
+          </div>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3c3 4 4 7 4 9a4 4 0 1 1-8 0c0-2 1-5 4-9Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc4">Irrigation</strong>
+              <span data-i18n="svc4b">Repairs + adjustments</span>
+            </div>
+          </div>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 18c6 0 10-4 16-12" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 19l-2 2" stroke="currentColor" stroke-width="2" opacity=".8"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc5">Landscaping</strong>
+              <span data-i18n="svc5b">Trim • edges • upgrades</span>
+            </div>
+          </div>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 7l10 10" stroke="currentColor" stroke-width="2"/>
+                <path d="M17 7L7 17" stroke="currentColor" stroke-width="2" opacity=".8"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc6">Same-Day When Available</strong>
+              <span data-i18n="svc6b">Confirm by call/text</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footerNote">
+          <div class="tag" data-i18n="tag1">Friendly + professional</div>
+          <div class="tag" data-i18n="tag2">Fast quotes</div>
+          <div class="tag" data-i18n="tag3">Serving nearby cities</div>
+        </div>
+      </div>
+
+      <!-- Quote / Contact -->
+      <div class="panel section col-5" id="quote">
+        <h2 data-i18n="quoteTitle">Request a Quote</h2>
+        <p data-i18n="quoteSub">Send the basics and we’ll reply fast.</p>
+
+        <div class="quoteCard">
+          <div class="field">
+            <input id="name" placeholder="Name" aria-label="Name" />
+          </div>
+          <div class="field">
+            <input id="zip" placeholder="ZIP Code" aria-label="ZIP Code" inputmode="numeric" />
+          </div>
+          <div class="field">
+            <textarea id="details" placeholder="What do you need help with?" aria-label="Details"></textarea>
+          </div>
+
+          <a class="btn primary" id="textQuoteBtn" href="#">
+            <span aria-hidden="true">📲</span>
+            <span data-i18n="sendText">Text quote request</span>
+          </a>
+
+          <a class="btn secondary" id="copyBtn" href="#">
+            <span aria-hidden="true">🔗</span>
+            <span data-i18n="copy">Copy this link</span>
+          </a>
+
+          <p class="small" data-i18n="quoteTip">
+            Best results: include ZIP + service needed + photos (if helpful).
+          </p>
+        </div>
+
+        <div class="reviews">
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p data-i18n="r1">“Amazing work! Very professional and affordable.”</p>
+            <span>— Maria G.</span>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p data-i18n="r2">“Always on time, great attention to detail. Highly recommend!”</p>
+             <span>— Carlos R.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sticky bottom bar -->
+  <div class="sticky">
+    <div class="inner">
+      <a class="btn primary" id="stickyCall" href="tel:+16025551234">
+        <span aria-hidden="true">📞</span>
+        <span data-i18n="call">Call</span>
+      </a>
+
+      <a class="btn secondary" id="stickyMsg" href="sms:+16025551234?&body=Hi%20Verde%20Valley%20Lawn%20Care%20%E2%80%94%20I%27d%20like%20a%20free%20estimate.%20My%20ZIP%20is%20____.%20Service%3A%20____." >
+        <span aria-hidden="true">💬</span>
+        <span data-i18n="text">Text</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // ====== EDIT THESE ONCE PER CLIENT ======
+    const BUSINESS = {
+      name: "Verde Valley Lawn Care",
+      phone: "+16025551234", // E.164 format
+      cityLine: "Phoenix Metro Area",
+      rating: "4.9 ★",
+      reviews: "500+",
+      whatsapp: true
+    };
+
+    // ====== i18n ======
+    const I18N = {
+      en: {
+        demo: "Demo preview",
+        dark: "Dark",
+        light:"Light",
+        subtitle: "Professional Lawn & Landscaping Services",
+        headline: "One clean link to book your service.",
+        subhead: "This works like a digital business card: customers can book a free estimate, call, or message you instantly.",
+        stat1:"Happy Clients", stat2:"Years Experience", stat3:"Rating",
+        ctaTitle:"Book Free Estimate",
+        ctaSub:"Tap once to reach us. Fast replies. Friendly service.",
+        estimateBtn:"Book Free Estimate",
+        callNow:"Call Now",
+        whatsapp:"WhatsApp",
+        viewReviews:"View Google reviews",
+        micro:"Tip: Add this link to your Google Business Profile “Website” for more calls.",
+        servicesTitle:"Our Services",
+        servicesSub:"Simple options that customers understand instantly.",
+        svc1:"Lawn Mowing", svc1b:"Weekly / bi-weekly maintenance",
+        svc2:"Tree Trimming", svc2b:"Clean up + shaping",
+        svc3:"Leaf Removal", svc3b:"Seasonal cleanups",
+        svc4:"Irrigation", svc4b:"Repairs + adjustments",
+        svc5:"Landscaping", svc5b:"Trim • edges • upgrades",
+        svc6:"Same-Day When Available", svc6b:"Confirm by call/text",
+        tag1:"Friendly + professional", tag2:"Fast quotes", tag3:"Serving nearby cities",
+        quoteTitle:"Request a Quote",
+        quoteSub:"Send the basics and we’ll reply fast.",
+        sendText:"Text quote request",
+        copy:"Copy this link",
+        quoteTip:"Best results: include ZIP + service needed + photos (if helpful).",
+        r1:"“Amazing work! Very professional and affordable.”",
+        r2:"“Always on time, great attention to detail. Highly recommend!”",
+        call:"Call", text:"Text"
+      },
+      es: {
+        demo: "Vista demo",
+        dark: "Oscuro",
+        light:"Claro",
+        subtitle: "Servicios Profesionales de Jardinería y Paisajismo",
+        headline: "Un link limpio para agendar en segundos.",
+        subhead: "Funciona como tarjeta digital: pueden pedir estimado gratis, llamarte o mandarte mensaje al instante.",
+        stat1:"Clientes Felices", stat2:"Años de Experiencia", stat3:"Calificación",
+        ctaTitle:"Agenda Estimado Gratis",
+        ctaSub:"Un toque y listo. Respuesta rápida. Servicio amable.",
+        estimateBtn:"Agendar Estimado Gratis",
+        callNow:"Llamar",
+        whatsapp:"WhatsApp",
+        viewReviews:"Ver reseñas en Google",
+        micro:"Tip: Pon este link en tu Google Business Profile como “Website” para más llamadas.",
+        servicesTitle:"Servicios",
+        servicesSub:"Opciones claras para que el cliente decida rápido.",
+        svc1:"Corte de Césped", svc1b:"Servicio semanal / quincenal",
+        svc2:"Poda de Árboles", svc2b:"Limpieza + forma",
+        svc3:"Limpieza de Hojas", svc3b:"Por temporada",
+        svc4:"Riego / Irrigación", svc4b:"Reparación + ajustes",
+        svc5:"Paisajismo", svc5b:"Recorte • bordes • mejoras",
+        svc6:"Mismo Día (si hay espacio)", svc6b:"Confirma por llamada/texto",
+        tag1:"Amables + profesionales", tag2:"Cotizaciones rápidas", tag3:"Servicio en tu área",
+        quoteTitle:"Pide Cotización",
+        quoteSub:"Mándanos lo básico y respondemos rápido.",
+        sendText:"Mandar por texto",
+        copy:"Copiar link",
+        quoteTip:"Mejor: ZIP + servicio + fotos (si aplica).",
+        r1:"“Excelente trabajo! Muy profesionales y buen precio.”",
+        r2:"“Siempre puntuales y con detalle. Recomendados!”",
+        call:"Llamar", text:"Texto"
+      }
+    };
+
+    const $ = (s) => document.querySelector(s);
+    const setLang = (lang) => {
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (dict[k]) el.textContent = dict[k];
+      });
+      $("#langEN").classList.toggle("active", lang === "en");
+      $("#langES").classList.toggle("active", lang === "es");
+      localStorage.setItem("ez_lang", lang);
+
+      // small SEO-friendly touches (title + description)
+      if (lang === "es") {
+        document.title = `${BUSINESS.name} — Estimado Gratis`;
+        const d = document.querySelector('meta[name="description"]');
+        if (d) d.setAttribute("content", `${BUSINESS.name}. Cotización rápida. Un toque para llamar, WhatsApp o agendar.`);
+      } else {
+        document.title = `${BUSINESS.name} — Book a Free Estimate`;
+        const d = document.querySelector('meta[name="description"]');
+        if (d) d.setAttribute("content", `${BUSINESS.name}. Fast quotes, reliable service. Tap to book a free estimate, call, or WhatsApp.`);
+      }
+    };
+
+    // Theme toggle
+    const setTheme = (t) => {
+      document.documentElement.setAttribute("data-theme", t);
+      localStorage.setItem("ez_theme", t);
+    };
+
+    // Wire phone/links
+    const wire = () => {
+      $("#bizName").textContent = BUSINESS.name;
+      $("#ratingChip").textContent = BUSINESS.rating;
+
+      const phone = BUSINESS.phone.replace(/\s+/g,"");
+      const tel = `tel:${phone}`;
+      const smsBase = `sms:${phone}?&body=`;
+      const wa = `https://wa.me/${phone.replace("+","")}?text=`;
+
+      $("#callBtn").setAttribute("href", tel);
+      $("#stickyCall").setAttribute("href", tel);
+
+      const enMsg = encodeURIComponent(`Hi ${BUSINESS.name} — I'd like a free estimate. My ZIP is ____. Service: ____.`);
+      $("#stickyMsg").setAttribute("href", smsBase + enMsg);
+
+      // WhatsApp
+      if ($("#waBtn")) {
+        const waMsg = encodeURIComponent(`Hi ${BUSINESS.name} — I'd like a free estimate. My ZIP is ____.`);
+        $("#waBtn").setAttribute("href", wa + waMsg);
+      }
+
+      // Quote to SMS with prefilled fields
+      $("#textQuoteBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        const name = ($("#name").value || "").trim();
+        const zip = ($("#zip").value || "").trim();
+        const details = ($("#details").value || "").trim();
+        const lang = localStorage.getItem("ez_lang") || "en";
+
+        let msg = "";
+        if (lang === "es") {
+          msg = `Hola ${BUSINESS.name} — Quiero un estimado gratis. Nombre: ${name || "____"} | ZIP: ${zip || "____"} | Servicio: ${details || "____"}.`;
+        } else {
+          msg = `Hi ${BUSINESS.name} — I'd like a free estimate. Name: ${name || "____"} | ZIP: ${zip || "____"} | Service: ${details || "____"}.`;
+        }
+        window.location.href = smsBase + encodeURIComponent(msg);
+      });
+
+      // Copy link button
+      $("#copyBtn").addEventListener("click", async (e) => {
+        e.preventDefault();
+        try{
+          await navigator.clipboard.writeText(window.location.href);
+          $("#copyBtn").querySelector("span[data-i18n='copy']").textContent = "Copied ✅";
+          setTimeout(()=> {
+            const lang = localStorage.getItem("ez_lang") || "en";
+            $("#copyBtn").querySelector("span[data-i18n='copy']").textContent = (lang==="es") ? "Copiar link" : "Copy this link";
+          }, 1200);
+        }catch(err){
+          alert("Copy failed. Long-press the URL to copy.");
+        }
+      });
+
+      // Theme toggle button
+      $("#themeToggle").addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme") || "light";
+        setTheme(current === "light" ? "dark" : "light");
+      });
+    };
+
+    // Init
+    (function init(){
+      wire();
+      const savedLang = localStorage.getItem("ez_lang") || "en";
+      setLang(savedLang);
+
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const savedTheme = localStorage.getItem("ez_theme") || (prefersDark ? "dark" : "light");
+      setTheme(savedTheme);
+
+      $("#langEN").addEventListener("click", ()=> setLang("en"));
+      $("#langES").addEventListener("click", ()=> setLang("es"));
+    })();
+  </script>
+</body>
+</html>
