@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SYA Mobile Detailing — Glendora, CA | Mobile Auto Detailing</title>
+  <meta name="description" content="SYA Mobile Detailing in Glendora, CA. Mobile auto detailing with fast call/text booking. Request a quote in minutes." />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SYA Mobile Detailing — Glendora, CA" />
+  <meta property="og:description" content="Mobile auto detailing. Tap to call/text. Fast quote requests." />
+
+  <style>
+    :root{
+      --bg:#070A10;
+      --bg2:#0B1220;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --text:#EAF0FF;
+      --muted: rgba(234,240,255,.72);
+      --line: rgba(234,240,255,.14);
+      --shadow: 0 18px 45px rgba(0,0,0,.55);
+      --radius: 18px;
+
+      --accent:#22C55E;   /* green */
+      --accent2:#60A5FA;  /* blue */
+      --warn:#F59E0B;
+    }
+    html[data-theme="light"]{
+      --bg:#F6F8FC;
+      --bg2:#FFFFFF;
+      --card: rgba(15,23,42,.04);
+      --card2: rgba(15,23,42,.06);
+      --text:#0F172A;
+      --muted: rgba(15,23,42,.70);
+      --line: rgba(15,23,42,.12);
+      --shadow: 0 18px 45px rgba(2,6,23,.12);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 620px at 15% 10%, rgba(96,165,250,.22), transparent 55%),
+        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.18), transparent 55%),
+        radial-gradient(700px 480px at 40% 95%, rgba(245,158,11,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      min-height:100vh;
+      padding:22px 14px 90px;
+    }
+
+    .wrap{max-width:940px;margin:0 auto}
+    .top{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      margin-bottom:14px;
+    }
+    .chiprow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .chip{
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      backdrop-filter: blur(10px);
+    }
+    button.chip{
+      cursor:pointer;
+      color:var(--muted);
+      font-family:inherit;
+    }
+    button.chip:hover{transform: translateY(-1px)}
+
+    .card{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .bizcard{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      padding:16px;
+    }
+    .brandrow{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .brandleft{
+      display:flex;align-items:center;gap:12px;min-width:0;
+    }
+    .avatar{
+      width:46px;height:46px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(96,165,250,.65), rgba(34,197,94,.55));
+      border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:800;letter-spacing:.5px;
+      color:#05101f;
+    }
+    html[data-theme="light"] .avatar{color:#0F172A}
+    .bname{
+      display:flex;flex-direction:column;min-width:0;
+    }
+    .bname strong{
+      font-size:16px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    .bname span{
+      font-size:13px;color:var(--muted);
+    }
+    .pill{
+      border:1px solid var(--line);
+      background: var(--card2);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      display:inline-flex;gap:8px;align-items:center;
+      white-space:nowrap;
+    }
+
+    .headline{
+      margin-top:2px;
+    }
+    .headline h1{
+      font-size:28px;line-height:1.1;margin:8px 0 6px;letter-spacing:-.6px;
+    }
+    .headline p{
+      margin:0;color:var(--muted);font-size:14px;max-width:70ch;
+    }
+
+    .actions{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .btn{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      text-decoration:none;
+      font-weight:700;font-size:14px;
+      background: var(--card2);
+      color:var(--text);
+    }
+    .btn.primary{
+      border-color: rgba(34,197,94,.45);
+      background: linear-gradient(180deg, rgba(34,197,94,.20), var(--card2));
+    }
+    .btn.secondary{
+      border-color: rgba(96,165,250,.45);
+      background: linear-gradient(180deg, rgba(96,165,250,.18), var(--card2));
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn.full{grid-column: 1 / -1}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .col-7{grid-column: span 7}
+    .col-5{grid-column: span 5}
+    .section{padding:14px}
+    .section h2{margin:0 0 8px;font-size:15px}
+    .muted{color:var(--muted);font-size:13px;margin:0}
+
+    .list{
+      margin:10px 0 0;padding-left:16px;color:var(--text);
+    }
+    .list li{margin:7px 0;color:var(--muted);font-size:13px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .tag{
+      padding:7px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--card2);
+      font-size:12px;color:var(--muted);
+    }
+
+    .packages{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .pkg{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius: 16px;
+      padding:12px;
+    }
+    .pkg strong{display:block;font-size:13px}
+    .pkg span{display:block;margin-top:5px;color:var(--muted);font-size:12px}
+
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;
+      padding:10px 12px;
+      background: rgba(10,14,22,.78);
+      border-top:1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+    html[data-theme="light"] .sticky{background: rgba(246,248,252,.88)}
+    .sticky .inner{
+      max-width:940px;margin:0 auto;
+      display:flex;gap:10px;
+    }
+    .sticky .btn{flex:1}
+
+    @media (max-width: 860px){
+      .col-7,.col-5{grid-column: span 12}
+    }
+    @media (max-width: 520px){
+      .actions{grid-template-columns: 1fr}
+      .packages{grid-template-columns: 1fr}
+      .headline h1{font-size:26px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"AutoWash",
+    "name":"SYA Mobile Detailing",
+    "telephone":"+16267333978",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Glendora",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "areaServed":["Glendora","San Dimas","Covina","Azusa","La Verne","West Covina","Claremont"],
+    "url":"https://ezbook.pages.dev/sya-mobile-detailing/",
+    "sameAs":[]
+  }
+  </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="chiprow">
+        <div class="chip">Demo preview</div>
+        <div class="chip">5.0 ★ (3)</div>
+        <div class="chip">Mobile service</div>
+      </div>
+      <div class="chiprow">
+        <button class="chip" id="themeToggle" type="button">Light mode</button>
+      </div>
+    </div>
+
+    <div class="card bizcard">
+      <div class="brandrow">
+        <div class="brandleft">
+          <div class="avatar">SYA</div>
+          <div class="bname">
+            <strong>SYA Mobile Detailing</strong>
+            <span>Glendora, CA • We come to you</span>
+          </div>
+        </div>
+        <div class="pill">Fast quotes • Text photos</div>
+      </div>
+
+      <div class="headline">
+        <h1>Premium mobile detailing, booked in one tap.</h1>
+        <p>Use this link as your digital business card: customers can call, text photos for a quote, or request service quickly.</p>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="tel:+16267333978">Call now</a>
+        <a class="btn secondary" href="sms:+16267333978?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20I%27d%20like%20a%20quote.%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Can%20I%20text%20photos%3F">Text for quote</a>
+        <a class="btn full" href="https://www.google.com/search?q=SYA+Mobile+Detailing+Glendora+reviews" target="_blank" rel="noopener">View Google reviews</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card section col-7">
+        <h2>Popular services</h2>
+        <p class="muted">A clean menu makes it easy for customers to choose fast.</p>
+
+        <div class="packages">
+          <div class="pkg">
+            <strong>Quick Exterior Wash</strong>
+            <span>Foam wash + dry + shine</span>
+          </div>
+          <div class="pkg">
+            <strong>Interior Refresh</strong>
+            <span>Vacuum + wipe-down + mats</span>
+          </div>
+          <div class="pkg">
+            <strong>Full Detail</strong>
+            <span>Interior + exterior deep clean</span>
+          </div>
+          <div class="pkg">
+            <strong>Pet Hair / Stains</strong>
+            <span>Add-on for heavy jobs</span>
+          </div>
+        </div>
+
+        <div class="tags">
+          <div class="tag">Text photos for accurate quotes</div>
+          <div class="tag">Mobile service • We come to you</div>
+          <div class="tag">Fast scheduling</div>
+        </div>
+      </div>
+
+      <div class="card section col-5">
+        <h2>Service area</h2>
+        <p class="muted">Glendora • San Dimas • Covina • Azusa • La Verne</p>
+        <ul class="list">
+          <li>Mobile detailing at your home or office</li>
+          <li>Reply with ZIP + vehicle type for fastest quote</li>
+          <li>Same-day availability when possible (confirm by text)</li>
+        </ul>
+
+        <div class="actions" style="margin-top:12px">
+          <a class="btn secondary" href="#" id="copyLinkBtn">Copy this link</a>
+          <a class="btn" href="sms:+16267333978?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Interior%20or%20Full%20Detail%3F%20I%20can%20send%20photos.">Text details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sticky">
+    <div class="inner">
+      <a class="btn primary" href="tel:+16267333978">Call</a>
+      <a class="btn secondary" href="sms:+16267333978?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Can%20I%20get%20a%20quote%3F">Text</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const key = "ez_theme";
+      const btn = document.getElementById("themeToggle");
+      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      const saved = localStorage.getItem(key);
+      const initial = saved || (prefersLight ? "light" : "dark");
+
+      function setTheme(t){
+        document.documentElement.setAttribute("data-theme", t);
+        btn.textContent = (t === "light") ? "Dark mode" : "Light mode";
+        localStorage.setItem(key, t);
+      }
+      setTheme(initial);
+
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme") || "dark";
+        setTheme(current === "light" ? "dark" : "light");
+      });
+
+      const copyBtn = document.getElementById("copyLinkBtn");
+      if (copyBtn && navigator.clipboard) {
+        copyBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            copyBtn.textContent = "Copied ✅";
+            setTimeout(() => (copyBtn.textContent = "Copy this link"), 1200);
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+  </html>
