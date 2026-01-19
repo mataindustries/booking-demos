@@ -3,39 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SYA Mobile Detailing — Glendora, CA | Mobile Auto Detailing</title>
-  <meta name="description" content="SYA Mobile Detailing in Glendora, CA. Mobile auto detailing with fast call/text booking. Request a quote in minutes." />
-  <meta name="robots" content="index,follow" />
 
+  <!-- ✅ SEO -->
+  <title>SYA Mobile Detailing — Glendora, CA | Call/Text Fast</title>
+  <meta name="description" content="SYA Mobile Detailing in Glendora, CA. Fast quotes by text. Tap to call, text photos, or request service. English / Español." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://ezbook.pages.dev/sya-mobile-detailing/" />
+
+  <!-- ✅ Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="SYA Mobile Detailing — Glendora, CA" />
-  <meta property="og:description" content="Mobile auto detailing. Tap to call/text. Fast quote requests." />
+  <meta property="og:description" content="Premium mobile detailing, booked in one tap. English / Español." />
+  <meta property="og:url" content="https://ezbook.pages.dev/sya-mobile-detailing/" />
+
+  <meta name="theme-color" content="#10B981" />
+
+  <!-- ✅ LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"AutoRepair",
+    "name":"SYA Mobile Detailing",
+    "telephone":"+16262970684",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Glendora",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "areaServed":["Glendora","San Dimas","Covina","Azusa","La Verne","West Covina","Claremont"],
+    "url":"https://ezbook.pages.dev/sya-mobile-detailing/"
+  }
+  </script>
 
   <style>
     :root{
       --bg:#070A10;
-      --bg2:#0B1220;
       --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.085);
       --text:#EAF0FF;
       --muted: rgba(234,240,255,.72);
       --line: rgba(234,240,255,.14);
-      --shadow: 0 18px 45px rgba(0,0,0,.55);
-      --radius: 18px;
+      --shadow: 0 22px 50px rgba(0,0,0,.55);
+      --radius: 22px;
 
-      --accent:#22C55E;   /* green */
-      --accent2:#60A5FA;  /* blue */
-      --warn:#F59E0B;
+      --green:#10B981;
+      --blue:#60A5FA;
+      --purple:#A78BFA;
+      --amber:#F59E0B;
     }
+
     html[data-theme="light"]{
-      --bg:#F6F8FC;
-      --bg2:#FFFFFF;
-      --card: rgba(15,23,42,.04);
-      --card2: rgba(15,23,42,.06);
+      --bg:#F6F8FF;
+      --card: rgba(255,255,255,.78);
+      --card2: rgba(255,255,255,.92);
       --text:#0F172A;
       --muted: rgba(15,23,42,.70);
       --line: rgba(15,23,42,.12);
-      --shadow: 0 18px 45px rgba(2,6,23,.12);
+      --shadow: 0 22px 50px rgba(2,6,23,.12);
     }
 
     *{box-sizing:border-box}
@@ -44,327 +69,678 @@
       font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       color:var(--text);
       background:
-        radial-gradient(1000px 620px at 15% 10%, rgba(96,165,250,.22), transparent 55%),
-        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.18), transparent 55%),
-        radial-gradient(700px 480px at 40% 95%, rgba(245,158,11,.12), transparent 55%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
+        radial-gradient(1200px 800px at 10% 10%, rgba(16,185,129,.20), transparent 55%),
+        radial-gradient(900px 600px at 90% 25%, rgba(96,165,250,.18), transparent 55%),
+        radial-gradient(700px 520px at 40% 95%, rgba(167,139,250,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg));
       min-height:100vh;
-      padding:22px 14px 90px;
+      padding: 18px 14px 92px;
     }
 
-    .wrap{max-width:940px;margin:0 auto}
-    .top{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      margin-bottom:14px;
+    .wrap{max-width:980px;margin:0 auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+
+    .seg{
+      display:flex;gap:8px;padding:6px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: var(--card);
+      backdrop-filter: blur(12px);
     }
-    .chiprow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .seg button{
+      border:0;background:transparent;
+      padding:8px 10px;border-radius:999px;
+      font-weight:900;font-size:12px;
+      color:var(--muted);cursor:pointer;
+    }
+    .seg button.active{
+      background: var(--card2);
+      color: var(--text);
+      box-shadow: 0 10px 25px rgba(2,6,23,.10);
+    }
+
+    .chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
     .chip{
       border:1px solid var(--line);
       background: var(--card);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color:var(--muted);
-      backdrop-filter: blur(10px);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+      backdrop-filter: blur(12px);
+      white-space:nowrap;
     }
-    button.chip{
-      cursor:pointer;
-      color:var(--muted);
-      font-family:inherit;
-    }
-    button.chip:hover{transform: translateY(-1px)}
+    .chip button{border:0;background:transparent;color:inherit;font:inherit;cursor:pointer;padding:0;margin:0}
 
-    .card{
+    .panel{
       border:1px solid var(--line);
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      overflow:hidden;
     }
 
-    .bizcard{
+    .hero{
+      padding:18px;
       display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-      padding:16px;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
     }
-    .brandrow{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-    }
-    .brandleft{
-      display:flex;align-items:center;gap:12px;min-width:0;
-    }
-    .avatar{
-      width:46px;height:46px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(96,165,250,.65), rgba(34,197,94,.55));
+
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .logo{
+      width:52px;height:52px;border-radius:18px;
+      background: linear-gradient(135deg, rgba(16,185,129,.95), rgba(96,165,250,.80));
       border:1px solid var(--line);
       display:flex;align-items:center;justify-content:center;
-      font-weight:800;letter-spacing:.5px;
-      color:#05101f;
+      box-shadow: 0 14px 35px rgba(16,185,129,.20);
     }
-    html[data-theme="light"] .avatar{color:#0F172A}
-    .bname{
-      display:flex;flex-direction:column;min-width:0;
-    }
+    .logo svg{width:26px;height:26px}
+    .bname{min-width:0}
     .bname strong{
-      font-size:16px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      display:block;
+      font-size:16px;
+      letter-spacing:-.2px;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
-    .bname span{
-      font-size:13px;color:var(--muted);
+    .bname span{display:block;color:var(--muted);font-size:13px}
+
+    .headline{margin-top:10px}
+    .headline h1{
+      margin:8px 0 6px;
+      font-size:30px;
+      line-height:1.05;
+      letter-spacing:-.8px;
     }
-    .pill{
+    .headline p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      max-width:70ch;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    .stat{
       border:1px solid var(--line);
       background: var(--card2);
-      padding:8px 10px;border-radius:999px;
+      border-radius:18px;
+      padding:12px;
+      text-align:center;
+    }
+    .stat strong{display:block;font-size:16px;letter-spacing:-.3px}
+    .stat span{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+
+    .alert{
+      margin-top:10px;
+      border:1px solid rgba(16,185,129,.25);
+      background: linear-gradient(180deg, rgba(16,185,129,.10), var(--card2));
+      border-radius:18px;
+      padding:12px;
+      display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
+    }
+    .alert strong{display:block;font-size:13px}
+    .alert span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+    .badge{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius:999px;
+      padding:7px 10px;
       font-size:12px;color:var(--muted);
-      display:inline-flex;gap:8px;align-items:center;
       white-space:nowrap;
     }
 
-    .headline{
-      margin-top:2px;
+    .ctaBox{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16,185,129,.14), var(--card2));
+      border-radius:22px;
+      padding:14px;
+      display:flex;flex-direction:column;justify-content:space-between;gap:10px;
     }
-    .headline h1{
-      font-size:28px;line-height:1.1;margin:8px 0 6px;letter-spacing:-.6px;
-    }
-    .headline p{
-      margin:0;color:var(--muted);font-size:14px;max-width:70ch;
-    }
+    .ctaBox .big{font-weight:900;font-size:14px}
+    .ctaBox .sub{color:var(--muted);font-size:12px;margin-top:-6px;line-height:1.35}
 
     .actions{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:10px;
-      margin-top:10px;
+      margin-top:8px;
     }
+
     .btn{
+      width:100%;
+      min-height:52px;
       display:flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 12px;border-radius:14px;
+      padding:12px 12px;
+      border-radius:16px;
       border:1px solid var(--line);
-      text-decoration:none;
-      font-weight:700;font-size:14px;
       background: var(--card2);
       color:var(--text);
-
-      width: 100%;
-min-height: 52px;
-text-align: center;
-    }
-    .btn.primary{
-      border-color: rgba(34,197,94,.45);
-      background: linear-gradient(180deg, rgba(34,197,94,.20), var(--card2));
-    }
-    .btn.secondary{
-      border-color: rgba(96,165,250,.45);
-      background: linear-gradient(180deg, rgba(96,165,250,.18), var(--card2));
+      text-decoration:none;
+      font-weight:900;
+      font-size:14px;
+      text-align:center;
+      cursor:pointer;
+      user-select:none;
     }
     .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border-color: rgba(16,185,129,.55);
+      background: linear-gradient(180deg, rgba(16,185,129,.22), var(--card2));
+    }
+    .btn.secondary{
+      border-color: rgba(96,165,250,.50);
+      background: linear-gradient(180deg, rgba(96,165,250,.18), var(--card2));
+    }
+    .btn.ghost{background: var(--card);}
+
     .btn.full{grid-column: 1 / -1}
 
     .grid{
+      margin-top:12px;
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap:12px;
-      margin-top:12px;
     }
     .col-7{grid-column: span 7}
     .col-5{grid-column: span 5}
+
     .section{padding:14px}
-    .section h2{margin:0 0 8px;font-size:15px}
-    .muted{color:var(--muted);font-size:13px;margin:0}
+    .section h2{margin:0 0 8px;font-size:15px;letter-spacing:-.2px}
+    .section p{margin:0;color:var(--muted);font-size:13px}
 
-    .list{
-      margin:10px 0 0;padding-left:16px;color:var(--text);
-    }
-    .list li{margin:7px 0;color:var(--muted);font-size:13px}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .tag{
-      padding:7px 10px;border-radius:999px;
-      border:1px solid var(--line);
-      background: var(--card2);
-      font-size:12px;color:var(--muted);
-    }
-
-    .packages{
+    .serviceGrid{
+      margin-top:10px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap:10px;
-      margin-top:10px;
     }
-    .pkg{
+    .svc{
       border:1px solid var(--line);
       background: var(--card2);
-      border-radius: 16px;
+      border-radius:18px;
       padding:12px;
+      display:flex;gap:10px;align-items:flex-start;
     }
-    .pkg strong{display:block;font-size:13px}
-    .pkg span{display:block;margin-top:5px;color:var(--muted);font-size:12px}
+    .ico{
+      width:34px;height:34px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(16,185,129,.16), rgba(96,165,250,.16));
+      flex:0 0 auto;
+    }
+    .ico svg{width:18px;height:18px;opacity:.95}
+    .svc strong{display:block;font-size:13px}
+    .svc span{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.35}
+
+    .quoteCard{
+      margin-top:10px;
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius:18px;
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .field{
+      display:flex;gap:10px;align-items:center;
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius:16px;
+      padding:10px 12px;
+    }
+    .field input,.field textarea{
+      width:100%;
+      border:0;outline:none;
+      background:transparent;
+      color:var(--text);
+      font-size:13px;
+      font-family:inherit;
+    }
+    .field textarea{min-height:64px;resize:none}
+    .small{font-size:12px;color:var(--muted);margin:0}
+
+    .footerNote{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:8px 10px;border-radius:999px;
+      color:var(--muted);font-size:12px;
+    }
 
     .sticky{
       position:fixed;left:0;right:0;bottom:0;
       padding:10px 12px;
-      background: rgba(10,14,22,.78);
-      border-top:1px solid var(--line);
-      backdrop-filter: blur(12px);
       padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      border-top:1px solid var(--line);
+      background: rgba(10,14,22,.78);
+      backdrop-filter: blur(14px);
     }
-    html[data-theme="light"] .sticky{background: rgba(246,248,252,.88)}
+    html[data-theme="light"] .sticky{
+      background: rgba(246,248,255,.92);
+    }
     .sticky .inner{
-      max-width:940px;margin:0 auto;
+      max-width:980px;margin:0 auto;
       display:flex;gap:10px;
     }
     .sticky .btn{flex:1}
 
-    @media (max-width: 860px){
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr}
+    }
+    @media (max-width: 560px){
+      .serviceGrid{grid-template-columns: 1fr}
       .col-7,.col-5{grid-column: span 12}
     }
     @media (max-width: 380px){
-  .actions{grid-template-columns: 1fr}
+      .actions{grid-template-columns: 1fr}
+      .stats{grid-template-columns: 1fr}
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"AutoWash",
-    "name":"SYA Mobile Detailing",
-    "telephone":"+16267333978",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Glendora",
-      "addressRegion":"CA",
-      "addressCountry":"US"
-    },
-    "areaServed":["Glendora","San Dimas","Covina","Azusa","La Verne","West Covina","Claremont"],
-    "url":"https://ezbook.pages.dev/sya-mobile-detailing/",
-    "sameAs":[]
-  }
-  </script>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="top">
-      <div class="chiprow">
-        <div class="chip">Demo preview</div>
+
+    <!-- Top controls -->
+    <div class="topbar">
+      <div class="seg" aria-label="Language switch">
+        <button id="langEN" class="active" type="button">English</button>
+        <button id="langES" type="button">Español</button>
+      </div>
+
+      <div class="chips">
+        <div class="chip"><span data-i18n="demo">Demo preview</span></div>
         <div class="chip">5.0 ★ (3)</div>
-        <div class="chip">Mobile service</div>
-      </div>
-      <div class="chiprow">
-        <button class="chip" id="themeToggle" type="button">Light mode</button>
+        <div class="chip"><button id="themeToggle" type="button"><span data-i18n="mode">Dark/Light</span></button></div>
       </div>
     </div>
 
-    <div class="card bizcard">
-      <div class="brandrow">
-        <div class="brandleft">
-          <div class="avatar">SYA</div>
-          <div class="bname">
-            <strong>SYA Mobile Detailing</strong>
-            <span>Glendora, CA • We come to you</span>
+    <!-- HERO -->
+    <div class="panel">
+      <div class="hero">
+
+        <!-- Left -->
+        <div>
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 14c2 2 6 2 8 0" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
+                <path d="M6 9h12" stroke="rgba(255,255,255,.92)" stroke-width="2" opacity=".9"/>
+                <path d="M8 5h8" stroke="rgba(255,255,255,.92)" stroke-width="2" opacity=".7"/>
+              </svg>
+            </div>
+            <div class="bname">
+              <strong id="bizName">SYA Mobile Detailing</strong>
+              <span data-i18n="subtitle">Mobile detailing • We come to you • Glendora, CA</span>
+            </div>
+          </div>
+
+          <div class="headline">
+            <h1 data-i18n="headline">Premium detailing, booked in one tap.</h1>
+            <p data-i18n="subhead">Use this as your digital business card: customers can call, text photos for a quote, or request service instantly.</p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong data-i18n="statA">Fast</strong>
+              <span data-i18n="statA2">Quotes</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="statB">Mobile</strong>
+              <span data-i18n="statB2">Service</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="statC">Text OK</strong>
+              <span data-i18n="statC2">Photos welcome</span>
+            </div>
+          </div>
+
+          <div class="alert">
+            <div>
+              <strong data-i18n="alertTitle">Fastest quote: text ZIP + vehicle + photos.</strong>
+              <span data-i18n="alertSub">Example: “91740 sedan interior refresh” + 2 pics</span>
+            </div>
+            <div class="badge" data-i18n="badge">Fast quote</div>
           </div>
         </div>
-        <div class="pill">Fast quotes • Text photos</div>
-      </div>
 
-      <div class="headline">
-        <h1>Premium mobile detailing, booked in one tap.</h1>
-        <p>Use this link as your digital business card: customers can call, text photos for a quote, or request service quickly.</p>
-      </div>
+        <!-- Right CTA -->
+        <div class="ctaBox">
+          <div>
+            <div class="big" data-i18n="ctaTitle">Call / Text for Quote</div>
+            <div class="sub" data-i18n="ctaSub">Quick scheduling. Clear pricing. Quality work.</div>
+          </div>
 
-      <div class="actions">
-        <a class="btn primary" href="tel:+16267333978">Call now</a>
-        <a class="btn secondary" href="sms:+16267333978?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20I%27d%20like%20a%20quote.%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Can%20I%20text%20photos%3F">Text for quote</a>
-        <a class="btn full" href="https://www.google.com/search?q=SYA+Mobile+Detailing+Glendora+reviews" target="_blank" rel="noopener">View Google reviews</a>
+          <div class="actions">
+            <a class="btn primary" id="callBtn" href="tel:+16262970684">
+              <span aria-hidden="true">📞</span><span data-i18n="callNow">Call now</span>
+            </a>
+            <a class="btn secondary" id="textBtn" href="sms:+16262970684?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Service%3A%20____.%20Can%20you%20quote%20me%3F">
+              <span aria-hidden="true">💬</span><span data-i18n="textNow">Text for quote</span>
+            </a>
+
+            <a class="btn ghost full" id="reviewsBtn" href="https://www.google.com/search?q=SYA+Mobile+Detailing+Glendora+reviews" target="_blank" rel="noopener">
+              <span aria-hidden="true">⭐</span><span data-i18n="reviews">View Google reviews</span>
+            </a>
+
+            <a class="btn ghost full" id="copyBtnTop" href="#">
+              <span aria-hidden="true">🔗</span><span data-i18n="copyTop">Copy this link</span>
+            </a>
+          </div>
+
+          <p class="small" data-i18n="micro">Tip: Put this link on your Google Business Profile “Website”.</p>
+        </div>
+
       </div>
     </div>
 
+    <!-- CONTENT -->
     <div class="grid">
-      <div class="card section col-7">
-        <h2>Popular services</h2>
-        <p class="muted">A clean menu makes it easy for customers to choose fast.</p>
 
-        <div class="packages">
-          <div class="pkg">
-            <strong>Quick Exterior Wash</strong>
-            <span>Foam wash + dry + shine</span>
+      <!-- Services -->
+      <div class="panel section col-7">
+        <h2 data-i18n="servicesTitle">Popular services</h2>
+        <p data-i18n="servicesSub">A clean menu makes it easy for customers to choose fast.</p>
+
+        <div class="serviceGrid">
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 18c6 0 10-4 16-12" stroke="currentColor" stroke-width="2" opacity=".9"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc1">Quick Exterior Wash</strong>
+              <span data-i18n="svc1b">Foam wash + dry + shine</span>
+            </div>
           </div>
-          <div class="pkg">
-            <strong>Interior Refresh</strong>
-            <span>Vacuum + wipe-down + mats</span>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 18V6h8v12" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                <path d="M10 10h4" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc2">Interior Refresh</strong>
+              <span data-i18n="svc2b">Vacuum + wipe-down + mats</span>
+            </div>
           </div>
-          <div class="pkg">
-            <strong>Full Detail</strong>
-            <span>Interior + exterior deep clean</span>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 12h16" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 4v16" stroke="currentColor" stroke-width="2" opacity=".7"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc3">Full Detail</strong>
+              <span data-i18n="svc3b">Interior + exterior deep clean</span>
+            </div>
           </div>
-          <div class="pkg">
-            <strong>Pet Hair / Stains</strong>
-            <span>Add-on for heavy jobs</span>
+
+          <div class="svc">
+            <div class="ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 7l10 10" stroke="currentColor" stroke-width="2"/>
+                <path d="M17 7L7 17" stroke="currentColor" stroke-width="2" opacity=".7"/>
+              </svg>
+            </div>
+            <div>
+              <strong data-i18n="svc4">Pet Hair / Stains</strong>
+              <span data-i18n="svc4b">Add-on for heavy jobs</span>
+            </div>
           </div>
         </div>
 
-        <div class="tags">
-          <div class="tag">Text photos for accurate quotes</div>
-          <div class="tag">Mobile service • We come to you</div>
-          <div class="tag">Fast scheduling</div>
+        <div class="footerNote">
+          <div class="tag" data-i18n="tag1">Mobile service • We come to you</div>
+          <div class="tag" data-i18n="tag2">Text photos for accurate quotes</div>
+          <div class="tag" data-i18n="tag3">Fast scheduling</div>
         </div>
       </div>
 
-      <div class="card section col-5">
-        <h2>Service area</h2>
-        <p class="muted">Glendora • San Dimas • Covina • Azusa • La Verne</p>
-        <ul class="list">
-          <li>Mobile detailing at your home or office</li>
-          <li>Reply with ZIP + vehicle type for fastest quote</li>
-          <li>Same-day availability when possible (confirm by text)</li>
-        </ul>
+      <!-- Quote -->
+      <div class="panel section col-5" id="quote">
+        <h2 data-i18n="quoteTitle">Request service (text)</h2>
+        <p data-i18n="quoteSub">Send the basics and we’ll reply fast.</p>
 
-        <div class="actions" style="margin-top:12px">
-          <a class="btn secondary" href="#" id="copyLinkBtn">Copy this link</a>
-          <a class="btn" href="sms:+16267333978?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Interior%20or%20Full%20Detail%3F%20I%20can%20send%20photos.">Text details</a>
+        <div class="quoteCard">
+          <div class="field"><input id="name" placeholder="Name" aria-label="Name" /></div>
+          <div class="field"><input id="zip" placeholder="ZIP Code" aria-label="ZIP Code" inputmode="numeric" /></div>
+          <div class="field"><input id="vehicle" placeholder="Vehicle (ex: sedan/SUV/truck)" aria-label="Vehicle" /></div>
+          <div class="field"><textarea id="details" placeholder="Service needed (ex: interior refresh)" aria-label="Details"></textarea></div>
+
+          <a class="btn primary" id="textQuoteBtn" href="#">
+            <span aria-hidden="true">📲</span><span data-i18n="sendText">Text request</span>
+          </a>
+
+          <a class="btn secondary" id="copyBtn" href="#">
+            <span aria-hidden="true">🔗</span><span data-i18n="copy">Copy this link</span>
+          </a>
+
+          <p class="small" data-i18n="tip">Best results: ZIP + vehicle type + photos.</p>
+        </div>
+
+        <div class="footerNote">
+          <div class="tag" data-i18n="areaTitle">Service area</div>
+          <div class="tag" data-i18n="areaList">Glendora • San Dimas • Covina • Azusa • La Verne</div>
         </div>
       </div>
+
     </div>
+
   </div>
 
+  <!-- Sticky bottom bar -->
   <div class="sticky">
     <div class="inner">
-      <a class="btn primary" href="tel:+16267333978">Call</a>
-      <a class="btn secondary" href="sms:+16267333978?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Can%20I%20get%20a%20quote%3F">Text</a>
+      <a class="btn primary" id="stickyCall" href="tel:+16262970684">
+        <span aria-hidden="true">📞</span><span data-i18n="call">Call</span>
+      </a>
+      <a class="btn secondary" id="stickyText" href="sms:+16262970684?&body=Hi%20SYA%20Mobile%20Detailing%20%E2%80%94%20My%20ZIP%20is%20____.%20Vehicle%3A%20____.%20Service%3A%20____.%20Can%20you%20quote%20me%3F">
+        <span aria-hidden="true">💬</span><span data-i18n="text">Text</span>
+      </a>
     </div>
   </div>
 
   <script>
-    (function () {
-      const key = "ez_theme";
-      const btn = document.getElementById("themeToggle");
-      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-      const saved = localStorage.getItem(key);
-      const initial = saved || (prefersLight ? "light" : "dark");
+    // ===== EASY EDITS (per client) =====
+    const BUSINESS = {
+      name: "SYA Mobile Detailing",
+      phone: "+16262970684",
+      reviewsQuery: "SYA Mobile Detailing Glendora reviews"
+    };
 
-      function setTheme(t){
-        document.documentElement.setAttribute("data-theme", t);
-        btn.textContent = (t === "light") ? "Dark mode" : "Light mode";
-        localStorage.setItem(key, t);
+    const I18N = {
+      en: {
+        demo:"Demo preview",
+        mode:"Dark/Light",
+        subtitle:"Mobile detailing • We come to you • Glendora, CA",
+        headline:"Premium detailing, booked in one tap.",
+        subhead:"Use this as your digital business card: customers can call, text photos for a quote, or request service instantly.",
+        statA:"Fast", statA2:"Quotes",
+        statB:"Mobile", statB2:"Service",
+        statC:"Text OK", statC2:"Photos welcome",
+        alertTitle:"Fastest quote: text ZIP + vehicle + photos.",
+        alertSub:"Example: “91740 sedan interior refresh” + 2 pics",
+        badge:"Fast quote",
+        ctaTitle:"Call / Text for Quote",
+        ctaSub:"Quick scheduling. Clear pricing. Quality work.",
+        callNow:"Call now",
+        textNow:"Text for quote",
+        reviews:"View Google reviews",
+        copyTop:"Copy this link",
+        micro:"Tip: Put this link on your Google Business Profile “Website”.",
+        servicesTitle:"Popular services",
+        servicesSub:"A clean menu makes it easy for customers to choose fast.",
+        svc1:"Quick Exterior Wash", svc1b:"Foam wash + dry + shine",
+        svc2:"Interior Refresh", svc2b:"Vacuum + wipe-down + mats",
+        svc3:"Full Detail", svc3b:"Interior + exterior deep clean",
+        svc4:"Pet Hair / Stains", svc4b:"Add-on for heavy jobs",
+        tag1:"Mobile service • We come to you",
+        tag2:"Text photos for accurate quotes",
+        tag3:"Fast scheduling",
+        quoteTitle:"Request service (text)",
+        quoteSub:"Send the basics and we’ll reply fast.",
+        sendText:"Text request",
+        copy:"Copy this link",
+        tip:"Best results: ZIP + vehicle type + photos.",
+        areaTitle:"Service area",
+        areaList:"Glendora • San Dimas • Covina • Azusa • La Verne",
+        call:"Call",
+        text:"Text"
+      },
+      es: {
+        demo:"Vista demo",
+        mode:"Oscuro/Claro",
+        subtitle:"Detailing móvil • Vamos contigo • Glendora, CA",
+        headline:"Detailing premium, listo en un toque.",
+        subhead:"Funciona como tarjeta digital: pueden llamar, mandar fotos por texto para cotizar, o pedir servicio al instante.",
+        statA:"Cotiza", statA2:"Rápido",
+        statB:"Servicio", statB2:"Móvil",
+        statC:"Texto", statC2:"Sí",
+        alertTitle:"Cotización más rápida: manda ZIP + carro + fotos.",
+        alertSub:"Ej: “91740 sedan interior refresh” + 2 fotos",
+        badge:"Cotiza rápido",
+        ctaTitle:"Llama / Texto para cotizar",
+        ctaSub:"Agenda rápido. Precios claros. Buen trabajo.",
+        callNow:"Llamar",
+        textNow:"Texto para cotizar",
+        reviews:"Ver reseñas en Google",
+        copyTop:"Copiar link",
+        micro:"Tip: Pon este link en tu Google Business Profile como “Website”.",
+        servicesTitle:"Servicios populares",
+        servicesSub:"Un menú limpio ayuda al cliente a decidir rápido.",
+        svc1:"Lavado Exterior", svc1b:"Espuma + secado + brillo",
+        svc2:"Interior Refresh", svc2b:"Aspirado + limpieza + tapetes",
+        svc3:"Full Detail", svc3b:"Interior + exterior profundo",
+        svc4:"Pelo de mascota / Manchas", svc4b:"Extra para trabajos pesados",
+        tag1:"Servicio móvil • Vamos contigo",
+        tag2:"Manda fotos para cotizar mejor",
+        tag3:"Agenda rápida",
+        quoteTitle:"Pedir servicio (texto)",
+        quoteSub:"Manda lo básico y respondemos rápido.",
+        sendText:"Mandar por texto",
+        copy:"Copiar link",
+        tip:"Mejor: ZIP + tipo de carro + fotos.",
+        areaTitle:"Área de servicio",
+        areaList:"Glendora • San Dimas • Covina • Azusa • La Verne",
+        call:"Llamar",
+        text:"Texto"
       }
-      setTheme(initial);
+    };
 
-      btn.addEventListener("click", () => {
-        const current = document.documentElement.getAttribute("data-theme") || "dark";
-        setTheme(current === "light" ? "dark" : "light");
+    const $ = (s)=>document.querySelector(s);
+
+    function setTheme(t){
+      document.documentElement.setAttribute("data-theme", t);
+      localStorage.setItem("ez_theme", t);
+    }
+
+    function setLang(lang){
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(dict[k]) el.textContent = dict[k];
+      });
+      $("#langEN").classList.toggle("active", lang==="en");
+      $("#langES").classList.toggle("active", lang==="es");
+      localStorage.setItem("ez_lang", lang);
+
+      // lightweight SEO touch
+      if(lang==="es"){
+        document.title = `${BUSINESS.name} — Detailing Móvil (Llama/Texto)`;
+      } else {
+        document.title = `${BUSINESS.name} — Glendora, CA | Call/Text Fast`;
+      }
+    }
+
+    function wire(){
+      $("#bizName").textContent = BUSINESS.name;
+
+      const phone = BUSINESS.phone.replace(/\s+/g,"");
+      const tel = `tel:${phone}`;
+      const smsBase = `sms:${phone}?&body=`;
+
+      $("#callBtn").href = tel;
+      $("#stickyCall").href = tel;
+
+      const enMsg = encodeURIComponent(`Hi ${BUSINESS.name} — My ZIP is ____. Vehicle: ____. Service: ____. Can you quote me?`);
+      $("#textBtn").href = smsBase + enMsg;
+      $("#stickyText").href = smsBase + enMsg;
+
+      $("#reviewsBtn").href = `https://www.google.com/search?q=${encodeURIComponent(BUSINESS.reviewsQuery)}`;
+
+      $("#copyBtnTop").addEventListener("click", async (e)=>{
+        e.preventDefault();
+        try{
+          await navigator.clipboard.writeText(window.location.href);
+          const span = $("#copyBtnTop").querySelector("span[data-i18n='copyTop']");
+          const lang = localStorage.getItem("ez_lang") || "en";
+          span.textContent = "Copied ✅";
+          setTimeout(()=> span.textContent = (lang==="es") ? "Copiar link" : "Copy this link", 1200);
+        }catch(err){
+          alert("Copy failed. Long-press the URL to copy.");
+        }
       });
 
-      const copyBtn = document.getElementById("copyLinkBtn");
-      if (copyBtn && navigator.clipboard) {
-        copyBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          navigator.clipboard.writeText(window.location.href).then(() => {
-            copyBtn.textContent = "Copied ✅";
-            setTimeout(() => (copyBtn.textContent = "Copy this link"), 1200);
-          });
-        });
-      }
+      $("#textQuoteBtn").addEventListener("click",(e)=>{
+        e.preventDefault();
+        const name = ($("#name").value||"").trim();
+        const zip = ($("#zip").value||"").trim();
+        const vehicle = ($("#vehicle").value||"").trim();
+        const details = ($("#details").value||"").trim();
+        const lang = localStorage.getItem("ez_lang") || "en";
+
+        let msg = "";
+        if(lang==="es"){
+          msg = `Hola ${BUSINESS.name} — Nombre: ${name||"____"} | ZIP: ${zip||"____"} | Carro: ${vehicle||"____"} | Servicio: ${details||"____"}.`;
+        } else {
+          msg = `Hi ${BUSINESS.name} — Name: ${name||"____"} | ZIP: ${zip||"____"} | Vehicle: ${vehicle||"____"} | Service: ${details||"____"}.`;
+        }
+        window.location.href = smsBase + encodeURIComponent(msg);
+      });
+
+      $("#copyBtn").addEventListener("click", async (e)=>{
+        e.preventDefault();
+        try{
+          await navigator.clipboard.writeText(window.location.href);
+          const span = $("#copyBtn").querySelector("span[data-i18n='copy']");
+          const lang = localStorage.getItem("ez_lang") || "en";
+          span.textContent = "Copied ✅";
+          setTimeout(()=> span.textContent = (lang==="es") ? "Copiar link" : "Copy this link", 1200);
+        }catch(err){
+          alert("Copy failed. Long-press the URL to copy.");
+        }
+      });
+
+      $("#themeToggle").addEventListener("click", ()=>{
+        const cur = document.documentElement.getAttribute("data-theme") || "dark";
+        setTheme(cur==="dark" ? "light" : "dark");
+      });
+    }
+
+    (function init(){
+      wire();
+      const savedLang = localStorage.getItem("ez_lang") || "en";
+      setLang(savedLang);
+
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const savedTheme = localStorage.getItem("ez_theme") || (prefersDark ? "dark" : "light");
+      setTheme(savedTheme);
+
+      $("#langEN").addEventListener("click", ()=>setLang("en"));
+      $("#langES").addEventListener("click", ()=>setLang("es"));
     })();
   </script>
 </body>
-  </html>
+</html>
