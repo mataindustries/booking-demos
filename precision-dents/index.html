@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Precision Dents | Text Photos for Estimate</title>
+  <meta name="description" content="Paintless dent removal (PDR). Text photos for a fast estimate. Hail damage, door dings, dents, creases." />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Precision Dents | Text Photos for Estimate" />
+  <meta property="og:description" content="Paintless dent removal (PDR). Text photos for a fast estimate. Hail damage, door dings, dents, creases." />
+
+  <meta name="theme-color" content="#60A5FA" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json" id="schemaJson">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Precision Dents",
+    "telephone":"+19093675203",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"La Verne",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "areaServed":["La Verne","San Dimas","Claremont","Pomona","Glendora","Covina"],
+    "url":""
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#070A10;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.085);
+      --text:#EAF0FF;
+      --muted: rgba(234,240,255,.72);
+      --line: rgba(234,240,255,.14);
+      --shadow: 0 22px 50px rgba(0,0,0,.55);
+      --radius: 22px;
+
+      /* tuned for Precision Dents (cool blue primary) */
+      --green:#60A5FA;
+      --blue:#93C5FD;
+      --purple:#A78BFA;
+      --amber:#F59E0B;
+    }
+
+    *{box-sizing:border-box}
+
+    :focus { outline: none; }
+    :focus-visible{
+      outline: 3px solid rgba(255,255,255,.88);
+      outline-offset: 3px;
+    }
+
+    html{ scroll-padding-bottom: 140px; }
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, rgba(96,165,250,.20), transparent 55%),
+        radial-gradient(900px 600px at 90% 25%, rgba(167,139,250,.14), transparent 55%),
+        radial-gradient(700px 520px at 40% 95%, rgba(245,158,11,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg));
+      min-height:100vh;
+      padding: 18px 14px 140px;
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+
+    .skip-link{
+      position:absolute;left:-999px;top:10px;z-index:9999;
+      padding:10px 12px;border-radius:12px;border:1px solid var(--line);
+      background: rgba(10,14,22,.92);color: var(--text);text-decoration:none;font-weight:900;
+    }
+    .skip-link:focus,.skip-link:focus-visible{left: 12px;}
+
+    .sr-only{
+      position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+
+    .seg{
+      display:flex;gap:8px;padding:6px;border:1px solid var(--line);
+      border-radius:999px;background: var(--card);backdrop-filter: blur(12px);
+    }
+    .seg button{
+      border:0;background:transparent;padding:8px 10px;border-radius:999px;
+      font-weight:900;font-size:12px;color:var(--muted);cursor:pointer;
+    }
+    .seg button.active{background: var(--card2);color: var(--text);box-shadow: 0 10px 25px rgba(2,6,23,.10);}
+
+    .chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .chip{
+      border:1px solid var(--line);background: var(--card);
+      padding:8px 10px;border-radius:999px;font-size:12px;color:var(--muted);
+      backdrop-filter: blur(12px);white-space:nowrap;
+    }
+
+    .panel{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow:hidden;
+    }
+
+    .hero{
+      padding:18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .logo{
+      width:52px;height:52px;border-radius:18px;
+      background: linear-gradient(135deg, rgba(96,165,250,.95), rgba(167,139,250,.80));
+      border:1px solid var(--line);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow: 0 14px 35px rgba(96,165,250,.20);
+    }
+    .logo svg{width:26px;height:26px}
+    .bname{min-width:0}
+    .bname strong{display:block;font-size:16px;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .bname span{display:block;color:var(--muted);font-size:13px}
+
+    .headline{margin-top:10px}
+    .headline h1{margin:8px 0 6px;font-size:30px;line-height:1.05;letter-spacing:-.8px;}
+    .headline p{margin:0;color:var(--muted);font-size:14px;max-width:70ch;}
+
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius:18px;
+      padding:12px;
+      text-align:center;
+    }
+    .stat strong{display:block;font-size:16px;letter-spacing:-.3px}
+    .stat span{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+
+    .alert{
+      margin-top:10px;
+      border:1px solid rgba(96,165,250,.28);
+      background: linear-gradient(180deg, rgba(96,165,250,.12), var(--card2));
+      border-radius:18px;
+      padding:12px;
+      display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
+    }
+    .alert strong{display:block;font-size:13px}
+    .alert span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+    .badge{
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius:999px;
+      padding:7px 10px;
+      font-size:12px;color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .ctaBox{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(96,165,250,.14), var(--card2));
+      border-radius:22px;
+      padding:14px;
+      display:flex;flex-direction:column;justify-content:space-between;gap:10px;
+    }
+    .ctaBox .big{font-weight:900;font-size:14px}
+    .ctaBox .sub{color:var(--muted);font-size:12px;margin-top:-6px;line-height:1.35}
+
+    .actions{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .btn{
+      width:100%;
+      min-height:52px;
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: var(--card2);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:900;
+      font-size:14px;
+      text-align:center;
+      cursor:pointer;
+      user-select:none;
+    }
+    button.btn{appearance:none;-webkit-appearance:none;}
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border-color: rgba(96,165,250,.58);
+      background: linear-gradient(180deg, rgba(96,165,250,.22), var(--card2));
+    }
+    .btn.secondary{
+      border-color: rgba(245,158,11,.50);
+      background: linear-gradient(180deg, rgba(245,158,11,.16), var(--card2));
+    }
+    .btn.ghost{background: var(--card);}
+    .btn.full{grid-column: 1 / -1}
+
+    .grid{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .col-7{grid-column: span 7}
+    .col-5{grid-column: span 5}
+
+    .section{padding:14px}
+    .section h2{margin:0 0 8px;font-size:15px;letter-spacing:-.2px}
+    .section p{margin:0;color:var(--muted);font-size:13px}
+
+    .serviceGrid{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .svc{
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius:18px;
+      padding:12px;
+      display:flex;gap:10px;align-items:flex-start;
+    }
+    .ico{
+      width:34px;height:34px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(96,165,250,.16), rgba(245,158,11,.10));
+      flex:0 0 auto;
+    }
+    .ico svg{width:18px;height:18px;opacity:.95}
+    .svc strong{display:block;font-size:13px}
+    .svc span{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.35}
+
+    .quoteCard{
+      margin-top:10px;
+      border:1px solid var(--line);
+      background: var(--card2);
+      border-radius:18px;
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .field{
+      display:flex;gap:10px;align-items:center;
+      border:1px solid var(--line);
+      background: var(--card);
+      border-radius:16px;
+      padding:10px 12px;
+    }
+    .field input,.field textarea{
+      width:100%;
+      border:0;outline:none;background:transparent;color:var(--text);
+      font-size:13px;font-family:inherit;
+    }
+    .field textarea{min-height:64px;resize:none}
+    .small{font-size:12px;color:var(--muted);margin:0}
+
+    .footerNote{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{
+      border:1px solid var(--line);
+      background: var(--card);
+      padding:8px 10px;border-radius:999px;
+      color:var(--muted);font-size:12px;
+    }
+
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;
+      padding:10px 12px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      border-top:1px solid var(--line);
+      background: rgba(10,14,22,.78);
+      backdrop-filter: blur(14px);
+    }
+    .sticky .inner{max-width:980px;margin:0 auto;display:flex;gap:10px;}
+    .sticky .btn{flex:1}
+
+    @media (max-width: 900px){.hero{grid-template-columns: 1fr}}
+    @media (max-width: 560px){.serviceGrid{grid-template-columns: 1fr}.col-7,.col-5{grid-column: span 12}}
+    @media (max-width: 380px){.actions{grid-template-columns: 1fr}.stats{grid-template-columns: 1fr}}
+    @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}.btn:hover{transform:none}}
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="sr-only" id="srStatus" aria-live="polite"></div>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+
+      <div class="topbar">
+        <div class="seg" aria-label="Language switch">
+          <button id="langEN" class="active" type="button" aria-pressed="true">English</button>
+          <button id="langES" type="button" aria-pressed="false">Español</button>
+        </div>
+
+        <div class="chips" aria-label="Business highlights">
+          <div class="chip" id="chipRating">PDR</div>
+          <div class="chip" id="chipArea">La Verne / SGV</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="hero">
+
+          <div>
+            <div class="brand">
+              <div class="logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 15c1.7 1.5 4.3 1.5 6 0" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
+                  <path d="M6 10h12" stroke="rgba(255,255,255,.92)" stroke-width="2" opacity=".9"/>
+                  <path d="M8 6h8" stroke="rgba(255,255,255,.92)" stroke-width="2" opacity=".7"/>
+                </svg>
+              </div>
+              <div class="bname">
+                <strong id="bizName">Precision Dents</strong>
+                <span id="bizLine">Paintless Dent Removal (PDR) • La Verne, CA</span>
+              </div>
+            </div>
+
+            <div class="headline">
+              <h1 data-i18n="headline">Paintless dent removal. Fast estimate.</h1>
+              <p data-i18n="subhead">Text photos for a quick estimate. Hail damage, door dings, dents, and creases.</p>
+            </div>
+
+            <div class="stats" aria-label="Key benefits">
+              <div class="stat">
+                <strong data-i18n="statA">Hail</strong>
+                <span data-i18n="statA2">Damage</span>
+              </div>
+              <div class="stat">
+                <strong data-i18n="statB">Door</strong>
+                <span data-i18n="statB2">Dings</span>
+              </div>
+              <div class="stat">
+                <strong data-i18n="statC">No</strong>
+                <span data-i18n="statC2">Repaint</span>
+              </div>
+            </div>
+
+            <div class="alert" aria-label="Fast quote instructions">
+              <div>
+                <strong id="fastTitle">Fastest estimate: text ZIP + vehicle + 2–3 photos.</strong>
+                <span id="fastExample">Example: 91750 2020 Camry door ding (passenger door) + 3 photos</span>
+              </div>
+              <div class="badge" data-i18n="badge">Text photos</div>
+            </div>
+          </div>
+
+          <div class="ctaBox">
+            <div>
+              <div class="big" data-i18n="ctaTitle">Text photos for an estimate</div>
+              <div class="sub" data-i18n="ctaSub">Include ZIP, vehicle, dent location, and 2–3 photos (wide + close + angle).</div>
+            </div>
+
+            <div class="actions" aria-label="Primary actions">
+              <a class="btn primary" id="callBtn" href="tel:+19093675203">
+                <span aria-hidden="true">📞</span><span data-i18n="callNow">Call</span>
+              </a>
+              <a class="btn secondary" id="textBtn" href="#">
+                <span aria-hidden="true">📸</span><span data-i18n="textNow">Text photos</span>
+              </a>
+
+              <a class="btn ghost full" id="reviewsBtn" href="#" target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">⭐</span><span data-i18n="reviews">View reviews</span>
+              </a>
+
+              <button class="btn ghost full" id="copyBtnTop" type="button">
+                <span aria-hidden="true">🔗</span><span data-i18n="copyTop">Copy link</span>
+              </button>
+            </div>
+
+            <p class="small" data-i18n="micro">Share this link so customers can text photos for an estimate.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <div class="panel section col-7">
+          <h2 data-i18n="servicesTitle">Common repairs</h2>
+          <p data-i18n="servicesSub">Tap “Text photos” and include the dent type + location.</p>
+
+          <div class="serviceGrid" role="list">
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M6 18c6 0 10-4 16-12" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc1">Door dings</strong>
+                <span id="svc1b">Small dents from parking lots and doors</span>
+              </div>
+            </div>
+
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M8 18V6h8v12" stroke="currentColor" stroke-width="2" opacity=".9"/>
+                  <path d="M10 10h4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc2">Hail damage</strong>
+                <span id="svc2b">Multi-dent hail repairs (send wide + close photos)</span>
+              </div>
+            </div>
+
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 12h16" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 4v16" stroke="currentColor" stroke-width="2" opacity=".7"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc3">Dents & creases</strong>
+                <span id="svc3b">Quarter panels, doors, fenders (location matters)</span>
+              </div>
+            </div>
+
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 7l10 10" stroke="currentColor" stroke-width="2"/>
+                  <path d="M17 7L7 17" stroke="currentColor" stroke-width="2" opacity=".7"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc4">Paintless dent removal</strong>
+                <span id="svc4b">Keep original paint when possible (PDR)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footerNote" aria-label="Notes">
+            <div class="tag" id="tag1">Text photos for estimate</div>
+            <div class="tag" id="tag2">Fast response</div>
+            <div class="tag" id="tag3">Hail • Dings • Dents</div>
+          </div>
+        </div>
+
+        <div class="panel section col-5" id="quote">
+          <h2 data-i18n="quoteTitle">Text photos for an estimate</h2>
+          <p data-i18n="quoteSub">ZIP + vehicle + dent location + 2–3 photos.</p>
+
+          <div class="quoteCard" role="form" aria-label="Estimate request">
+            <p class="small" id="quoteHelp">Tip: include a wide photo + close-up + angle shot.</p>
+
+            <label class="sr-only" for="name">Name</label>
+            <div class="field">
+              <input id="name" placeholder="Name" aria-describedby="quoteHelp" autocomplete="name" />
+            </div>
+
+            <label class="sr-only" for="zip">ZIP Code</label>
+            <div class="field">
+              <input id="zip" placeholder="ZIP Code" aria-describedby="quoteHelp" inputmode="numeric" autocomplete="postal-code" />
+            </div>
+
+            <label class="sr-only" for="vehicle">Vehicle</label>
+            <div class="field">
+              <input id="vehicle" placeholder="Vehicle (Year / Make / Model)" aria-describedby="quoteHelp" autocomplete="off" />
+            </div>
+
+            <label class="sr-only" for="details">Details</label>
+            <div class="field">
+              <textarea id="details" placeholder="Dent type + location (door ding / hail / crease). Which panel?" aria-describedby="quoteHelp" autocomplete="off"></textarea>
+            </div>
+
+            <button class="btn primary" id="textQuoteBtn" type="button">
+              <span aria-hidden="true">📲</span><span data-i18n="sendText">Text request</span>
+            </button>
+
+            <button class="btn ghost" id="copyBtn" type="button">
+              <span aria-hidden="true">🔗</span><span data-i18n="copy">Copy link</span>
+            </button>
+
+            <p class="small" id="formTip">After the text opens, attach 2–3 photos before sending.</p>
+          </div>
+
+          <div class="footerNote" aria-label="Service area">
+            <div class="tag" data-i18n="areaTitle">Service area</div>
+            <div class="tag" id="areaList">La Verne • San Dimas • Claremont • Pomona • Glendora • Covina</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sticky" aria-label="Quick actions">
+      <div class="inner">
+        <a class="btn primary" id="stickyCall" href="tel:+19093675203">
+          <span aria-hidden="true">📞</span><span data-i18n="call">Call</span>
+        </a>
+        <a class="btn secondary" id="stickyText" href="#">
+          <span aria-hidden="true">📸</span><span data-i18n="text">Text photos</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /*
+      EDIT ONLY THIS BLOCK PER CLIENT
+    */
+    const CONFIG = {
+      name: "Precision Dents",
+      phone: "+19093675203",
+
+      cityLineEN: "Paintless Dent Removal (PDR) • La Verne, CA",
+      cityLineES: "Eliminación de golpes sin pintar (PDR) • La Verne, CA",
+
+      ratingChip: "PDR",
+      areaChip: "La Verne / SGV",
+
+      serviceAreaEN: "La Verne • San Dimas • Claremont • Pomona • Glendora • Covina",
+      serviceAreaES: "La Verne • San Dimas • Claremont • Pomona • Glendora • Covina",
+
+      fastTitleEN: "Fastest estimate: text ZIP + vehicle + 2–3 photos.",
+      fastTitleES: "Más rápido: manda ZIP + carro + 2–3 fotos.",
+
+      fastExampleEN: "Example: 91750 2020 Camry door ding (passenger door) + 3 photos",
+      fastExampleES: "Ejemplo: 91750 Camry 2020 golpe en puerta (lado pasajero) + 3 fotos",
+
+      formTipEN: "After the text opens, attach 2–3 photos before sending.",
+      formTipES: "Cuando se abra el texto, agrega 2–3 fotos antes de enviarlo.",
+
+      reviewsQuery: "Precision Dents Paintless Dent Repair La Verne reviews",
+
+      servicesEN: [
+        { title: "Door dings", desc: "Parking lot dings and small dents" },
+        { title: "Hail damage", desc: "Multi-dent hail repairs (send wide + close photos)" },
+        { title: "Dents & creases", desc: "Doors, fenders, quarter panels" },
+        { title: "Paintless dent removal", desc: "Keep original paint when possible (PDR)" }
+      ],
+
+      servicesES: [
+        { title: "Golpes de puerta", desc: "Golpes pequeños en estacionamientos" },
+        { title: "Daño por granizo", desc: "Reparación por granizo (fotos abierta + cerca)" },
+        { title: "Golpes y pliegues", desc: "Puertas, salpicaderas, laterales" },
+        { title: "PDR (sin pintar)", desc: "Cuando se puede, sin repintar" }
+      ],
+
+      tagsEN: ["Text photos for estimate", "Fast response", "Hail • Dings • Dents"],
+      tagsES: ["Manda fotos para cotizar", "Respuesta rápida", "Granizo • Golpes • Abolladuras"]
+    };
+
+    const I18N = {
+      en: {
+        headline:"Paintless dent removal. Fast estimate.",
+        subhead:"Text photos for a quick estimate. Hail damage, door dings, dents, and creases.",
+        statA:"Hail", statA2:"Damage",
+        statB:"Door", statB2:"Dings",
+        statC:"No", statC2:"Repaint",
+        badge:"Text photos",
+        ctaTitle:"Text photos for an estimate",
+        ctaSub:"Include ZIP, vehicle, dent location, and 2–3 photos (wide + close + angle).",
+        callNow:"Call",
+        textNow:"Text photos",
+        reviews:"View reviews",
+        copyTop:"Copy link",
+        micro:"Share this link so customers can text photos for an estimate.",
+        servicesTitle:"Common repairs",
+        servicesSub:"Tap “Text photos” and include the dent type + location.",
+        quoteTitle:"Text photos for an estimate",
+        quoteSub:"ZIP + vehicle + dent location + 2–3 photos.",
+        sendText:"Text request",
+        copy:"Copy link",
+        areaTitle:"Service area",
+        call:"Call",
+        text:"Text photos"
+      },
+      es: {
+        headline:"Saca golpes sin pintar. Cotiza rápido.",
+        subhead:"Manda fotos por texto para una cotización rápida. Granizo, golpes de puerta, abolladuras y pliegues.",
+        statA:"Daño", statA2:"Granizo",
+        statB:"Golpes", statB2:"Puerta",
+        statC:"Sin", statC2:"Pintar",
+        badge:"Manda fotos",
+        ctaTitle:"Manda fotos para cotizar",
+        ctaSub:"Incluye ZIP, carro, dónde está el golpe y 2–3 fotos (abierta + cerca + ángulo).",
+        callNow:"Llamar",
+        textNow:"Mandar fotos",
+        reviews:"Ver reseñas",
+        copyTop:"Copiar link",
+        micro:"Comparte este link para que te manden fotos y cotices rápido.",
+        servicesTitle:"Reparaciones comunes",
+        servicesSub:"Toca “Mandar fotos” e incluye tipo de golpe + ubicación.",
+        quoteTitle:"Manda fotos para cotizar",
+        quoteSub:"ZIP + carro + ubicación + 2–3 fotos.",
+        sendText:"Enviar por texto",
+        copy:"Copiar link",
+        areaTitle:"Área de servicio",
+        call:"Llamar",
+        text:"Mandar fotos"
+      }
+    };
+
+    const $ = (s)=>document.querySelector(s);
+    function announce(msg){
+      const el = $("#srStatus");
+      if(!el) return;
+      el.textContent = "";
+      setTimeout(()=>{ el.textContent = msg; }, 10);
+    }
+
+    function isIOS(){
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    function smsHref(phone, body){
+      const p = phone.replace(/\s+/g,"");
+      const encoded = encodeURIComponent(body);
+      return isIOS() ? `sms:${p}&body=${encoded}` : `sms:${p}?&body=${encoded}`;
+    }
+
+    function setLang(lang){
+      const dict = I18N[lang] || I18N.en;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(dict[k]) el.textContent = dict[k];
+      });
+
+      $("#langEN").classList.toggle("active", lang==="en");
+      $("#langES").classList.toggle("active", lang==="es");
+      $("#langEN").setAttribute("aria-pressed", lang==="en" ? "true" : "false");
+      $("#langES").setAttribute("aria-pressed", lang==="es" ? "true" : "false");
+
+      localStorage.setItem("ez_lang", lang);
+
+      if(lang === "es"){
+        $("#bizLine").textContent = CONFIG.cityLineES;
+        $("#fastTitle").textContent = CONFIG.fastTitleES;
+        $("#fastExample").textContent = CONFIG.fastExampleES;
+        $("#areaList").textContent = CONFIG.serviceAreaES;
+        $("#formTip").textContent = CONFIG.formTipES;
+        $("#quoteHelp").textContent = "Tip: manda una foto abierta + una de cerca + una en ángulo.";
+
+        const s = CONFIG.servicesES;
+        $("#svc1").textContent = s[0].title; $("#svc1b").textContent = s[0].desc;
+        $("#svc2").textContent = s[1].title; $("#svc2b").textContent = s[1].desc;
+        $("#svc3").textContent = s[2].title; $("#svc3b").textContent = s[2].desc;
+        $("#svc4").textContent = s[3].title; $("#svc4b").textContent = s[3].desc;
+
+        const t = CONFIG.tagsES;
+        $("#tag1").textContent = t[0];
+        $("#tag2").textContent = t[1];
+        $("#tag3").textContent = t[2];
+
+        document.title = `${CONFIG.name} | Manda fotos para cotizar`;
+      } else {
+        $("#bizLine").textContent = CONFIG.cityLineEN;
+        $("#fastTitle").textContent = CONFIG.fastTitleEN;
+        $("#fastExample").textContent = CONFIG.fastExampleEN;
+        $("#areaList").textContent = CONFIG.serviceAreaEN;
+        $("#formTip").textContent = CONFIG.formTipEN;
+        $("#quoteHelp").textContent = "Tip: include a wide photo + close-up + angle shot.";
+
+        const s = CONFIG.servicesEN;
+        $("#svc1").textContent = s[0].title; $("#svc1b").textContent = s[0].desc;
+        $("#svc2").textContent = s[1].title; $("#svc2b").textContent = s[1].desc;
+        $("#svc3").textContent = s[2].title; $("#svc3b").textContent = s[2].desc;
+        $("#svc4").textContent = s[3].title; $("#svc4b").textContent = s[3].desc;
+
+        const t = CONFIG.tagsEN;
+        $("#tag1").textContent = t[0];
+        $("#tag2").textContent = t[1];
+        $("#tag3").textContent = t[2];
+
+        document.title = `${CONFIG.name} | Text photos for estimate`;
+      }
+    }
+
+    function wire(){
+      $("#bizName").textContent = CONFIG.name;
+      $("#chipRating").textContent = CONFIG.ratingChip;
+      $("#chipArea").textContent = CONFIG.areaChip;
+
+      const phone = CONFIG.phone.replace(/\s+/g,"");
+      const tel = `tel:${phone}`;
+
+      $("#callBtn").href = tel;
+      $("#stickyCall").href = tel;
+
+      const lang = localStorage.getItem("ez_lang") || "en";
+
+      const baseMsgEN =
+`Hi ${CONFIG.name}. I’d like an estimate.
+ZIP: ____.
+Vehicle (Year/Make/Model): ____.
+Dent type: (door ding / hail / crease) ____.
+Dent location (panel): ____.
+I’ll attach 2–3 photos (wide + close + angle).`;
+
+      const baseMsgES =
+`Hola ${CONFIG.name}. Quiero una cotización.
+ZIP: ____.
+Carro (Año/Marca/Modelo): ____.
+Tipo de golpe: (puerta / granizo / pliegue) ____.
+Dónde está (panel): ____.
+Voy a adjuntar 2–3 fotos (abierta + cerca + ángulo).`;
+
+      $("#textBtn").href = smsHref(phone, (lang==="es") ? baseMsgES : baseMsgEN);
+      $("#stickyText").href = smsHref(phone, (lang==="es") ? baseMsgES : baseMsgEN);
+
+      $("#reviewsBtn").href = `https://www.google.com/search?q=${encodeURIComponent(CONFIG.reviewsQuery)}`;
+
+      $("#copyBtnTop").addEventListener("click", async ()=>{
+        try{
+          await navigator.clipboard.writeText(window.location.href);
+          const cur = localStorage.getItem("ez_lang") || "en";
+          announce(cur==="es" ? "Copiado" : "Copied");
+        }catch(err){
+          announce("Copy failed");
+          alert("Copy failed. Copy the URL from your browser.");
+        }
+      });
+
+      $("#copyBtn").addEventListener("click", async ()=>{
+        try{
+          await navigator.clipboard.writeText(window.location.href);
+          const cur = localStorage.getItem("ez_lang") || "en";
+          announce(cur==="es" ? "Copiado" : "Copied");
+        }catch(err){
+          announce("Copy failed");
+          alert("Copy failed. Copy the URL from your browser.");
+        }
+      });
+
+      $("#textQuoteBtn").addEventListener("click", ()=>{
+        const name = ($("#name").value||"").trim();
+        const zip = ($("#zip").value||"").trim();
+        const vehicle = ($("#vehicle").value||"").trim();
+        const details = ($("#details").value||"").trim();
+        const cur = localStorage.getItem("ez_lang") || "en";
+
+        let msg = "";
+        if(cur === "es"){
+          msg =
+`Hola ${CONFIG.name}. Nombre: ${name||"____"} | ZIP: ${zip||"____"} | Carro: ${vehicle||"____"} | Detalles: ${details||"____"}.
+Adjunto 2–3 fotos (abierta + cerca + ángulo).`;
+        } else {
+          msg =
+`Hi ${CONFIG.name}. Name: ${name||"____"} | ZIP: ${zip||"____"} | Vehicle: ${vehicle||"____"} | Details: ${details||"____"}.
+I’ll attach 2–3 photos (wide + close + angle).`;
+        }
+        window.location.href = smsHref(phone, msg);
+      });
+
+      // Update schema
+      try{
+        const schema = {
+          "@context":"https://schema.org",
+          "@type":"LocalBusiness",
+          "name": CONFIG.name,
+          "telephone": CONFIG.phone,
+          "address":{
+            "@type":"PostalAddress",
+            "addressLocality":"La Verne",
+            "addressRegion":"CA",
+            "addressCountry":"US"
+          },
+          "areaServed": (CONFIG.serviceAreaEN || "").split("•").map(s=>s.trim()).filter(Boolean),
+          "url": window.location.href
+        };
+        $("#schemaJson").textContent = JSON.stringify(schema, null, 2);
+      }catch(e){}
+    }
+
+    (function init(){
+      wire();
+      const savedLang = localStorage.getItem("ez_lang") || "en";
+      setLang(savedLang);
+
+      $("#langEN").addEventListener("click", ()=>{
+        setLang("en");
+        wire();
+      });
+      $("#langES").addEventListener("click", ()=>{
+        setLang("es");
+        wire();
+      });
+    })();
+  </script>
+</body>
+</html>
