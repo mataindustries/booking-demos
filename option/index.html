@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Fast Quotes | Call or Text</title>
+  <meta name="description" content="Fast quotes and easy booking. Tap to call, tap to text, or request a quote." />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fast Quotes | Call or Text" />
+  <meta property="og:description" content="Tap to call, tap to text, or request a quote." />
+
+  <meta name="theme-color" content="#10B981" />
+  <meta name="color-scheme" content="dark" />
+
+  <script type="application/ld+json" id="schemaJson">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Service Business",
+    "telephone":"+10000000000",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Glendora",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "areaServed":["Glendora","San Dimas","Covina","Azusa","La Verne"],
+    "url":""
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0B0D0F;
+      --surface: #141618;
+      --surface2: #1C1F22;
+      --border: rgba(255,255,255,.09);
+      --border2: rgba(255,255,255,.14);
+      --text: #F0F2F5;
+      --muted: rgba(240,242,245,.55);
+      --muted2: rgba(240,242,245,.35);
+      --green: #10B981;
+      --green-dim: rgba(16,185,129,.15);
+      --green-border: rgba(16,185,129,.30);
+      --blue: #3B82F6;
+      --blue-dim: rgba(59,130,246,.15);
+      --blue-border: rgba(59,130,246,.28);
+      --amber: #F59E0B;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :focus { outline: none; }
+    :focus-visible { outline: 2px solid rgba(255,255,255,.7); outline-offset: 2px; }
+
+    html { scroll-padding-bottom: 130px; }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 20px 14px 130px;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 10px;
+      z-index: 9999;
+      padding: 10px 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .skip-link:focus, .skip-link:focus-visible { left: 12px; }
+
+    .wrap { max-width: 960px; margin: 0 auto; }
+
+    /* ── Top bar ── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: .01em;
+      white-space: nowrap;
+    }
+
+    /* ── Main card ── */
+    .card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 0;
+    }
+    .hero-left {
+      padding: 24px;
+      border-right: 1px solid var(--border);
+    }
+    .hero-right {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* Brand */
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo {
+      width: 46px; height: 46px;
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      display: flex; align-items: center; justify-content: center;
+      flex: 0 0 auto;
+    }
+    .logo svg { width: 22px; height: 22px; }
+    .bname strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -.1px;
+    }
+    .bname span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    /* Headline */
+    .headline { margin-top: 18px; }
+    .headline h1 {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.04;
+      letter-spacing: -.8px;
+      margin-bottom: 8px;
+    }
+    .headline p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 52ch;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 20px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+    .stat {
+      background: var(--surface2);
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .stat strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -.2px;
+    }
+    .stat span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* Alert bar */
+    .alert {
+      margin-top: 14px;
+      border: 1px solid var(--green-border);
+      background: var(--green-dim);
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .alert strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .alert em {
+      display: block;
+      font-style: normal;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .badge-label {
+      border: 1px solid var(--green-border);
+      background: transparent;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* CTA box */
+    .cta-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted2);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 10px;
+    }
+    .cta-heading {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.2px;
+      line-height: 1.3;
+    }
+    .cta-sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* Buttons */
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      width: 100%;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 14px;
+      border: 1px solid var(--border2);
+      background: var(--surface2);
+      color: var(--text);
+      text-decoration: none;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background .12s, border-color .12s;
+      letter-spacing: -.1px;
+    }
+    button.btn { appearance: none; -webkit-appearance: none; }
+    .btn:hover { background: var(--surface2); border-color: var(--border2); filter: brightness(1.12); }
+    .btn:active { transform: scale(.99); }
+
+    .btn.primary {
+      border-color: var(--green-border);
+      background: var(--green-dim);
+      color: #fff;
+    }
+    .btn.primary:hover { background: rgba(16,185,129,.22); }
+
+    .btn.secondary {
+      border-color: var(--blue-border);
+      background: var(--blue-dim);
+      color: #fff;
+    }
+    .btn.secondary:hover { background: rgba(59,130,246,.22); }
+
+    .btn.ghost {
+      background: transparent;
+      border-color: var(--border);
+    }
+    .btn.full { grid-column: 1 / -1; }
+
+    .btn-icon {
+      width: 18px; height: 18px;
+      opacity: .85;
+      flex: 0 0 auto;
+    }
+
+    .share-note {
+      font-size: 11px;
+      color: var(--muted2);
+      text-align: center;
+      margin-top: 6px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── Grid below hero ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 1px;
+      margin-top: 1px;
+      background: var(--border);
+    }
+
+    .section {
+      background: var(--surface);
+      padding: 22px 24px;
+    }
+
+    .section-header { margin-bottom: 14px; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted2);
+      font-family: 'DM Mono', monospace;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .section h2 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.2px;
+    }
+    .section p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    /* Services grid */
+    .serviceGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .svc {
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      padding: 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .ico {
+      width: 32px; height: 32px;
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ico svg { width: 16px; height: 16px; opacity: .8; }
+    .svc strong { display: block; font-size: 13px; font-weight: 700; }
+    .svc span { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; line-height: 1.35; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+    .tag {
+      border: 1px solid var(--border);
+      background: transparent;
+      padding: 6px 10px;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: .02em;
+    }
+
+    /* Quote form */
+    .quoteForm {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+    }
+    .field {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      padding: 10px 12px;
+    }
+    .field input, .field textarea {
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 13px;
+      font-family: inherit;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--muted2); }
+    .field textarea { min-height: 64px; resize: none; line-height: 1.4; }
+    .form-tip {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: 'DM Mono', monospace;
+      line-height: 1.4;
+    }
+
+    /* Area bar */
+    .area-bar {
+      border-top: 1px solid var(--border);
+      margin-top: 16px;
+      padding-top: 12px;
+    }
+
+    /* ── Sticky bar ── */
+    .sticky {
+      position: fixed; left: 0; right: 0; bottom: 0;
+      padding: 10px 14px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--border2);
+      background: rgba(11,13,15,.90);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .sticky .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+    }
+    .sticky .btn { flex: 1; }
+
+    /* ── Responsive ── */
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { border-right: 0; border-bottom: 1px solid var(--border); }
+      .grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .serviceGrid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 360px) {
+      .actions { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+      .btn:active { transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="sr-only" id="srStatus" aria-live="polite"></div>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+
+      <!-- Top chips -->
+      <div class="topbar">
+        <div class="chip" id="chipRating">5.0 ★ Rating</div>
+        <div class="chip" id="chipArea">SGV Area</div>
+      </div>
+
+      <!-- Main card -->
+      <div class="card">
+        <div class="hero">
+
+          <!-- Left: Brand + Headline -->
+          <div class="hero-left">
+            <div class="brand">
+              <div class="logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="6" width="18" height="12" rx="1" stroke="var(--green)" stroke-width="1.75"/>
+                  <path d="M7 10h10M7 14h6" stroke="var(--green)" stroke-width="1.75" stroke-linecap="square"/>
+                </svg>
+              </div>
+              <div class="bname">
+                <strong id="bizName">Service Business</strong>
+                <span id="bizLine">Mobile service — Glendora, CA</span>
+              </div>
+            </div>
+
+            <div class="headline">
+              <h1>Fast quotes.<br>Easy booking.</h1>
+              <p>Call or text for a quote. We reply fast with price and availability.</p>
+            </div>
+
+            <div class="stats" aria-label="Key benefits">
+              <div class="stat">
+                <strong>Fast</strong>
+                <span>Quotes</span>
+              </div>
+              <div class="stat">
+                <strong>Mobile</strong>
+                <span>Service</span>
+              </div>
+              <div class="stat">
+                <strong>Photos</strong>
+                <span>Welcome</span>
+              </div>
+            </div>
+
+            <div class="alert" aria-label="Tip for fastest quote">
+              <div>
+                <strong id="fastTitle">Fastest quote: text ZIP + vehicle + photos.</strong>
+                <em id="fastExample">Example: 91740 sedan interior + 2 photos</em>
+              </div>
+              <div class="badge-label">Quick Quote</div>
+            </div>
+          </div>
+
+          <!-- Right: CTA -->
+          <div class="hero-right">
+            <div>
+              <div class="cta-label">Get a quote</div>
+              <div class="cta-heading">Call or text for a quote</div>
+              <div class="cta-sub">Most customers get the fastest quote by text — just send your ZIP and details.</div>
+            </div>
+
+            <div>
+              <div class="actions" aria-label="Primary actions">
+                <a class="btn primary" id="callBtn" href="tel:+10000000000">
+                  <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                  Call Now
+                </a>
+                <a class="btn secondary" id="textBtn" href="#">
+                  <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"/></svg>
+                  Text for Quote
+                </a>
+
+                <a class="btn ghost full" id="reviewsBtn" href="#" target="_blank" rel="noopener noreferrer">
+                  <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  View Reviews
+                </a>
+
+                <button class="btn ghost full" id="copyBtnTop" type="button">
+                  <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"/></svg>
+                  Copy Link
+                </button>
+              </div>
+              <p class="share-note">Share this link with customers for faster quotes.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom grid -->
+      <div class="grid">
+
+        <!-- Services -->
+        <div class="section">
+          <div class="section-header">
+            <span class="section-label">What we do</span>
+            <h2>Popular Services</h2>
+            <p>Pick a service and send a quick text to get a quote.</p>
+          </div>
+
+          <div class="serviceGrid" role="list">
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d="M3 12s3-7 9-7 9 7 9 7-3 7-9 7-9-7-9-7z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc1">Service 1</strong>
+                <span id="svc1b">Short description</span>
+              </div>
+            </div>
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <rect x="3" y="3" width="18" height="18" rx="1"/>
+                  <path d="M9 9h6M9 12h6M9 15h4"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc2">Service 2</strong>
+                <span id="svc2b">Short description</span>
+              </div>
+            </div>
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc3">Service 3</strong>
+                <span id="svc3b">Short description</span>
+              </div>
+            </div>
+            <div class="svc" role="listitem">
+              <div class="ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 8v4l3 3"/>
+                </svg>
+              </div>
+              <div>
+                <strong id="svc4">Service 4</strong>
+                <span id="svc4b">Short description</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tags" aria-label="Service highlights">
+            <div class="tag" id="tag1">Local service</div>
+            <div class="tag" id="tag2">Fast responses</div>
+            <div class="tag" id="tag3">Text photos for accuracy</div>
+          </div>
+        </div>
+
+        <!-- Quote form -->
+        <div class="section" id="quote">
+          <div class="section-header">
+            <span class="section-label">Get a price</span>
+            <h2>Text Us for a Quote</h2>
+            <p>Send the basics and we will reply fast.</p>
+          </div>
+
+          <div class="quoteForm" role="form" aria-label="Quote request" aria-describedby="quoteHelp">
+            <p class="form-tip" id="quoteHelp">Best results: ZIP + details + photos.</p>
+
+            <label class="sr-only" for="name">Name</label>
+            <div class="field">
+              <input id="name" placeholder="Your name" autocomplete="name" />
+            </div>
+
+            <label class="sr-only" for="zip">ZIP Code</label>
+            <div class="field">
+              <input id="zip" placeholder="ZIP code" inputmode="numeric" autocomplete="postal-code" />
+            </div>
+
+            <label class="sr-only" for="vehicle">Vehicle or Item</label>
+            <div class="field">
+              <input id="vehicle" placeholder="Vehicle / item" autocomplete="off" />
+            </div>
+
+            <label class="sr-only" for="details">Details</label>
+            <div class="field">
+              <textarea id="details" placeholder="What do you need?" autocomplete="off"></textarea>
+            </div>
+
+            <button class="btn primary" id="textQuoteBtn" type="button">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"/></svg>
+              Send via Text
+            </button>
+
+            <button class="btn ghost" id="copyBtn" type="button">
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"/></svg>
+              Copy Page Link
+            </button>
+          </div>
+
+          <div class="area-bar" aria-label="Service area">
+            <p class="form-tip" id="areaList" style="color:var(--muted)">Service area: Glendora • San Dimas • Covina • Azusa • La Verne</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Sticky bottom bar -->
+    <div class="sticky" aria-label="Quick contact">
+      <div class="inner">
+        <a class="btn primary" id="stickyCall" href="tel:+10000000000">
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          Call
+        </a>
+        <a class="btn secondary" id="stickyText" href="#">
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"/></svg>
+          Text for Quote
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /*
+    ====================================
+      EDIT ONLY THIS BLOCK PER CLIENT
+    ====================================
+    */
+    const CONFIG = {
+      name: "SYA Mobile Detailing",
+      phone: "+16262970684",
+      cityLine: "Mobile service — Glendora, CA",
+
+      ratingChip: "5.0 ★ Rating",
+      areaChip: "SGV Area",
+
+      serviceArea: "Service area: Glendora • San Dimas • Covina • Azusa • La Verne",
+
+      fastTitle: "Fastest quote: text ZIP + vehicle + photos.",
+      fastExample: "Example: 91740 sedan interior + 2 photos",
+
+      formTip: "Best results: ZIP + details + photos.",
+
+      reviewsQuery: "SYA Mobile Detailing Glendora reviews",
+
+      services: [
+        { title: "Quick Exterior Wash", desc: "Foam wash and shine" },
+        { title: "Interior Refresh",    desc: "Vacuum and wipe-down" },
+        { title: "Full Detail",         desc: "Deep interior and exterior clean" },
+        { title: "Pet Hair / Stains",   desc: "Add-on for heavy jobs" }
+      ],
+
+      tags: ["Local service", "Fast responses", "Text photos for accuracy"]
+    };
+    /*
+    ====================================
+    */
+
+    const $ = (s) => document.querySelector(s);
+
+    function announce(msg) {
+      const el = $("#srStatus");
+      if (!el) return;
+      el.textContent = "";
+      setTimeout(() => { el.textContent = msg; }, 10);
+    }
+
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    function smsHref(phone, body) {
+      const p = phone.replace(/\s+/g, "");
+      const encoded = encodeURIComponent(body);
+      return isIOS() ? `sms:${p}&body=${encoded}` : `sms:${p}?&body=${encoded}`;
+    }
+
+    function wire() {
+      const phone = CONFIG.phone.replace(/\s+/g, "");
+      const tel = `tel:${phone}`;
+
+      document.title = `${CONFIG.name} | Fast Quote by Call or Text`;
+      $("#bizName").textContent = CONFIG.name;
+      $("#bizLine").textContent = CONFIG.cityLine;
+      $("#chipRating").textContent = CONFIG.ratingChip;
+      $("#chipArea").textContent = CONFIG.areaChip;
+      $("#fastTitle").textContent = CONFIG.fastTitle;
+      $("#fastExample").textContent = CONFIG.fastExample;
+      $("#areaList").textContent = CONFIG.serviceArea;
+      $("#quoteHelp").textContent = CONFIG.formTip;
+
+      const s = CONFIG.services;
+      if (s[0]) { $("#svc1").textContent = s[0].title; $("#svc1b").textContent = s[0].desc; }
+      if (s[1]) { $("#svc2").textContent = s[1].title; $("#svc2b").textContent = s[1].desc; }
+      if (s[2]) { $("#svc3").textContent = s[2].title; $("#svc3b").textContent = s[2].desc; }
+      if (s[3]) { $("#svc4").textContent = s[3].title; $("#svc4b").textContent = s[3].desc; }
+
+      const t = CONFIG.tags;
+      if (t[0]) $("#tag1").textContent = t[0];
+      if (t[1]) $("#tag2").textContent = t[1];
+      if (t[2]) $("#tag3").textContent = t[2];
+
+      const baseMsg = `Hi ${CONFIG.name}. My ZIP is ____. Vehicle/Item: ____. Service: ____. Can you quote me?`;
+      const smsLink = smsHref(phone, baseMsg);
+
+      $("#callBtn").href = tel;
+      $("#stickyCall").href = tel;
+      $("#textBtn").href = smsLink;
+      $("#stickyText").href = smsLink;
+
+      $("#reviewsBtn").href = `https://www.google.com/search?q=${encodeURIComponent(CONFIG.reviewsQuery)}`;
+
+      async function copyLink() {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          announce("Link copied");
+        } catch (e) {
+          announce("Copy failed");
+          alert("Copy failed — copy the URL from your browser address bar.");
+        }
+      }
+
+      $("#copyBtnTop").addEventListener("click", copyLink);
+      $("#copyBtn").addEventListener("click", copyLink);
+
+      $("#textQuoteBtn").addEventListener("click", () => {
+        const name    = ($("#name").value    || "").trim();
+        const zip     = ($("#zip").value     || "").trim();
+        const vehicle = ($("#vehicle").value || "").trim();
+        const details = ($("#details").value || "").trim();
+        const msg = `Hi ${CONFIG.name}. Name: ${name || "____"} | ZIP: ${zip || "____"} | Vehicle/Item: ${vehicle || "____"} | Details: ${details || "____"}.`;
+        window.location.href = smsHref(phone, msg);
+      });
+
+     // Update schema
+      try {
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": CONFIG.name,
+          "telephone": CONFIG.phone,
+          "areaServed": CONFIG.serviceArea.replace("Service area:", "").split("•").map(s => s.trim()).filter(Boolean),
+          "url": window.location.href
+        };
+        $("#schemaJson").textContent = JSON.stringify(schema, null, 2);
+      } catch(e) {}
+    }
+
+    wire();
+  </script>
+</body>
+</html>
