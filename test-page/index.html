@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Fast Quotes | Call or Text</title>
+  <meta name="description" content="Fast quotes and easy booking. Tap to call, tap to text, or request a quote." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f172a" />
+
+  <script type="application/ld+json" id="schemaJson">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Service Business",
+    "telephone":"+10000000000",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Glendora",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "areaServed":["Glendora","San Dimas"],
+    "url":""
+  }
+  </script>
+
+  <style>
+    :root{
+      /* Professional Palette */
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-alt: #F1F5F9;
+      
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      
+      --primary: #0F172A; /* Navy Blue - Trust */
+      --primary-hover: #1E293B;
+      
+      --action: #2563EB; /* Royal Blue - Action */
+      --action-hover: #1D4ED8;
+      
+      --border: #E2E8F0;
+      
+      /* Spacing & Shape */
+      --radius: 6px; /* Squarer edges */
+      --shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg);
+      /* Subtle dot pattern for technical feel */
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 24px 24px;
+      min-height:100vh;
+      padding: 20px 16px 120px;
+    }
+
+    .wrap{max-width:900px; margin:0 auto;}
+
+    /* Utility */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+    a{text-decoration:none; color:inherit;}
+    button{font-family:inherit; cursor:pointer;}
+
+    /* Top Navigation */
+    .topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;}
+    
+    .seg{
+      display:inline-flex; 
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2px;
+    }
+    .seg button{
+      border:0; background:transparent;
+      padding: 6px 12px;
+      font-size:13px; font-weight:600;
+      color: var(--text-muted);
+      border-radius: 4px;
+    }
+    .seg button.active{
+      background: var(--surface-alt);
+      color: var(--text-main);
+      box-shadow: var(--shadow);
+    }
+
+    .chips{display:flex; gap:8px;}
+    .chip{
+      background: var(--primary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: var(--radius);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Main Card Container */
+    .panel{
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    /* Hero Section */
+    .hero{
+      padding: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-header{
+      display:flex; align-items:center; gap:16px; margin-bottom: 24px;
+    }
+    .logo{
+      width: 56px; height: 56px;
+      background: var(--primary);
+      border-radius: var(--radius);
+      display:flex; align-items:center; justify-content:center;
+      color: white;
+    }
+    .logo svg{ width:28px; height:28px; }
+    
+    .bname h1{ 
+      margin:0; font-size:20px; font-weight:800; letter-spacing:-0.5px; 
+    }
+    .bname span{ 
+      display:block; color:var(--text-muted); font-size:14px; margin-top:2px; 
+    }
+
+    .value-props{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .prop{
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: center;
+      border-radius: var(--radius);
+    }
+    .prop strong{ display:block; font-size:14px; color:var(--primary); }
+    .prop span{ display:block; font-size:12px; color:var(--text-muted); margin-top:2px; }
+
+    /* Instructions Alert */
+    .alert-box{
+      background: #EFF6FF; /* Pale Blue */
+      border: 1px solid #DBEAFE;
+      color: #1E40AF;
+      padding: 16px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      display: flex; gap: 12px; align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .alert-box svg{ width:20px; height:20px; flex-shrink:0; margin-top:2px;}
+    .alert-box strong{ display:block; margin-bottom:4px; }
+    .alert-box span{ opacity:0.8; font-size:13px; }
+
+    /* Primary Actions */
+    .actions-grid{
+      display:grid; grid-template-columns: 1fr 1fr; gap:12px;
+    }
+    
+    .btn{
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      width:100%; height:52px;
+      border-radius: var(--radius);
+      font-weight: 700; font-size:15px;
+      transition: background 0.1s;
+      border: 1px solid transparent;
+    }
+    .btn svg{ width:18px; height:18px; }
+
+    .btn.primary{
+      background: var(--action);
+      color: white;
+    }
+    .btn.primary:hover{ background: var(--action-hover); }
+
+    .btn.secondary{
+      background: white;
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+    .btn.secondary:hover{ background: var(--surface-alt); }
+    
+    .btn.full{ grid-column: span 2; height: 44px; font-size:14px; }
+
+    /* Content Grid */
+    .layout-grid{
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+    @media(max-width: 768px){ .layout-grid{ grid-template-columns: 1fr; } }
+
+    .section{ padding: 24px; }
+    .section.border-right{ border-right: 1px solid var(--border); }
+    @media(max-width: 768px){ .section.border-right{ border-right: none; border-bottom: 1px solid var(--border); } }
+
+    h2{ margin:0 0 16px; font-size:16px; font-weight:700; color:var(--text-main); display:flex; align-items:center; gap:8px;}
+    h2 svg{ width:18px; height:18px; color:var(--text-muted); }
+
+    /* Service List */
+    .svc-list{ display:grid; gap:12px; }
+    .svc-item{
+      display:flex; align-items:flex-start; gap:12px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+    }
+    .svc-icon{
+      width:32px; height:32px;
+      background: var(--surface-alt);
+      border-radius: 4px;
+      display:flex; align-items:center; justify-content:center;
+      color: var(--text-muted);
+      flex-shrink:0;
+    }
+    .svc-content strong{ display:block; font-size:14px; margin-bottom:2px;}
+    .svc-content span{ display:block; font-size:13px; color:var(--text-muted); line-height:1.4;}
+
+    /* Quote Form */
+    .form-stack{ display:grid; gap:12px; }
+    .input-group{ position:relative; }
+    .input-group input, .input-group textarea{
+      width:100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text-main);
+      background: #FAFAFA;
+      transition: border 0.2s, background 0.2s;
+    }
+    .input-group textarea{ resize:vertical; min-height:80px; }
+    
+    .input-group input:focus, .input-group textarea:focus{
+      outline:none;
+      border-color: var(--action);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .form-tip{ font-size:12px; color:var(--text-muted); text-align:center; margin-top:8px;}
+
+    /* Sticky Footer */
+    .sticky-bar{
+      position:fixed; bottom:0; left:0; right:0;
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+      z-index: 100;
+    }
+    .sticky-inner{ max-width:900px; margin:0 auto; display:flex; gap:10px; }
+    .sticky-inner .btn{ height: 48px; }
+
+    /* Icons (Generic size) */
+    svg{ stroke-width: 2; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+  </style>
+</head>
+<body>
+
+  <main class="wrap">
+    
+    <div class="topbar">
+      <div class="seg">
+        <button id="langEN" class="active">English</button>
+        <button id="langES">Español</button>
+      </div>
+      <div class="chips">
+        <div class="chip" id="ratingChip">5.0 ★</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      
+      <div class="hero">
+        <div class="brand-header">
+          <div class="logo">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="bname">
+            <h1 id="bizName">Service Business</h1>
+            <span id="bizLine">Mobile Service • Glendora, CA</span>
+          </div>
+        </div>
+
+        <div class="value-props">
+          <div class="prop"><strong data-i18n="statA">Fast</strong><span data-i18n="statA2">Quotes</span></div>
+          <div class="prop"><strong data-i18n="statB">Mobile</strong><span data-i18n="statB2">Service</span></div>
+          <div class="prop"><strong data-i18n="statC">Photos</strong><span data-i18n="statC2">Welcome</span></div>
+        </div>
+
+        <div class="alert-box">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div>
+            <strong id="fastTitle">Fastest quote: text photos.</strong>
+            <span id="fastExample">Please include ZIP and details in your text.</span>
+          </div>
+        </div>
+
+        <div class="actions-grid">
+          <a class="btn primary" id="callBtn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span data-i18n="callNow">Call Now</span>
+          </a>
+          <a class="btn primary" id="textBtn" href="#">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span data-i18n="textNow">Text for Quote</span>
+          </a>
+          <a class="btn secondary full" id="reviewsBtn" href="#" target="_blank">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span data-i18n="reviews">View Reviews</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="layout-grid">
+        
+        <div class="section border-right">
+          <h2 data-i18n="servicesTitle">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Services
+          </h2>
+          <div class="svc-list">
+            <div class="svc-item">
+              <div class="svc-icon"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2v20M2 12h20"/></svg></div>
+              <div class="svc-content">
+                <strong id="svc1">Service 1</strong>
+                <span id="svc1b">Detail</span>
+              </div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-icon"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2v20M2 12h20"/></svg></div>
+              <div class="svc-content">
+                <strong id="svc2">Service 2</strong>
+                <span id="svc2b">Detail</span>
+              </div>
+            </div>
+            <div class="svc-item">
+              <div class="svc-icon"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2v20M2 12h20"/></svg></div>
+              <div class="svc-content">
+                <strong id="svc3">Service 3</strong>
+                <span id="svc3b">Detail</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 data-i18n="quoteTitle">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Text Request
+          </h2>
+          <div class="form-stack">
+            <div class="input-group">
+              <input id="name" placeholder="Your Name" />
+            </div>
+            <div class="input-group">
+              <input id="zip" placeholder="ZIP Code" inputmode="numeric" />
+            </div>
+            <div class="input-group">
+              <input id="vehicle" placeholder="Vehicle / Item" />
+            </div>
+            <div class="input-group">
+              <textarea id="details" placeholder="Details (stains, pet hair, etc)"></textarea>
+            </div>
+            <button class="btn primary" id="textQuoteBtn">
+              <span data-i18n="sendText">Send Text</span>
+            </button>
+            <p class="form-tip" id="formTip">We will reply with a price & time.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div class="sticky-bar">
+    <div class="sticky-inner">
+      <a class="btn primary" id="stickyCall" href="#">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-i18n="call">Call</span>
+      </a>
+      <a class="btn secondary" id="stickyText" href="#">
+        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span data-i18n="text">Text</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    /* CLIENT CONFIG 
+       - Edit this block only -
+    */
+    const CONFIG = {
+      name: "SYA Mobile Detailing",
+      phone: "+16262970684",
+      
+      cityLineEN: "Mobile Service • Glendora, CA",
+      cityLineES: "Servicio a Domicilio • Glendora, CA",
+      
+      reviewsQuery: "SYA Mobile Detailing Glendora reviews",
+
+      servicesEN: [
+        { title: "Quick Exterior", desc: "Foam wash & shine" },
+        { title: "Interior Refresh", desc: "Vacuum & wipe-down" },
+        { title: "Full Detail", desc: "Deep interior & exterior" }
+      ],
+      servicesES: [
+        { title: "Lavado Exterior", desc: "Espuma y brillo" },
+        { title: "Interior Refresh", desc: "Aspirado y limpieza" },
+        { title: "Full Detail", desc: "Limpieza profunda" }
+      ]
+    };
+
+    const I18N = {
+      en: {
+        statA:"Fast", statA2:"Quotes",
+        statB:"Mobile", statB2:"Service",
+        statC:"Photos", statC2:"Welcome",
+        callNow:"Call Now",
+        textNow:"Text for Quote",
+        reviews:"Read Reviews",
+        servicesTitle:"Popular Services",
+        quoteTitle:"Request Quote",
+        sendText:"Send Text Request",
+        call:"Call",
+        text:"Text Us"
+      },
+      es: {
+        statA:"Cotiza", statA2:"Rápido",
+        statB:"Servicio", statB2:"Móvil",
+        statC:"Fotos", statC2:"Sí",
+        callNow:"Llamar",
+        textNow:"Mandar Texto",
+        reviews:"Leer Reseñas",
+        servicesTitle:"Servicios",
+        quoteTitle:"Pedir Cotización",
+        sendText:"Enviar Mensaje",
+        call:"Llamar",
+        text:"Texto"
+      }
+    };
+
+    const $ = (s) => document.querySelector(s);
+    function isIOS(){ return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
+    function smsHref(phone, body){
+      const p = phone.replace(/\s+/g,"");
+      const encoded = encodeURIComponent(body);
+      return isIOS() ? `sms:${p}&body=${encoded}` : `sms:${p}?&body=${encoded}`;
+    }
+
+    function setLang(lang){
+      const dict = I18N[lang] || I18N.en;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(dict[k]) el.textContent = dict[k];
+      });
+      
+      $("#langEN").classList.toggle("active", lang==="en");
+      $("#langES").classList.toggle("active", lang==="es");
+      
+      // Update specific text based on config
+      if(lang === "es"){
+        $("#bizLine").textContent = CONFIG.cityLineES;
+        $("#fastTitle").textContent = "Cotiza rápido: manda fotos";
+        $("#fastExample").textContent = "Incluye tu ZIP y detalles en el texto.";
+        $("#formTip").textContent = "Te respondemos con precio y hora.";
+        const s = CONFIG.servicesES;
+        $("#svc1").textContent = s[0].title; $("#svc1b").textContent = s[0].desc;
+        $("#svc2").textContent = s[1].title; $("#svc2b").textContent = s[1].desc;
+        $("#svc3").textContent = s[2].title; $("#svc2b").textContent = s[2].desc;
+      } else {
+        $("#bizLine").textContent = CONFIG.cityLineEN;
+        $("#fastTitle").textContent = "Fastest quote: text photos.";
+        $("#fastExample").textContent = "Please include ZIP and details.";
+        $("#formTip").textContent = "We will reply with a price & time.";
+        const s = CONFIG.servicesEN;
+        $("#svc1").textContent = s[0].title; $("#svc1b").textContent = s[0].desc;
+        $("#svc2").textContent = s[1].title; $("#svc2b").textContent = s[1].desc;
+        $("#svc3").textContent = s[2].title; $("#svc2b").textContent = s[2].desc;
+      }
+      localStorage.setItem("ez_lang", lang);
+    }
+
+    function init(){
+      $("#bizName").textContent = CONFIG.name;
+      const phone = CONFIG.phone.replace(/\s+/g,"");
+      const tel = `tel:${phone}`;
+      
+      $("#callBtn").href = tel;
+      $("#stickyCall").href = tel;
+      $("#reviewsBtn").href = `https://www.google.com/search?q=${encodeURIComponent(CONFIG.reviewsQuery)}`;
+
+      const savedLang = localStorage.getItem("ez_lang") || "en";
+      setLang(savedLang);
+
+      $("#langEN").addEventListener("click", ()=>setLang("en"));
+      $("#langES").addEventListener("click", ()=>setLang("es"));
+
+      const getTextMsg = () => {
+        const name = ($("#name").value||"").trim();
+        const zip = ($("#zip").value||"").trim();
+        const vehicle = ($("#vehicle").value||"").trim();
+        const details = ($("#details").value||"").trim();
+        const lang = localStorage.getItem("ez_lang") || "en";
+        
+        if(lang === "es") return `Hola ${CONFIG.name}. Nombre: ${name} | ZIP: ${zip} | Carro: ${vehicle} | Detalles: ${details}.`;
+        return `Hi ${CONFIG.name}. Name: ${name} | ZIP: ${zip} | Vehicle: ${vehicle} | Details: ${details}.`;
+      };
+
+      $("#textBtn").addEventListener("click", (e)=>{
+        e.preventDefault();
+        window.location.href = smsHref(phone, getTextMsg());
+      });
+      
+      $("#stickyText").addEventListener("click", (e)=>{
+        e.preventDefault();
+        window.location.href = smsHref(phone, getTextMsg());
+      });
+
+      $("#textQuoteBtn").addEventListener("click", ()=>{
+        window.location.href = smsHref(phone, getTextMsg());
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
+  
