@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Primary SEO -->
+  <title id="metaTitle">Fast Quote by Text or Call</title>
+  <meta id="metaDesc" name="description" content="Fast quotes and easy booking. Tap to call, tap to text, or request a quote." />
+  <meta name="robots" content="index,follow" />
+  <link id="canonicalLink" rel="canonical" href="" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta id="ogTitle" property="og:title" content="Fast Quote by Text or Call" />
+  <meta id="ogDesc" property="og:description" content="Fast quotes and easy booking. Tap to call or text." />
+  <!-- Optional: set in CONFIG.ogImage -->
+  <meta id="ogImage" property="og:image" content="" />
+
+  <!-- Theme -->
+  <meta id="themeColor" name="theme-color" content="#0B0D0F" />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- Schema -->
+  <script type="application/ld+json" id="schemaJson">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Service Business",
+    "telephone":"+10000000000",
+    "address":{"@type":"PostalAddress","addressLocality":"Glendora","addressRegion":"CA","addressCountry":"US"},
+    "areaServed":["Glendora","San Dimas"],
+    "url":""
+  }
+  </script>
+
+  <style>
+    :root{
+      /* Default to dark. Light theme overrides below via [data-theme="light"] */
+      --bg:#0B0D0F;
+      --surface:#141618;
+      --surface2:#1C1F22;
+      --border:rgba(255,255,255,.10);
+      --border2:rgba(255,255,255,.16);
+      --text:#F2F4F7;
+      --muted:rgba(242,244,247,.62);
+      --muted2:rgba(242,244,247,.40);
+
+      --accent:#10B981;
+      --accentDim:rgba(16,185,129,.16);
+      --accentBorder:rgba(16,185,129,.34);
+
+      --blue:#3B82F6;
+      --blueDim:rgba(59,130,246,.16);
+      --blueBorder:rgba(59,130,246,.30);
+
+      --amber:#F59E0B;
+
+      --radius:14px;
+      --radius2:18px;
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    html[data-theme="light"]{
+      --bg:#F8FAFC;
+      --surface:#FFFFFF;
+      --surface2:#F1F5F9;
+      --border:rgba(15,23,42,.12);
+      --border2:rgba(15,23,42,.18);
+      --text:#0F172A;
+      --muted:rgba(15,23,42,.64);
+      --muted2:rgba(15,23,42,.44);
+      --shadow: 0 18px 40px rgba(2,6,23,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-padding-bottom:140px}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      padding:18px 14px 140px;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit}
+    :focus{outline:none}
+    :focus-visible{outline:2px solid rgba(255,255,255,.7); outline-offset:2px}
+    html[data-theme="light"] :focus-visible{outline:2px solid rgba(15,23,42,.55)}
+
+    .sr-only{
+      position:absolute!important;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
+
+    .wrap{max-width:980px;margin:0 auto}
+    .skip{
+      position:absolute;left:-999px;top:12px;z-index:9999;
+      background:var(--surface2);border:1px solid var(--border2);
+      padding:10px 14px;border-radius:12px;font-weight:800;font-size:13px;
+    }
+    .skip:focus,.skip:focus-visible{left:12px}
+
+    /* Top row */
+    .toprow{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:10px;margin-bottom:12px;
+    }
+    .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .chip{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, var(--surface), var(--surface));
+      padding:7px 12px;border-radius:999px;
+      font-size:12px;font-weight:650;color:var(--muted);
+      letter-spacing:.01em;white-space:nowrap;
+    }
+    .chip strong{color:var(--text);font-weight:850}
+    .chip.mono{font-family:var(--mono);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+
+    /* Main card */
+    .card{
+      border:1px solid var(--border);
+      background:var(--surface);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:0;
+    }
+    .heroL{
+      padding:22px 22px 18px;
+      border-right:1px solid var(--border);
+    }
+    .heroR{
+      padding:22px;
+      display:flex;flex-direction:column;justify-content:space-between;gap:14px;
+      background:
+        radial-gradient(900px 240px at 30% 0%, var(--accentDim), transparent 60%),
+        linear-gradient(180deg, transparent, transparent);
+    }
+
+    @media(max-width:860px){
+      .hero{grid-template-columns:1fr}
+      .heroL{border-right:0;border-bottom:1px solid var(--border)}
+    }
+
+    /* Brand */
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:46px;height:46px;border-radius:14px;
+      background:var(--accentDim);
+      border:1px solid var(--accentBorder);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;
+    }
+    .logo svg{width:22px;height:22px;opacity:.95}
+    .bname strong{display:block;font-size:15px;font-weight:900;letter-spacing:-.2px}
+    .bname span{display:block;margin-top:2px;color:var(--muted);font-size:12px}
+
+    /* Headline */
+    .headline{margin-top:16px}
+    .headline h1{
+      margin:0;
+      font-size:34px;font-weight:950;letter-spacing:-1px;line-height:1.03;
+    }
+    .headline p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;line-height:1.55;
+      max-width:60ch;
+    }
+
+    /* Trust row */
+    .trust{
+      margin-top:14px;
+      display:flex;flex-wrap:wrap;gap:8px;
+    }
+    .pill{
+      display:flex;align-items:center;gap:8px;
+      border:1px solid var(--border);
+      background:var(--surface2);
+      padding:8px 10px;border-radius:999px;
+      font-size:12px;color:var(--muted);
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--accent)}
+    .pill b{color:var(--text);font-weight:900}
+
+    /* Quick tip */
+    .tip{
+      margin-top:14px;
+      border:1px solid var(--accentBorder);
+      background:var(--accentDim);
+      padding:12px 14px;border-radius:var(--radius);
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+    }
+    .tip strong{display:block;font-size:13px;font-weight:900}
+    .tip em{display:block;margin-top:2px;font-style:normal;color:var(--muted);font-size:12px;line-height:1.35}
+    .badge{
+      flex:0 0 auto;
+      border:1px solid var(--accentBorder);
+      color:var(--accent);
+      font-family:var(--mono);
+      text-transform:uppercase;
+      font-size:11px;font-weight:800;letter-spacing:.08em;
+      padding:6px 10px;border-radius:999px;
+      background:transparent;
+      white-space:nowrap;
+    }
+
+    /* CTA */
+    .ctaKicker{
+      font-family:var(--mono);
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-size:11px;
+      color:var(--muted2);
+      margin-bottom:8px;
+      font-weight:800;
+    }
+    .ctaTitle{
+      font-size:16px;font-weight:950;letter-spacing:-.3px;line-height:1.25;margin:0;
+    }
+    .ctaSub{
+      margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.4;
+    }
+
+    .actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      margin-top:12px;
+    }
+    .btn{
+      width:100%;
+      min-height:54px;
+      border-radius:16px;
+      border:1px solid var(--border2);
+      background:var(--surface2);
+      color:var(--text);
+      font-weight:950;
+      font-size:14px;
+      letter-spacing:-.1px;
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      cursor:pointer;user-select:none;
+      transition: filter .12s, transform .06s, background .12s, border-color .12s;
+      padding:12px 14px;
+      text-align:center;
+    }
+    .btn:hover{filter:brightness(1.10)}
+    .btn:active{transform:scale(.99)}
+    .btn.primary{border-color:var(--accentBorder);background:var(--accentDim);color:#fff}
+    .btn.secondary{border-color:var(--blueBorder);background:var(--blueDim);color:#fff}
+    .btn.ghost{background:transparent;border-color:var(--border)}
+    .btn.full{grid-column:1 / -1}
+    .ico{width:18px;height:18px;opacity:.9;flex:0 0 auto}
+
+    .micro{
+      margin-top:8px;
+      font-family:var(--mono);
+      color:var(--muted2);
+      font-size:11px;
+      text-align:center;
+      line-height:1.35;
+    }
+
+    /* Lower grid */
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:1px;
+      background:var(--border);
+      margin-top:1px;
+    }
+    .section{
+      background:var(--surface);
+      padding:20px 22px;
+    }
+    @media(max-width:860px){ .grid{grid-template-columns:1fr} }
+
+    .label{
+      font-family:var(--mono);
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-size:11px;
+      color:var(--muted2);
+      font-weight:800;
+    }
+    h2{
+      margin:6px 0 0;
+      font-size:16px;font-weight:950;letter-spacing:-.2px;
+    }
+    .sub{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:13px;line-height:1.45;
+    }
+
+    /* Service chips */
+    .svcChips{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;
+    }
+    .svcChip{
+      border:1px solid var(--border);
+      background:var(--surface2);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+      cursor:pointer;
+      display:flex;align-items:center;gap:8px;
+      max-width:100%;
+    }
+    .svcChip small{
+      color:var(--muted);
+      font-weight:800;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .svcChip.active{
+      border-color:var(--accentBorder);
+      background:var(--accentDim);
+      color:#fff;
+    }
+    .svcChip.active small{color:rgba(255,255,255,.82)}
+
+    /* Quote form */
+    .form{
+      margin-top:14px;
+      display:grid;gap:8px;
+    }
+    .field{
+      border:1px solid var(--border);
+      background:var(--surface2);
+      padding:10px 12px;
+      border-radius:14px;
+      display:flex;gap:10px;align-items:center;
+    }
+    .field input,.field textarea{
+      width:100%;
+      border:0;background:transparent;
+      color:var(--text);
+      font-size:13px;
+      outline:none;
+      font-family:var(--font);
+    }
+    .field textarea{min-height:70px;resize:none;line-height:1.4}
+    .field input::placeholder,.field textarea::placeholder{color:var(--muted2)}
+    html[data-theme="light"] .field input, html[data-theme="light"] .field textarea{color:var(--text)}
+    .help{
+      font-family:var(--mono);
+      font-size:11px;
+      color:var(--muted2);
+      line-height:1.45;
+    }
+
+    .hr{
+      border-top:1px solid var(--border);
+      margin-top:14px;padding-top:12px;
+    }
+
+    /* Sticky bar */
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;z-index:50;
+      border-top:1px solid var(--border2);
+      background: rgba(11,13,15,.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding:10px 14px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    }
+    html[data-theme="light"] .sticky{
+      background: rgba(248,250,252,.90);
+    }
+    .sticky .inner{
+      max-width:980px;margin:0 auto;
+      display:flex;gap:8px;
+    }
+    .sticky .btn{flex:1;min-height:52px}
+
+    /* Toast */
+    .toast{
+      position:fixed;left:50%;transform:translateX(-50%);
+      bottom:88px;z-index:60;
+      background:var(--surface2);
+      border:1px solid var(--border2);
+      padding:10px 12px;border-radius:999px;
+      font-family:var(--mono);
+      font-size:11px;color:var(--muted);
+      display:none;
+      max-width: calc(100vw - 28px);
+      white-space:nowrap;
+      overflow:hidden;text-overflow:ellipsis;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="sr-only" id="srStatus" aria-live="polite"></div>
+  <div class="toast" id="toast"></div>
+
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+
+      <div class="toprow">
+        <div class="chip mono" id="topKicker">FAST QUOTE</div>
+        <div class="chips">
+          <div class="chip" id="chipRating"><strong>5.0 ★</strong> Rating</div>
+          <div class="chip" id="chipArea">Local Area</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hero">
+          <section class="heroL" aria-label="Business overview">
+            <div class="brand">
+              <div class="logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16v10H4z" stroke="currentColor" stroke-width="1.8" opacity=".95"/>
+                  <path d="M7 10h10M7 13h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="bname">
+                <strong id="bizName">Service Business</strong>
+                <span id="bizLine">Mobile service — Glendora, CA</span>
+              </div>
+            </div>
+
+            <div class="headline">
+              <h1 id="heroHeadline">Fast quotes.<br>Easy booking.</h1>
+              <p id="heroSub">Text or call for a quote. We reply quickly with price and availability.</p>
+            </div>
+
+            <div class="trust" aria-label="Trust information">
+              <div class="pill"><span class="dot"></span><b id="pillResp">Fast replies</b><span id="pillResp2">Typically under 15 min</span></div>
+              <div class="pill"><span class="dot"></span><b id="pillHours">Hours</b><span id="pillHours2">Mon–Sat</span></div>
+              <div class="pill"><span class="dot"></span><b id="pillProof">Trusted</b><span id="pillProof2">Local business</span></div>
+            </div>
+
+            <div class="tip" aria-label="Tip for fastest quote">
+              <div>
+                <strong id="fastTitle">Fastest quote: text ZIP + service + photos.</strong>
+                <em id="fastExample">Example: 91740 • Pressure wash driveway • 2 photos</em>
+              </div>
+              <div class="badge" id="fastBadge">Quick Quote</div>
+            </div>
+          </section>
+
+          <aside class="heroR" aria-label="Primary actions">
+            <div>
+              <div class="ctaKicker" id="ctaKicker">Get a quote</div>
+              <p class="ctaTitle" id="ctaTitle">Call or text for a quote</p>
+              <p class="ctaSub" id="ctaSub">Most customers get the fastest quote by text. Send your ZIP and a short description.</p>
+            </div>
+
+            <div>
+              <div class="actions" aria-label="Actions">
+                <a class="btn primary" id="callBtn" href="tel:+10000000000">
+                  <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                  </svg>
+                  <span id="callText">Call Now</span>
+                </a>
+
+                <a class="btn secondary" id="textBtn" href="#">
+                  <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"/>
+                  </svg>
+                  <span id="textText">Text for Quote</span>
+                </a>
+
+                <a class="btn ghost full" id="bookBtn" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">
+                  <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M6 2a1 1 0 011 1v1h6V3a1 1 0 112 0v1h1a2 2 0 012 2v10a2 2 0 01-2 2H3a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 011-1zm12 7H2v7a1 1 0 001 1h14a1 1 0 001-1V9z"/>
+                  </svg>
+                  <span id="bookText">Book Online</span>
+                </a>
+
+                <a class="btn ghost full" id="reviewsBtn" href="#" target="_blank" rel="noopener noreferrer">
+                  <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                  <span id="reviewsText">View Reviews</span>
+                </a>
+
+                <button class="btn ghost" id="copyLinkBtn" type="button">
+                  <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"/>
+                  </svg>
+                  <span>Copy Link</span>
+                </button>
+
+                <button class="btn ghost" id="copyMsgBtn" type="button">
+                  <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M4 4a2 2 0 012-2h6a2 2 0 012 2v2h-2V4H6v10h2v2H6a2 2 0 01-2-2V4z"/>
+                    <path d="M8 8a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z"/>
+                  </svg>
+                  <span>Copy Message</span>
+                </button>
+
+              </div>
+
+              <div class="micro" id="shareNote">Share this link with customers for faster quotes.</div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="grid">
+          <section class="section" aria-label="Services">
+            <div class="label">What we do</div>
+            <h2 id="servicesTitle">Popular services</h2>
+            <p class="sub" id="servicesSub">Tap a service to pre-fill your text. Add details and photos for accuracy.</p>
+
+            <div class="svcChips" id="svcChips" aria-label="Service quick select"></div>
+
+            <div class="hr">
+              <div class="label">Service area</div>
+              <p class="sub" id="areaLine">Glendora • San Dimas • Covina • Azusa • La Verne</p>
+            </div>
+          </section>
+
+          <section class="section" aria-label="Quote builder">
+            <div class="label">Get a price</div>
+            <h2 id="quoteTitle">Text us for a quote</h2>
+            <p class="sub" id="quoteSub">Send the basics and we will reply with price and availability.</p>
+
+            <div class="form" role="form" aria-describedby="quoteHelp">
+              <p class="help" id="quoteHelp">Best results: ZIP + service + details + photos.</p>
+
+              <label class="sr-only" for="qName">Name</label>
+              <div class="field">
+                <input id="qName" placeholder="Your name" autocomplete="name" />
+              </div>
+
+              <label class="sr-only" for="qZip">ZIP code</label>
+              <div class="field">
+                <input id="qZip" placeholder="ZIP code" inputmode="numeric" autocomplete="postal-code" />
+              </div>
+
+              <label class="sr-only" for="qAddr">Address or city (optional)</label>
+              <div class="field">
+                <input id="qAddr" placeholder="Address or city (optional)" autocomplete="street-address" />
+              </div>
+
+              <label class="sr-only" for="qDetails">Details</label>
+              <div class="field">
+                <textarea id="qDetails" placeholder="What do you need? (size, issue, photos available, etc.)" autocomplete="off"></textarea>
+              </div>
+
+              <button class="btn primary" id="sendTextBtn" type="button">
+                <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"/>
+                </svg>
+                <span id="sendTextLabel">Send via Text</span>
+              </button>
+
+              <p class="help" id="finePrint">Tip: attach photos to your text for the fastest and most accurate quote.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky" aria-label="Quick contact">
+      <div class="inner">
+        <a class="btn primary" id="stickyCall" href="tel:+10000000000">
+          <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          <span>Call</span>
+        </a>
+        <a class="btn secondary" id="stickyText" href="#">
+          <svg class="ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd"/>
+          </svg>
+          <span>Text</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /*
+    ==================================================
+      EDIT ONLY THIS BLOCK PER CLIENT
+    ==================================================
+    */
+    const CONFIG = {
+      theme: "dark", // "dark" or "light"
+
+      name: "SYA Mobile Detailing",
+      tagline: "Fast quotes • Easy booking",
+      cityLine: "Mobile service — Glendora, CA",
+
+      phone: "+16262970684",
+
+      ratingChip: "5.0 ★ Rating",
+      areaChip: "SGV Area",
+      serviceAreaLine: "Glendora • San Dimas • Covina • Azusa • La Verne",
+
+      responsePill: "Typically under 15 min",
+      hoursPill: "Mon–Sat",
+      proofPill: "Local business",
+
+      heroHeadline: "Fast quotes.<br>Easy booking.",
+      heroSub: "Text or call for a quote. We reply quickly with price and availability.",
+
+      fastTitle: "Fastest quote: text ZIP + service + photos.",
+      fastExample: "Example: 91740 • Interior detail • 2 photos",
+      fastBadge: "Quick Quote",
+
+      ctaTitle: "Call or text for a quote",
+      ctaSub: "Most customers get the fastest quote by text. Send your ZIP and a short description.",
+
+      reviewsQuery: "SYA Mobile Detailing Glendora reviews",
+
+      bookUrl: "",          // optional (Square/Calendly/etc). Leave "" to hide.
+      bookLabel: "Book Online",
+
+      shareNote: "Share this link with customers for faster quotes.",
+
+      ogImage: "",          // optional full URL to OG image
+
+      services: [
+        { id:"exterior", title:"Quick Exterior", meta:"from $60", desc:"Foam wash & shine" },
+        { id:"interior", title:"Interior Refresh", meta:"from $99", desc:"Vacuum & wipe-down" },
+        { id:"full",     title:"Full Detail", meta:"from $179", desc:"Deep interior & exterior" },
+        { id:"addons",   title:"Pet Hair / Stains", meta:"quote", desc:"For heavy jobs" }
+      ]
+    };
+    /* ================================================== */
+
+    const $ = (s) => document.querySelector(s);
+
+    function announce(msg){
+      const el = $("#srStatus");
+      if(!el) return;
+      el.textContent = "";
+      setTimeout(() => { el.textContent = msg; }, 10);
+    }
+    function toast(msg){
+      const t = $("#toast");
+      if(!t) return;
+      t.textContent = msg;
+      t.style.display = "block";
+      clearTimeout(window.__toastT);
+      window.__toastT = setTimeout(()=>{ t.style.display="none"; }, 1700);
+    }
+
+    function isIOS(){
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+    function smsHref(phone, body){
+      const p = (phone || "").replace(/\s+/g,"");
+      const encoded = encodeURIComponent(body || "");
+      return isIOS() ? `sms:${p}&body=${encoded}` : `sms:${p}?&body=${encoded}`;
+    }
+
+    function qs(){
+      const p = new URLSearchParams(window.location.search);
+      return Object.fromEntries(p.entries());
+    }
+
+    function setMeta(){
+      const title = `${CONFIG.name} | Fast Quote by Text or Call`;
+      const desc  = `Fast quotes and easy booking for ${CONFIG.name}. Tap to call or text for a quote.`;
+
+      document.title = title;
+      $("#metaTitle").textContent = title;
+
+      $("#metaDesc").setAttribute("content", desc);
+      $("#ogTitle").setAttribute("content", title);
+      $("#ogDesc").setAttribute("content", desc);
+
+      const canonical = window.location.href.split("#")[0];
+      $("#canonicalLink").setAttribute("href", canonical);
+
+      if(CONFIG.ogImage){
+        $("#ogImage").setAttribute("content", CONFIG.ogImage);
+      } else {
+        // keep empty so it doesn't point to a broken value
+        $("#ogImage").removeAttribute("content");
+      }
+    }
+
+    function setTheme(){
+      const theme = (CONFIG.theme === "light") ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", theme);
+      $("#themeColor").setAttribute("content", theme === "light" ? "#F8FAFC" : "#0B0D0F");
+    }
+
+    function buildServicesUI(selectedId){
+      const wrap = $("#svcChips");
+      wrap.innerHTML = "";
+      CONFIG.services.forEach((s, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "svcChip" + (s.id === selectedId ? " active" : "");
+        btn.setAttribute("data-svc", s.id);
+        btn.innerHTML = `<span>${escapeHtml(s.title)}</span> <small>${escapeHtml(s.meta || "")}</small>`;
+        btn.addEventListener("click", () => {
+          window.__selectedService = s;
+          document.querySelectorAll(".svcChip").forEach(x => x.classList.remove("active"));
+          btn.classList.add("active");
+          toast(`Selected: ${s.title}`);
+          wireLinks(); // refresh SMS links with selected service
+        });
+        wrap.appendChild(btn);
+        if(idx === 0 && !selectedId && !window.__selectedService) window.__selectedService = s;
+        if(s.id === selectedId) window.__selectedService = s;
+      });
+    }
+
+    function escapeHtml(str){
+      return String(str || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function baseMessage(){
+      const svc = window.__selectedService ? window.__selectedService.title : "____";
+      return `Hi ${CONFIG.name}. My ZIP is ____. Service: ${svc}. Can you quote me?`;
+    }
+
+    function filledMessage(){
+      const name = ($("#qName").value || "").trim() || "____";
+      const zip  = ($("#qZip").value  || "").trim() || "____";
+      const addr = ($("#qAddr").value || "").trim();
+      const det  = ($("#qDetails").value || "").trim() || "____";
+      const svc  = window.__selectedService ? window.__selectedService.title : "____";
+      const where = addr ? ` | Location: ${addr}` : "";
+      return `Hi ${CONFIG.name}. Name: ${name} | ZIP: ${zip}${where} | Service: ${svc} | Details: ${det}.`;
+    }
+
+    function wireLinks(){
+      const phone = (CONFIG.phone || "").replace(/\s+/g,"");
+      const tel = `tel:${phone}`;
+
+      $("#callBtn").href = tel;
+      $("#stickyCall").href = tel;
+
+      const sms = smsHref(phone, baseMessage());
+      $("#textBtn").href = sms;
+      $("#stickyText").href = sms;
+
+      $("#reviewsBtn").href = `https://www.google.com/search?q=${encodeURIComponent(CONFIG.reviewsQuery)}`;
+    }
+
+    async function copyText(text, okMsg){
+      try{
+        await navigator.clipboard.writeText(text);
+        announce(okMsg);
+        toast(okMsg);
+      } catch(e){
+        alert("Copy failed — copy from your browser address bar instead.");
+      }
+    }
+
+    function updateSchema(){
+      try{
+        const schema = {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": CONFIG.name,
+          "telephone": CONFIG.phone,
+          "address": { "@type": "PostalAddress", "addressLocality": (CONFIG.cityLine || "").split("—").pop().trim() || "Local", "addressRegion": "CA", "addressCountry": "US" },
+          "areaServed": (CONFIG.serviceAreaLine || "").split("•").map(x=>x.trim()).filter(Boolean),
+          "url": window.location.href
+        };
+        $("#schemaJson").textContent = JSON.stringify(schema, null, 2);
+      } catch(e){}
+    }
+
+    function hydrate(){
+      setTheme();
+      setMeta();
+
+      $("#bizName").textContent = CONFIG.name;
+      $("#bizLine").textContent = CONFIG.cityLine;
+
+      $("#chipRating").innerHTML = escapeHtml(CONFIG.ratingChip);
+      $("#chipArea").innerHTML = escapeHtml(CONFIG.areaChip);
+
+      $("#pillResp2").textContent = CONFIG.responsePill;
+      $("#pillHours2").textContent = CONFIG.hoursPill;
+      $("#pillProof2").textContent = CONFIG.proofPill;
+
+      $("#heroHeadline").innerHTML = CONFIG.heroHeadline;
+      $("#heroSub").textContent = CONFIG.heroSub;
+
+      $("#fastTitle").textContent = CONFIG.fastTitle;
+      $("#fastExample").textContent = CONFIG.fastExample;
+      $("#fastBadge").textContent = CONFIG.fastBadge;
+
+      $("#ctaTitle").textContent = CONFIG.ctaTitle;
+      $("#ctaSub").textContent = CONFIG.ctaSub;
+
+      $("#areaLine").textContent = CONFIG.serviceAreaLine;
+      $("#shareNote").textContent = CONFIG.shareNote;
+
+      // Optional book button
+      const book = $("#bookBtn");
+      if(CONFIG.bookUrl){
+        book.style.display = "flex";
+        book.href = CONFIG.bookUrl;
+        $("#bookText").textContent = CONFIG.bookLabel || "Book Online";
+      } else {
+        book.style.display = "none";
+      }
+
+      // Preselect service by querystring (?svc=interior)
+      const params = qs();
+      const pre = params.svc || "";
+      buildServicesUI(pre);
+
+      wireLinks();
+      updateSchema();
+
+      $("#copyLinkBtn").addEventListener("click", () => copyText(window.location.href, "Link copied"));
+      $("#copyMsgBtn").addEventListener("click", () => copyText(baseMessage(), "Message copied"));
+
+      $("#sendTextBtn").addEventListener("click", () => {
+        const phone = (CONFIG.phone || "").replace(/\s+/g,"");
+        window.location.href = smsHref(phone, filledMessage());
+      });
+
+      // Also update top "Text for Quote" link when user changes service quickly
+      document.addEventListener("click", (e) => {
+        const b = e.target.closest && e.target.closest("[data-svc]");
+        if(b) wireLinks();
+      });
+    }
+
+    hydrate();
+  </script>
+</body>
+</html>
