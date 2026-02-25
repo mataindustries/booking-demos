@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>{{TITLE}}</title>
-<meta name="description" content="{{META_DESCRIPTION}}" />
-<meta name="keywords" content="{{META_KEYWORDS}}" />
-<meta name="theme-color" content="{{THEME_COLOR}}" />
-<link rel="stylesheet" href="/assets/signature.css">
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <meta name="keywords" content="{{META_KEYWORDS}}" />
+  <meta name="theme-color" content="{{THEME_COLOR}}" />
+  <link rel="stylesheet" href="/assets/signature.css">
 
   <script type="application/ld+json" id="schemaJson">
 {{SCHEMA_JSON}}
@@ -20,371 +20,473 @@
       --bg: #F8FAFC;
       --surface: #FFFFFF;
       --surface-alt: #F1F5F9;
-      
+
       --text-main: #0F172A;
       --text-muted: #64748B;
-      
+
       --primary: #0F172A; /* Navy */
       --primary-hover: #1E293B;
-      
+
       --action: #2563EB; /* Royal Blue */
       --action-hover: #1D4ED8;
-      
-      --accent: #059669; /* Success Green for "Keeps factory paint" */
+
+      --accent: #0EA5E9; /* Sky */
+
       --border: #E2E8F0;
-      
-      --radius: 6px; 
-      --shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+      --shadow: rgba(15, 23, 42, 0.08);
+
+      --radius: 16px;
+      --max-width: 1120px;
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
 
     * { box-sizing: border-box; }
-
+    html, body { height: 100%; }
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-family: var(--font);
+      background: var(--bg);
       color: var(--text-main);
-      background-color: var(--bg);
-      background-image: radial-gradient(var(--border) 1px, transparent 1px);
-      background-size: 24px 24px;
-      min-height: 100vh;
-      padding: 20px 16px 120px;
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    .wrap { max-width: 960px; margin: 0 auto; }
-    a { text-decoration: none; color: inherit; }
-    button { font-family: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
 
-    /* Top Navigation */
-    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    .badge {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 6px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--primary);
-      border-radius: var(--radius);
-      text-transform: uppercase;
-    }
-    .chips { display: flex; gap: 8px; }
-    .chip {
-      background: var(--primary);
-      color: white;
-      padding: 6px 10px;
-      border-radius: var(--radius);
-      font-size: 12px;
-      font-weight: 600;
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 28px 16px 96px; /* bottom padding for sticky bar */
     }
 
-    /* Main Container */
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 32px 24px;
-      border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-    @media(max-width: 850px) { .hero { grid-template-columns: 1fr; } }
-
-    .brand-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
-    .logo {
-      width: 56px; height: 56px;
-      background: var(--primary);
-      border-radius: var(--radius);
-      display: flex; align-items: center; justify-content: center;
-      color: white;
-    }
-    .logo svg { width: 28px; height: 28px; }
-    
-    .bname h1 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
-    .bname span { display: block; color: var(--text-muted); font-size: 14px; margin-top: 2px; }
-
-    .hero-text h2 { margin: 0 0 12px; font-size: 32px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
-    .hero-text p { margin: 0 0 24px; color: var(--text-muted); font-size: 16px; line-height: 1.5; }
-
-    .value-props { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
-    .prop {
-      display: flex; align-items: center; gap: 10px;
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      padding: 12px;
-      border-radius: var(--radius);
-    }
-    .prop svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
-    .prop-text strong { display: block; font-size: 14px; color: var(--primary); }
-    .prop-text span { display: block; font-size: 12px; color: var(--text-muted); }
-
-    /* Image Placeholder - Designed for Before/After */
-    .image-showcase {
-      width: 100%;
-      height: 300px;
-      background: #E2E8F0;
-      border-radius: var(--radius);
-      border: 2px dashed #CBD5E1;
+    /* Top header */
+    .topbar {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--action));
+      box-shadow: 0 8px 20px var(--shadow);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+    .logo svg { width: 22px; height: 22px; fill: #fff; opacity: 0.95; }
+
+    .brand-meta {
+      min-width: 0;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(14, 165, 233, 0.08);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(37, 99, 235, 0.06);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 12px;
+      margin-left: 6px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 8px 0 2px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .actions-top {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+      user-select: none;
+    }
+    .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(15, 23, 42, 0.18); }
+    .btn:active { transform: translateY(0px); }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--action), var(--primary));
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.20);
+    }
+    .btn.primary:hover { background: linear-gradient(135deg, var(--action-hover), var(--primary-hover)); }
+
+    .btn.secondary {
+      background: var(--surface);
+      color: var(--text-main);
+    }
+
+    /* Main hero area */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 16px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 30px var(--shadow);
       overflow: hidden;
     }
-    /* ADD YOUR IMAGE HERE - Instructions */
+
+    .hero-card {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .hero-text h2 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .hero-text p {
+      margin: 8px 0 0;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .value-props {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .prop {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: var(--surface-alt);
+    }
+    .prop svg { width: 18px; height: 18px; stroke: var(--action); }
+    .prop-text { display: grid; gap: 2px; }
+    .prop-text strong { font-size: 13px; }
+    .prop-text span { font-size: 12px; color: var(--text-muted); }
+
+    /* Right image */
+    .image-showcase {
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(37,99,235,0.06));
+    }
     .image-showcase img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      position: absolute;
-      top: 0; left: 0;
-      z-index: 10;
-      /* Remove display:none when you add an image */
-      display: none; 
+      border-radius: 14px;
+      border: 1px dashed rgba(15, 23, 42, 0.18);
+      opacity: 0; /* placeholder */
     }
     .image-placeholder-text {
-      color: #64748B;
+      position: absolute;
+      inset: 16px;
+      border-radius: 14px;
+      border: 1px dashed rgba(15, 23, 42, 0.22);
+      display: grid;
+      place-items: center;
+      padding: 18px;
       text-align: center;
-      font-size: 14px;
-      padding: 20px;
-      z-index: 1;
+      color: rgba(15, 23, 42, 0.62);
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(6px);
     }
-    .image-placeholder-text svg { width: 32px; height: 32px; margin-bottom: 8px; opacity: 0.5; }
+    .image-placeholder-text svg {
+      width: 34px;
+      height: 34px;
+      stroke: rgba(15, 23, 42, 0.55);
+      margin-bottom: 6px;
+    }
 
-    /* Content Layout */
-    .layout-grid { display: grid; grid-template-columns: 1fr 1fr; }
-    @media(max-width: 768px) { .layout-grid { grid-template-columns: 1fr; } }
+    /* Sections below */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
 
-    .section { padding: 32px 24px; }
-    .section.border-right { border-right: 1px solid var(--border); }
-    @media(max-width: 768px) { .section.border-right { border-right: none; border-bottom: 1px solid var(--border); } }
+    .section {
+      padding: 18px;
+    }
 
-    .section-title { margin: 0 0 8px; font-size: 20px; font-weight: 700; color: var(--text-main); }
-    .section-sub { margin: 0 0 20px; font-size: 14px; color: var(--text-muted); line-height: 1.5;}
+    .section-title {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .section-sub {
+      margin: 6px 0 0;
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
 
-    /* Services & SEO Content */
-    .pdr-details {
-      background: white;
+    .border-right {
+      border-right: 1px solid var(--border);
+    }
+
+    /* Quote form */
+    .form-stack {
+      margin-top: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .input-group {
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      margin-bottom: 20px;
-    }
-    .pdr-details h3 { margin: 0 0 10px; font-size: 15px; }
-    .pdr-details ul { margin: 0; padding-left: 20px; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
-    .pdr-details ul li { margin-bottom: 4px; }
-
-    /* Buttons */
-    .btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; min-height: 48px; padding: 10px;
-      border-radius: var(--radius);
-      font-weight: 600; font-size: 15px;
-      transition: all 0.1s;
-      border: 1px solid transparent;
-      user-select: none;
-    }
-    .btn.primary { background: var(--action); color: white; }
-    .btn.primary:hover { background: var(--action-hover); }
-    .btn.secondary { background: white; border-color: var(--border); color: var(--text-main); }
-    .btn.secondary:hover { background: var(--bg); }
-
-    /* Quote Form (PDR Specific) */
-    .form-alert { 
-      background: #EFF6FF; padding: 12px; border-radius: var(--radius); 
-      border: 1px solid #DBEAFE; font-size: 13px; color: #1E40AF; 
-      display: flex; gap: 8px; align-items: flex-start; margin-bottom: 20px;
-    }
-    .form-alert svg { width: 18px; height: 18px; color: #2563EB; flex-shrink: 0; margin-top: 1px;}
-
-    .form-stack { display: grid; gap: 16px; }
-    .input-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--text-main); }
-    
-    .input-group input, .input-group textarea, .input-group select {
-      width: 100%; padding: 12px;
-      border: 1px solid var(--border); border-radius: var(--radius);
-      font-size: 14px; font-family: inherit; color: var(--text-main);
-      background: #FAFAFA; transition: all 0.2s;
-    }
-    .input-group textarea { resize: vertical; min-height: 70px; }
-    .input-group input:focus, .input-group textarea:focus, .input-group select:focus {
-      outline: none; border-color: var(--action); background: white;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      border-radius: 14px;
+      background: var(--surface);
+      padding: 12px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    /* Checkbox for Paint Condition */
-    .checkbox-group { display: flex; align-items: flex-start; gap: 10px; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); background: white;}
-    .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--action); }
-    .checkbox-group label { font-size: 13px; font-weight: 600; color: var(--text-main); cursor: pointer; line-height: 1.4; }
-    .checkbox-group span { display: block; font-size: 12px; font-weight: 400; color: var(--text-muted); margin-top: 2px;}
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 15px;
+      background: transparent;
+      color: var(--text-main);
+      font-family: var(--font);
+    }
 
+    .input-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .form-alert {
+      border: 1px solid rgba(37, 99, 235, 0.24);
+      background: rgba(37, 99, 235, 0.06);
+      border-radius: 14px;
+      padding: 12px 12px;
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      color: rgba(15, 23, 42, 0.85);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .form-alert svg { width: 18px; height: 18px; stroke: var(--action); margin-top: 1px; }
+
+    /* Footer */
+    footer {
+      margin-top: 18px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    /* Sticky bar */
     .sticky-bar {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: white; border-top: 1px solid var(--border);
-      padding: 12px 16px; padding-bottom: calc(12px + env(safe-area-inset-bottom));
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.05); z-index: 100;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(248,250,252,0.86);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      padding: 10px 12px;
     }
-    .sticky-inner { max-width: 960px; margin: 0 auto; display: flex; gap: 10px; }
+    .sticky-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .sticky-inner .btn {
+      width: 100%;
+    }
 
-    svg { stroke-width: 2; stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    /* Mobile */
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .layout-grid { grid-template-columns: 1fr; }
+      .border-right { border-right: none; border-bottom: 1px solid var(--border); }
+    }
   </style>
 </head>
-<body>
 
+<body>
   <main class="wrap">
-    
     <div class="topbar">
-      <div class="badge">{{BADGE}}</div>
-      <div class="chips">
-        <div class="chip">{{CHIP}}</div>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/>
+          </svg>
+        </div>
+
+        <div class="brand-meta">
+          <div>
+            <span class="badge">{{BADGE}}</span>
+            <span class="chip">{{CHIP}}</span>
+          </div>
+          <h1 id="bizName">{{BIZ_NAME}}</h1>
+          <p class="sub" id="bizLine">{{BIZ_LINE}}</p>
+        </div>
+      </div>
+
+      <div class="actions-top">
+        <button class="btn secondary btn--signature" id="copyLinkBtn" type="button">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L18 12"/><path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L6 12"/></svg>
+          Copy Link
+        </button>
+
+        <a class="btn primary btn--signature btn--signature-xl" id="reviewsBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21l2-7.8L2 9h7z"/></svg>
+          Reviews
+        </a>
       </div>
     </div>
 
-    <div class="panel">
-      
-      <div class="hero">
-        
-        <div>
-          <div class="brand-header">
-            <div class="logo">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4l3 3"/></svg>
-            </div>
-            <div class="bname">
-              <h1 id="bizName">{{BIZ_NAME}}</h1>
-              <span id="bizLine">{{BIZ_LINE}}</span>
-            </div>
-          </div>
-
-          <div class="hero-text">
-            <h2>{{HERO_HEADLINE}}</h2>
-            <p>{{HERO_SUBHEAD}}</p>
-          </div>
-
-          <div class="value-props">
-            <div class="prop">
-              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div class="prop-text"><strong>No Painting</strong><span>Keep factory finish</span></div>
-            </div>
-            <div class="prop">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <div class="prop-text"><strong>Mobile Service</strong><span>We come to you</span></div>
-            </div>
-          </div>
+    <div class="hero">
+      <div class="card hero-card">
+        <div class="hero-text">
+          <h2>{{HERO_HEADLINE}}</h2>
+          <p>{{HERO_SUBHEAD}}</p>
         </div>
 
-        <div class="image-showcase">
-          <img src="#" alt="Before and After Paintless Dent Repair" />
-          
-          <div class="image-placeholder-text">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <br/><strong>Image Placeholder</strong><br/>
-            Insert a high-quality "Before & After" photo here to increase trust.
-          </div>
+        <div class="value-props">
+          {{VALUE_PROPS_HTML}}
         </div>
-
       </div>
 
+      <div class="card image-showcase">
+        <img src="#" alt="Before and After service photo" />
+        <div class="image-placeholder-text">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <div>
+            <strong>Image Placeholder</strong><br/>
+            Add a high-quality photo/logo later after purchase.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 18px;">
       <div class="layout-grid">
-        
         <div class="section border-right">
-          <h2 class="section-title">What is PDR?</h2>
-          <p class="section-sub">Paintless Dent Repair (PDR) is the fastest, most affordable way to repair vehicle body damage without the need for traditional body shop methods (bondo, sanding, or repainting).</p>
-
-          <div class="pdr-details">
-            <h3>Common Repairs Include:</h3>
-            <ul>
-              <li>Door Dings & Shopping Cart Dents</li>
-              <li>Sharp Creases in Fenders & Doors</li>
-              <li>Hail Damage Repair</li>
-              <li>Minor Plastic Bumper Indentations</li>
-              <li>Hood & Roof Dents</li>
-            </ul>
-          </div>
-
-          <div class="pdr-details" style="background: var(--surface-alt);">
-            <h3>Why Choose Mobile PDR?</h3>
-            <ul style="list-style: none; padding-left: 0;">
-              <li style="display:flex; gap:8px; margin-bottom:8px;"><svg style="width:16px; color:var(--accent)" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Repairs often take hours, not days.</li>
-              <li style="display:flex; gap:8px; margin-bottom:8px;"><svg style="width:16px; color:var(--accent)" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No risk of paint color mismatch.</li>
-              <li style="display:flex; gap:8px;"><svg style="width:16px; color:var(--accent)" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Maintains vehicle resale value.</li>
-            </ul>
-          </div>
+          {{INFO_SECTION_HTML}}
         </div>
 
         <div class="section">
-          <h2 class="section-title">Text for a Fast Quote</h2>
-          <p class="section-sub">Provide your vehicle details and we will reply quickly with an estimated price.</p>
+          <h2 class="section-title">{{QUOTE_SECTION_TITLE}}</h2>
+          <p class="section-sub">{{QUOTE_SECTION_SUB}}</p>
 
-          <div class="form-alert">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <div><strong>Photos are required for PDR quotes.</strong> You will be prompted to attach them in your text message after clicking send.</div>
-          </div>
+          {{FORM_ALERT_HTML}}
 
           <div class="form-stack">
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-              <div>
-                <label class="input-label" for="zip">ZIP code</label>
-                <div class="input-group"><input id="zip" placeholder="e.g. 91740" inputmode="numeric" /></div>
-              </div>
-              <div>
-                <label class="input-label" for="vehicle">Vehicle (Year/Make/Model)</label>
-                <div class="input-group"><input id="vehicle" placeholder="e.g. 2021 Ford F150" /></div>
-              </div>
-            </div>
+            {{FORM_FIELDS_HTML}}
 
-            <div>
-              <label class="input-label" for="panel">Which panel has the dent?</label>
-              <div class="input-group">
-                <select id="panel">
-                  <option value="">Select an option...</option>
-                  <option value="Door">Door</option>
-                  <option value="Fender">Fender</option>
-                  <option value="Quarter Panel">Quarter Panel</option>
-                  <option value="Hood / Roof">Hood or Roof</option>
-                  <option value="Bumper">Bumper</option>
-                  <option value="Multiple">Multiple Panels / Hail</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="checkbox-group">
-              <input type="checkbox" id="paintDamage" />
-              <label for="paintDamage">
-                The paint is cracked, chipped, or scratched.
-                <span>(Note: True PDR requires the paint to be intact, but we can still evaluate it).</span>
-              </label>
-            </div>
-
-            <button class="btn primary" id="sendTextBtn" style="margin-top: 8px;">
-              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              Create Text Message
+            <button class="btn primary btn--signature btn--signature-xl" id="sendTextBtn" style="margin-top: 8px;">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              {{SEND_TEXT_BUTTON_LABEL}}
             </button>
-            
           </div>
-        </div>
 
+          <footer>
+            This demo page is optimized for fast quotes by text.
+          </footer>
+        </div>
       </div>
     </div>
   </main>
 
   <div class="sticky-bar">
     <div class="sticky-inner">
-      <a class="btn secondary" id="stickyCall" href="#">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call Us
+      <a class="btn secondary btn--signature" id="stickyCall" href="#">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        {{STICKY_CALL_LABEL}}
       </a>
-      <a class="btn primary" id="stickyText" href="#">
-        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Text for Quote
+
+      <a class="btn primary btn--signature btn--signature-xl" id="stickyText" href="#">
+        <svg viewBox="0 0 24 24">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        {{STICKY_TEXT_LABEL}}
       </a>
     </div>
   </div>
@@ -403,6 +505,7 @@
   function buildMessage(){
     let msg = (CONFIG.sms_intro || `Hi ${CONFIG.name}, I need a quote.`) + "\n\n";
 
+    // IMPORTANT: your generated fields must include data-label="..."
     document.querySelectorAll("[data-label]").forEach((el) => {
       const label = el.getAttribute("data-label");
       let value = "";
@@ -426,16 +529,31 @@
 
     $("#stickyText").addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = smsHref(phone, CONFIG.quick_text || `Hi ${CONFIG.name}, I need a quote. Here are photos...`);
+      window.location.href = smsHref(phone, CONFIG.quick_text || `Hi ${CONFIG.name}, I need a quote.`);
     });
 
     $("#sendTextBtn").addEventListener("click", () => {
       window.location.href = smsHref(phone, buildMessage());
     });
+
+    const reviews = $("#reviewsBtn");
+    if (reviews && CONFIG.reviews_url) reviews.href = CONFIG.reviews_url;
+
+    const copyBtn = $("#copyLinkBtn");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          copyBtn.textContent = "Copied!";
+          setTimeout(() => (copyBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L18 12"/><path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L6 12"/></svg> Copy Link`), 900);
+        } catch(e) {
+          alert("Copy failed. Long-press the address bar and copy the link.");
+        }
+      });
+    }
   }
 
   init();
   </script>
 </body>
-                                       </html>
-
+</html>
