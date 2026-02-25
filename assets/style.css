@@ -215,3 +215,19 @@ button.pill{
 button.pill:hover{
   transform: translateY(-1px);
 }
+
+/* Signature CTA: thick + “tap-friendly” */
+.btn--signature {
+  padding: 16px 18px;        /* thick */
+  border-radius: 14px;       /* modern, soft */
+  font-weight: 700;
+  line-height: 1.1;
+  min-height: 52px;          /* thumb target */
+}
+
+/* Optional: even bigger primary button */
+.btn--signature-xl {
+  padding: 18px 20px;
+  border-radius: 16px;
+  min-height: 56px;
+}
