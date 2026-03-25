@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Junk Removal Quote Page</title>
+  <meta name="description" content="Fast junk removal quotes by text. Send photos, your ZIP code, and a few details for a quick reply." />
+  <meta name="theme-color" content="#ff6a00" />
+  <meta name="color-scheme" content="dark" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fast Junk Removal Quotes by Text" />
+  <meta property="og:description" content="Mobile-first quote page for junk hauling and cleanout businesses." />
+
+  <script type="application/ld+json" id="schemaJson">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Junk Removal Business",
+    "telephone":"+10000000000",
+    "areaServed":["Glendora","San Dimas","Covina","Azusa","La Verne"],
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Glendora",
+      "addressRegion":"CA",
+      "addressCountry":"US"
+    },
+    "url":""
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#090909;
+      --surface:#111111;
+      --surface-2:#171717;
+      --surface-3:#1d1d1d;
+      --text:#f5f5f5;
+      --muted:rgba(245,245,245,.70);
+      --muted-2:rgba(245,245,245,.48);
+      --line:rgba(255,255,255,.10);
+      --line-2:rgba(255,255,255,.16);
+      --accent:#ff6a00;
+      --accent-2:#ff8b3d;
+      --accent-dim:rgba(255,106,0,.14);
+      --accent-line:rgba(255,106,0,.28);
+      --ok:#22c55e;
+      --ok-dim:rgba(34,197,94,.14);
+      --ok-line:rgba(34,197,94,.28);
+      --radius:22px;
+      --radius-sm:16px;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-bottom:110px}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,106,0,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(255,255,255,.05), transparent 20%),
+        linear-gradient(180deg,#070707 0%, #0b0b0b 100%);
+      color:var(--text);
+      min-height:100vh;
+      padding:18px 14px 120px;
+    }
+
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    :focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+    .sr-only{
+      position:absolute !important;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
+
+    .wrap{max-width:var(--max);margin:0 auto}
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+    .brand-mini{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .mini-badges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .mini-badge{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      padding:8px 11px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .panel{
+      background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:0;
+    }
+
+    .hero-copy{
+      padding:26px;
+      border-right:1px solid var(--line);
+    }
+
+    .hero-visual{
+      padding:26px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      justify-content:space-between;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--accent-line);
+      background:var(--accent-dim);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.03em;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:clamp(34px,5vw,58px);
+      line-height:.98;
+      letter-spacing:-.04em;
+      font-weight:900;
+      max-width:11ch;
+    }
+
+    .hero-sub{
+      margin-top:14px;
+      max-width:56ch;
+      font-size:16px;
+      line-height:1.55;
+      color:var(--muted);
+    }
+
+    .proof-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .proof-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      min-height:42px;
+      border-radius:999px;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      font-size:13px;
+      font-weight:700;
+      color:var(--text);
+    }
+    .proof-pill small{
+      color:var(--muted-2);
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .cta-stack{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .btn{
+      min-height:62px;
+      border-radius:20px;
+      border:1px solid var(--line-2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 16px;
+      font-size:15px;
+      font-weight:900;
+      letter-spacing:-.01em;
+      transition:transform .08s ease, filter .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:active{transform:translateY(1px) scale(.995)}
+    .btn-primary{
+      background:linear-gradient(180deg,var(--accent-2),var(--accent));
+      border-color:transparent;
+      color:#fff;
+      box-shadow:0 10px 24px rgba(255,106,0,.26);
+    }
+    .btn-secondary{
+      background:rgba(255,255,255,.04);
+      color:#fff;
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--muted);
+    }
+    .btn:hover{filter:brightness(1.05)}
+
+    .micro{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted-2);
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .hero-media{
+      position:relative;
+      min-height:360px;
+      border-radius:26px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.42)),
+        radial-gradient(circle at 15% 20%, rgba(255,106,0,.32), transparent 30%),
+        linear-gradient(140deg, #2a2a2a 0%, #151515 55%, #101010 100%);
+      overflow:hidden;
+    }
+
+    .hero-media.has-image{
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:auto 14px 14px 14px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .overlay-card{
+      background:rgba(10,10,10,.78);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:14px;
+      backdrop-filter:blur(10px);
+    }
+    .overlay-card strong{
+      display:block;
+      font-size:19px;
+      line-height:1;
+      letter-spacing:-.04em;
+      font-weight:900;
+    }
+    .overlay-card span{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.3;
+      font-weight:700;
+    }
+
+    .hero-note{
+      border:1px solid var(--ok-line);
+      background:var(--ok-dim);
+      border-radius:22px;
+      padding:14px 16px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .hero-note strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:3px;
+    }
+    .hero-note span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .section{
+      padding:24px;
+      border-top:1px solid var(--line);
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .section-head{
+      margin-bottom:16px;
+    }
+    .section-kicker{
+      display:block;
+      color:var(--muted-2);
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-size:11px;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+    .section h2{
+      margin:0;
+      font-size:clamp(22px,3vw,32px);
+      line-height:1.04;
+      letter-spacing:-.03em;
+    }
+    .section p.lead{
+      margin:10px 0 0;
+      color:var(--muted);
+      max-width:64ch;
+      font-size:15px;
+      line-height:1.55;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .step{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:24px;
+      padding:18px;
+    }
+    .step-num{
+      width:40px;height:40px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--accent-dim);
+      border:1px solid var(--accent-line);
+      font-weight:900;
+      margin-bottom:14px;
+    }
+    .step h3,.card h3,.faq h3{margin:0;font-size:16px;letter-spacing:-.02em}
+    .step p,.card p,.testimonial p,.faq p,.small{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .chip-btn{
+      appearance:none;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      min-height:46px;
+      padding:12px 15px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:800;
+      line-height:1;
+    }
+    .chip-btn.active{
+      border-color:var(--accent-line);
+      background:var(--accent-dim);
+      color:#fff;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:24px;
+      padding:18px;
+    }
+
+    .icon-badge{
+      width:42px;height:42px;
+      border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      font-size:20px;
+      margin-bottom:12px;
+    }
+
+    .form-shell{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+      border-radius:28px;
+      padding:18px;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .field{
+      display:grid;
+      gap:7px;
+    }
+    .field.full{grid-column:1 / -1}
+    .label{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.04em;
+      color:var(--muted-2);
+      text-transform:uppercase;
+    }
+    .input, .textarea, .select{
+      width:100%;
+      min-height:54px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:#111;
+      color:#fff;
+      padding:14px 14px;
+      font-size:15px;
+    }
+    .textarea{
+      min-height:110px;
+      resize:vertical;
+    }
+    .input::placeholder,.textarea::placeholder{color:rgba(255,255,255,.34)}
+
+    .helper{
+      margin-top:10px;
+      color:var(--muted-2);
+      font-size:12px;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    .check-list{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+    .check{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      padding:14px;
+      border-radius:18px;
+    }
+    .check-mark{
+      width:26px;height:26px;
+      border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 auto;
+      background:var(--ok-dim);
+      border:1px solid var(--ok-line);
+      color:#9bf0bc;
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .testimonial{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:24px;
+      padding:18px;
+    }
+    .stars{
+      color:#ffb13b;
+      font-size:15px;
+      letter-spacing:.06em;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+    .who{
+      margin-top:12px;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:800;
+    }
+
+    .city-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      margin-top:16px;
+    }
+    .city{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      padding:14px 12px;
+      border-radius:18px;
+      text-align:center;
+      font-size:14px;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .price-card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:24px;
+      padding:18px;
+    }
+    .price-card strong{
+      display:block;
+      font-size:18px;
+      line-height:1.1;
+      letter-spacing:-.03em;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+
+    .faq-list{
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+    .faq{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:22px;
+      padding:18px;
+    }
+
+    .closing{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      align-items:center;
+    }
+    .closing-box{
+      border:1px solid var(--accent-line);
+      background:linear-gradient(180deg,rgba(255,106,0,.16),rgba(255,106,0,.09));
+      border-radius:28px;
+      padding:22px;
+    }
+
+    footer{
+      padding:22px 24px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .sticky{
+      position:fixed;
+      left:0;right:0;bottom:0;
+      padding:10px 14px;
+      padding-bottom:calc(10px + env(safe-area-inset-bottom));
+      border-top:1px solid var(--line-2);
+      background:rgba(7,7,7,.90);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      z-index:50;
+    }
+    .sticky-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr auto;
+      gap:10px;
+    }
+    .sticky .btn{
+      min-height:58px;
+      border-radius:18px;
+    }
+    .share-btn{
+      min-width:58px;
+      padding:0;
+    }
+
+    @media (max-width: 960px){
+      .hero,
+      .grid-2,
+      .closing{
+        grid-template-columns:1fr;
+      }
+      .hero-copy{
+        border-right:0;
+        border-bottom:1px solid var(--line);
+      }
+      .testimonials,
+      .pricing,
+      .steps{
+        grid-template-columns:1fr;
+      }
+      .city-grid{
+        grid-template-columns:repeat(3,1fr);
+      }
+      .cards{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 680px){
+      body{padding-left:12px;padding-right:12px}
+      .panel{border-radius:24px}
+      .hero-copy,.hero-visual,.section,footer{padding:18px}
+      .cta-stack,
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+      .hero-overlay{
+        grid-template-columns:1fr;
+      }
+      .city-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+      .sticky-inner{
+        grid-template-columns:1fr 1fr;
+      }
+      .share-btn{
+        grid-column:1 / -1;
+      }
+      .mini-badges{width:100%}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{transition:none !important}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand-mini" id="topBrand">Fast quote page demo</div>
+      <div class="mini-badges">
+        <div class="mini-badge" id="topRating">5.0 stars</div>
+        <div class="mini-badge" id="topReviews">100+ reviews</div>
+        <div class="mini-badge" id="topArea">SGV service area</div>
+      </div>
+    </div>
+
+    <main class="panel" id="main">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow" id="eyebrow">Fast junk hauling quotes</div>
+
+          <h1 id="heroHeadline">Text photos for a fast junk removal quote</h1>
+          <p class="hero-sub" id="heroSub">
+            Same-day and next-day junk hauling for garages, apartments, curbside pickups, and light commercial cleanouts.
+          </p>
+
+          <div class="proof-row">
+            <div class="proof-pill"><span id="pillRating">5.0★</span> <small id="pillRatingLabel">Top rated</small></div>
+            <div class="proof-pill"><span id="pillResponse">Fast reply</span> <small>By text or call</small></div>
+            <div class="proof-pill"><span id="pillOwner">Locally owned</span> <small id="pillAreaShort">SGV</small></div>
+          </div>
+
+          <div class="cta-stack">
+            <a class="btn btn-primary" id="heroTextBtn" href="#">Text for Quote</a>
+            <a class="btn btn-secondary" id="heroCallBtn" href="#">Call Now</a>
+          </div>
+          <div class="micro" id="heroMicro">Send 2 to 4 photos, your ZIP code, and what needs to go.</div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-media" id="heroMedia" aria-label="Junk removal hero image">
+            <div class="hero-overlay">
+              <div class="overlay-card">
+                <strong id="overlay1">Fast</strong>
+                <span>Quotes by text so the owner gets better lead info up front.</span>
+              </div>
+              <div class="overlay-card">
+                <strong id="overlay2">Home + Business</strong>
+                <span>Furniture, garage cleanouts, yard debris, appliances, and more.</span>
+              </div>
+              <div class="overlay-card">
+                <strong id="overlay3">Clear pricing</strong>
+                <span>Photos help estimate volume, truck space, and labor before arrival.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-note">
+            <div>✓</div>
+            <div>
+              <strong>For the fastest quote</strong>
+              <span>Send wide photos of the pile, your ZIP code, and whether it is curbside, garage, backyard, or upstairs.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <span class="section-kicker">How it works</span>
+          <h2>Get a quote in 3 quick steps</h2>
+          <p class="lead">This section helps the business owner instantly see the page is useful, not just pretty.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Send photos</h3>
+            <p>Text 2 to 4 photos that clearly show the pile, items, or cleanout area.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Add ZIP + timing</h3>
+            <p>Share your ZIP code, what needs to go, and whether you need same-day or next-day service.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Get a fast reply</h3>
+            <p>We reply by text or call with pricing, availability, and the next step.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section grid-2">
+        <div>
+          <div class="section-head">
+            <span class="section-kicker">Common jobs</span>
+            <h2>Tap the service type</h2>
+            <p class="lead">Use these chips to pre-qualify leads and make the page feel more custom.</p>
+          </div>
+
+          <div class="chips" id="serviceChips">
+            <button class="chip-btn active" data-service="Garage cleanout" type="button">Garage cleanout</button>
+            <button class="chip-btn" data-service="Furniture removal" type="button">Furniture removal</button>
+            <button class="chip-btn" data-service="Yard debris" type="button">Yard debris</button>
+            <button class="chip-btn" data-service="Appliance pickup" type="button">Appliance pickup</button>
+            <button class="chip-btn" data-service="Storage unit cleanout" type="button">Storage unit</button>
+            <button class="chip-btn" data-service="Hot tub removal" type="button">Hot tub</button>
+            <button class="chip-btn" data-service="Office junk removal" type="button">Office junk</button>
+            <button class="chip-btn" data-service="Curbside pickup" type="button">Curbside pickup</button>
+          </div>
+
+          <div class="cards" style="margin-top:18px;">
+            <div class="card">
+              <div class="icon-badge">🚚</div>
+              <h3>Fast mobile service</h3>
+              <p>Built for owner-operators who want quick inbound leads from Google Business Profile, Instagram, and text outreach.</p>
+            </div>
+            <div class="card">
+              <div class="icon-badge">📍</div>
+              <h3>Local city targeting</h3>
+              <p>Service area callouts help trust and help local searchers feel like the business actually works their area.</p>
+            </div>
+            <div class="card">
+              <div class="icon-badge">📸</div>
+              <h3>Better lead quality</h3>
+              <p>Getting photos first cuts down the usual back-and-forth and speeds up estimating.</p>
+            </div>
+            <div class="card">
+              <div class="icon-badge">💬</div>
+              <h3>Prefilled text flow</h3>
+              <p>The quote button can open a text draft with the right details already filled in.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-head">
+            <span class="section-kicker">Quote intake</span>
+            <h2>Get your fast quote</h2>
+            <p class="lead">This is the money block. Keep it short, useful, and mobile-first.</p>
+          </div>
+
+          <div class="form-shell">
+            <div class="form-grid">
+              <div class="field">
+                <label class="label" for="name">Name</label>
+                <input class="input" id="name" placeholder="Your name" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="zip">ZIP code</label>
+                <input class="input" id="zip" inputmode="numeric" placeholder="91740" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="service">Service type</label>
+                <input class="input" id="service" placeholder="Garage cleanout" value="Garage cleanout" />
+              </div>
+
+              <div class="field">
+                <label class="label" for="timing">Timing</label>
+                <select class="select" id="timing">
+                  <option>As soon as possible</option>
+                  <option>Today</option>
+                  <option>Tomorrow</option>
+                  <option>This week</option>
+                  <option>Just pricing for now</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label class="label" for="details">What needs to go?</label>
+                <textarea class="textarea" id="details" placeholder="Example: old couch, dresser, bags of clothes, and some garage boxes. Ground floor. Easy access."></textarea>
+              </div>
+            </div>
+
+            <div class="cta-stack" style="margin-top:14px;">
+              <a class="btn btn-primary" id="formTextBtn" href="#">Text My Quote Request</a>
+              <a class="btn btn-secondary" id="formCallBtn" href="#">Call Instead</a>
+            </div>
+
+            <div class="helper">
+              Best results come from 2 to 4 clear photos plus your ZIP code. You can also mention stairs, alley access, gate code, or heavy items.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section grid-2">
+        <div>
+          <div class="section-head">
+            <span class="section-kicker">Photo guide</span>
+            <h2>What to send for the fastest quote</h2>
+          </div>
+
+          <div class="check-list">
+            <div class="check">
+              <div class="check-mark">1</div>
+              <div>
+                <h3>Wide photo of the full pile</h3>
+                <p>Show the whole area so volume and truck space are easier to estimate.</p>
+              </div>
+            </div>
+            <div class="check">
+              <div class="check-mark">2</div>
+              <div>
+                <h3>Close-up of heavier or bulky items</h3>
+                <p>Mention appliances, mattresses, dressers, concrete, dirt, or anything oversized.</p>
+              </div>
+            </div>
+            <div class="check">
+              <div class="check-mark">3</div>
+              <div>
+                <h3>Share the access details</h3>
+                <p>Let us know if it is curbside, upstairs, backyard, apartment, or behind a gate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-head">
+            <span class="section-kicker">Why this works</span>
+            <h2>Built to save the owner time</h2>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <div class="icon-badge">⚡</div>
+              <h3>Faster estimating</h3>
+              <p>Photos and details come in first so the owner is not starting every conversation from zero.</p>
+            </div>
+            <div class="card">
+              <div class="icon-badge">🧹</div>
+              <h3>Less junk leads</h3>
+              <p>Pricing anchors and clear photo instructions filter out weak inquiries.</p>
+            </div>
+            <div class="card">
+              <div class="icon-badge">📱</div>
+              <h3>Mobile-first design</h3>
+              <p>Built for the way real customers browse, tap, and text from their phones.</p>
+            </div>
+            <div class="card">
+              <div class="icon-badge">🔗</div>
+              <h3>Easy to share</h3>
+              <p>Works great from Google Business Profile, ads, Instagram bio, text, and cold outreach.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <span class="section-kicker">Social proof</span>
+          <h2>Short reviews hit harder than a wall of text</h2>
+        </div>
+
+        <div class="testimonials">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>Super easy. I texted photos, got a quick price, and they showed up when they said they would.</p>
+            <div class="who">Jessica R. • Glendora</div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>Fast response, fair price, and the garage looked way better in one visit.</p>
+            <div class="who">Mike T. • Monrovia</div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>Perfect for clearing out bulky items before moving. Smooth process from the first text.</p>
+            <div class="who">Ana G. • Covina</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <span class="section-kicker">Service area</span>
+          <h2>Proudly serving local cities</h2>
+          <p class="lead">Swap these for the exact cluster your client wants to own.</p>
+        </div>
+        <div class="city-grid" id="cityGrid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <span class="section-kicker">Pricing anchors</span>
+          <h2>Simple price guidance helps filter leads</h2>
+        </div>
+
+        <div class="pricing">
+          <div class="price-card">
+            <strong>Single items from $99+</strong>
+            <p>Good for a mattress, small couch, appliance, or a few easy curbside items.</p>
+          </div>
+          <div class="price-card">
+            <strong>Small loads quoted by photos</strong>
+            <p>Garage junk, boxes, bags, and mixed household items are easiest to estimate from pictures.</p>
+          </div>
+          <div class="price-card">
+            <strong>Heavy or specialty items reviewed first</strong>
+            <p>Concrete, dirt, hot tubs, pianos, and extra labor jobs may need a custom quote.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <span class="section-kicker">FAQ</span>
+          <h2>Answer the objections without cluttering the hero</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq">
+            <h3>How fast do you reply?</h3>
+            <p>Most quote requests get a same-day reply during business hours. Text is usually the fastest.</p>
+          </div>
+          <div class="faq">
+            <h3>What should I send for a quote?</h3>
+            <p>Send 2 to 4 photos, your ZIP code, what needs to go, and any access details like stairs or backyard pickup.</p>
+          </div>
+          <div class="faq">
+            <h3>Do you handle homes and businesses?</h3>
+            <p>Yes. This template works for residential pickups, rental cleanouts, office junk, storage units, and more.</p>
+          </div>
+          <div class="faq">
+            <h3>Do I need to be there in person?</h3>
+            <p>That depends on the job. Many curbside or simple pickups can be handled with clear communication and access details.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="closing">
+          <div>
+            <span class="section-kicker">Final call to action</span>
+            <h2>Ready for a fast junk removal quote?</h2>
+            <p class="lead">Text photos, your ZIP code, and what needs to go. Keep it simple and let the page do the lead pre-qualifying.</p>
+          </div>
+          <div class="closing-box">
+            <div class="cta-stack" style="margin-top:0;">
+              <a class="btn btn-primary" id="finalTextBtn" href="#">Text for Quote</a>
+              <a class="btn btn-secondary" id="finalCallBtn" href="#">Call Now</a>
+            </div>
+            <div class="micro" id="finalMicro">Best for Google Business Profile, Instagram bio, text outreach, and ads.</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div><strong id="footerName">Junk Removal Business</strong></div>
+        <div id="footerLine">Fast quote page demo for owner-operators.</div>
+        <div id="footerPhone">(000) 000-0000</div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="sticky">
+    <div class="sticky-inner">
+      <a class="btn btn-primary" id="stickyTextBtn" href="#">Text for Quote</a>
+      <a class="btn btn-secondary" id="stickyCallBtn" href="#">Call Now</a>
+      <button class="btn btn-ghost share-btn" id="shareBtn" type="button" aria-label="Share page">Share</button>
+    </div>
+  </div>
+
+  <script>
+    const CONFIG = {
+      businessName: "JunkFit Hauling",
+      phoneDisplay: "(626) 626-0474",
+      phoneDigits: "16266260474",
+      smsNumber: "16266260474",
+      city: "Glendora",
+      state: "CA",
+      websiteUrl: window.location.href,
+      reviewRating: "5.0★",
+      reviewCount: "120+ reviews",
+      areaShort: "SGV",
+      areaLine: "Glendora, San Dimas, Covina, Azusa, La Verne",
+      ownerLine: "Veteran-owned",
+      eyebrow: "Fast junk hauling quotes",
+      headline: "Text photos for a fast junk removal quote",
+      subhead: "Same-day and next-day junk hauling for garages, apartments, curbside pickups, and light commercial cleanouts.",
+      microcopy: "Send 2 to 4 photos, your ZIP code, and what needs to go.",
+      heroImage: "", 
+      topBrand: "Gold standard junk removal demo",
+      overlay1: "Same-day",
+      overlay2: "Home + Business",
+      overlay3: "Better lead quality",
+      googleReviewsUrl: "#",
+      cities: [
+        "Glendora",
+        "San Dimas",
+        "Covina",
+        "Azusa",
+        "La Verne",
+        "Monrovia",
+        "Duarte",
+        "Claremont",
+        "West Covina",
+        "Charter Oak"
+      ]
+    };
+
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value;
+    }
+
+    function phoneHref() {
+      return `tel:+${CONFIG.phoneDigits}`;
+    }
+
+    function buildMessage() {
+      const name = ($("#name")?.value || "").trim();
+      const zip = ($("#zip")?.value || "").trim();
+      const service = ($("#service")?.value || "").trim();
+      const timing = ($("#timing")?.value || "").trim();
+      const details = ($("#details")?.value || "").trim();
+
+      const lines = [
+        `Hi ${CONFIG.businessName}, I would like a junk removal quote.`,
+        name ? `Name: ${name}` : "",
+        zip ? `ZIP: ${zip}` : "",
+        service ? `Service: ${service}` : "",
+        timing ? `Timing: ${timing}` : "",
+        details ? `Details: ${details}` : "",
+        "I can send photos now."
+      ].filter(Boolean);
+
+      return encodeURIComponent(lines.join("\n"));
+    }
+
+    function smsHref() {
+      return `sms:+${CONFIG.smsNumber}?&body=${buildMessage()}`;
+    }
+
+    function syncLinks() {
+      [
+        "#heroTextBtn", "#formTextBtn", "#finalTextBtn", "#stickyTextBtn"
+      ].forEach(sel => {
+        const el = $(sel);
+        if (el) el.href = smsHref();
+      });
+
+      [
+        "#heroCallBtn", "#formCallBtn", "#finalCallBtn", "#stickyCallBtn"
+      ].forEach(sel => {
+        const el = $(sel);
+        if (el) el.href = phoneHref();
+      });
+    }
+
+    function setActiveService(button) {
+      $$("#serviceChips .chip-btn").forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      $("#service").value = button.dataset.service || button.textContent.trim();
+      syncLinks();
+    }
+
+    function renderCities() {
+      const grid = $("#cityGrid");
+      grid.innerHTML = "";
+      CONFIG.cities.forEach(city => {
+        const div = document.createElement("div");
+        div.className = "city";
+        div.textContent = city;
+        grid.appendChild(div);
+      });
+    }
+
+    function applyConfig() {
+      document.title = `${CONFIG.businessName} | Fast junk removal quotes`;
+      setText("topBrand", CONFIG.topBrand);
+      setText("topRating", CONFIG.reviewRating);
+      setText("topReviews", CONFIG.reviewCount);
+      setText("topArea", CONFIG.areaLine);
+      setText("eyebrow", CONFIG.eyebrow);
+      setText("heroHeadline", CONFIG.headline);
+      setText("heroSub", CONFIG.subhead);
+      setText("heroMicro", CONFIG.microcopy);
+      setText("pillRating", CONFIG.reviewRating);
+      setText("pillResponse", "Fast reply");
+      setText("pillOwner", CONFIG.ownerLine);
+      setText("pillAreaShort", CONFIG.areaShort);
+      setText("overlay1", CONFIG.overlay1);
+      setText("overlay2", CONFIG.overlay2);
+      setText("overlay3", CONFIG.overlay3);
+      setText("footerName", CONFIG.businessName);
+      setText("footerLine", `${CONFIG.ownerLine} • ${CONFIG.areaLine}`);
+      setText("footerPhone", CONFIG.phoneDisplay);
+
+      const media = $("#heroMedia");
+      if (CONFIG.heroImage) {
+        media.classList.add("has-image");
+        media.style.backgroundImage = `
+          linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.48)),
+          url('${CONFIG.heroImage}')
+        `;
+      }
+
+      const schema = {
+        "@context":"https://schema.org",
+        "@type":"LocalBusiness",
+        "name": CONFIG.businessName,
+        "telephone": `+${CONFIG.phoneDigits}`,
+        "url": CONFIG.websiteUrl,
+        "address":{
+          "@type":"PostalAddress",
+          "addressLocality": CONFIG.city,
+          "addressRegion": CONFIG.state,
+          "addressCountry":"US"
+        },
+        "areaServed": CONFIG.cities
+      };
+      $("#schemaJson").textContent = JSON.stringify(schema, null, 2);
+      renderCities();
+      syncLinks();
+    }
+
+    ["#name", "#zip", "#service", "#timing", "#details"].forEach(sel => {
+      const el = $(sel);
+      if (el) el.addEventListener("input", syncLinks);
+      if (el && el.tagName === "SELECT") el.addEventListener("change", syncLinks);
+    });
+
+    $$("#serviceChips .chip-btn").forEach(btn => {
+      btn.addEventListener("click", () => setActiveService(btn));
+    });
+
+    $("#shareBtn").addEventListener("click", async () => {
+      try {
+        if (navigator.share) {
+          await navigator.share({
+            title: document.title,
+            text: `${CONFIG.businessName} quote page`,
+            url: CONFIG.websiteUrl
+          });
+        } else {
+          await navigator.clipboard.writeText(CONFIG.websiteUrl);
+          $("#shareBtn").textContent = "Link copied";
+          setTimeout(() => $("#shareBtn").textContent = "Share", 1400);
+        }
+      } catch (_) {}
+    });
+
+    applyConfig();
+  </script>
+</body>
+</html>
